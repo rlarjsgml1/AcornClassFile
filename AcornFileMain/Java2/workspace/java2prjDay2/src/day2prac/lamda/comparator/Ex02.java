@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-import day2.lambda.정렬_Comparator_comparing;
-import day2.lambda.consumer.Acorn;
-
 public class Ex02 {
 
 	public static void main(String[] args) {
@@ -37,7 +34,10 @@ public class Ex02 {
 			}
 		});
 		System.out.println("비밀번호 순 정렬");
-		
+		list.forEach((item) -> {
+			System.out.println(item);
+		});
+
 	}
 
 }
