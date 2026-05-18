@@ -6,3 +6,4 @@ AcornFileMain/Java2/workspace/**/bin/
 # Local locks and logs
 *.lock
 *.log
+.codex-build/
