@@ -1,0 +1,8 @@
+# Eclipse workspace metadata and local build output
+AcornFileMain/Java2/workspace/.metadata/
+AcornFileMain/Java2/workspace/**/bin/
+*.class
+
+# Local locks and logs
+*.lock
+*.log

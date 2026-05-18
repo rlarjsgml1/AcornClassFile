@@ -1,8 +1,0 @@
-package day1prac.제네릭메서드;
-
-public class Acorn {
-	
-	String id;
-	String name;
-
-}

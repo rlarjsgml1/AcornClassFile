@@ -1,8 +1,0 @@
-package day1prac.myarrays;
-
-public class Acorn2 {
-	String id;
-	String name;
-	int age;
-	
-}
