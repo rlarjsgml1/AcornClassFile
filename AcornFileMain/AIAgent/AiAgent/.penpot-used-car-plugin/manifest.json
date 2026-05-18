@@ -1,0 +1,12 @@
+{
+  "name": "Used Car Marketplace Generator",
+  "description": "Creates a 2026 Korean used-car marketplace desktop and mobile concept based on UX trend research.",
+  "code": "/plugin.js",
+  "permissions": [
+    "content:read",
+    "content:write",
+    "library:read",
+    "library:write",
+    "user:read"
+  ]
+}

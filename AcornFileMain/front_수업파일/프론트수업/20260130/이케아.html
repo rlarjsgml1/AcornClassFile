@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 40px;
+            background: 40px;
+            background: white;
+        }
+
+        .grid1{
+            width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 250px);
+            gap: 20px;
+            grid-template-areas: 
+            "box1 box2 box3"
+            "box4 box2 box5"
+            "box4 . box5";
+        }
+        .box{
+            border-radius: 10px;
+            background-size: cover;
+            background-position: center;
+        }
+        .box1{
+            grid-area: box1;
+            background: url(imges/침대.jpg);
+        }
+        .box2{
+            grid-area: box2;
+            background: url(imges/책상.jpg);
+        }
+        .box3{
+            grid-area: box3;
+            background: url(imges/의자.jpg);
+        }
+        .box4{
+            grid-area: box4;
+            background: url(imges/슬리퍼.jpg);
+        }
+        .box5{
+            grid-area: box5;
+            background: url(imges/2022-07-11_14-13-51-38617-1657516431.jpg);
+        }
+    </style>
+</head>
+<body>
+    <div class="grid1">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+        <div class="box box4"></div>
+        <div class="box box5"></div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,9 @@
+## 2026-05-09 Task 4 Job Prep README
+- Test-Path README: True
+- Includes 공고: True
+- Includes 자기소개서: True
+- Includes 면접: True
+- Includes 포트폴리오: True
+- Nested 02-프로젝트\취업준비 exists: False
+- Folder contents: README.md
+- LSP diagnostics: not available for .md in this environment.

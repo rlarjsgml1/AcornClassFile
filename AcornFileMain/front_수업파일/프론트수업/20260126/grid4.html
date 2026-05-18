@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        * {
+        margin: 0;
+        scroll-behavior: smooth;
+      }
+      .parents {
+        padding: 50px;
+        margin: 30px auto;
+        width: 1100px;
+        height: auto;
+        display: grid;
+        background-color: white;
+        grid-template-columns: 1fr 1fr 1fr;
+        /* grid-template-rows: 400px 400px 400px; */
+        grid-gap: 20px 30px;
+      }
+      .parents > div {
+        border: 1px solid black;
+      }
+      /* body{ */
+        /* background-size: cover; */
+        /* height: 1000px; */
+      /* } */
+      h2{
+        font-size: 20px;
+      }
+      .box1, .box2,.box3,.box4,.box5,.box6 {
+        background-color: white;
+        padding: 20px;
+      }
+      img {
+        width: 300px;
+        height: 300px;
+        text-align: center;
+      }
+
+      .section1 {
+        height: 1300px;
+        background: url(../20260126/imges/wrtFileImageView.jpg) no-repeat 50%
+          0px fixed;
+        background-size: cover;
+      }
+      .section2 {
+        height: 1300px;
+        background: url(imges/산.jpg) no-repeat 50%
+          0px ;
+        background-size: cover;
+      }
+
+      .section3 {
+        height: 1300px;
+        background: url(imges/산2.jpg) no-repeat 50%
+          0px ;
+        background-size: cover;
+      }
+      .section4 {
+        height: 1300px;
+        background: url(imges/wrtFileImageView.jpg) no-repeat 50%
+          0px ;
+        background-size: cover;
+      }
+
+      /* nav */
+      nav{
+        padding: 50px;
+        height: 70px;
+        /* border: solid ; */
+        text-align: center;
+      }
+      ul {
+        /* list-style: none (점 삭제) */
+        list-style: none;
+      }
+      li {
+        padding: 10px;
+        width: 20px;
+        display: inline;
+        border: solid 3px black;
+      }
+      li:hover {
+        background-color: black;
+        color: whitesmoke;
+      }
+      a {
+        /* text-decoration : none : 밑줄 삭제 */
+        text-decoration: none; /* a태그 기본 꾸미기 속성을 없애줌*/
+        color: black;
+      }
+      a:hover {
+        color: whitesmoke;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="section1" id="section1">
+    <nav>
+          <ul>
+            <li><a href="#section2">산</a></li>
+            <li><a href="#section3">산2</a></li>
+            <li><a href="#section4">노을</a></li>
+          </ul>
+    </nav>
+    <div class="parents">
+      <div class="box1">
+        <h2>Lorem Ipsum cup</h2>
+        <img src="imges/검정컵.jpg" alt="" />
+        <pre>black cup</pre>
+      </div>
+      <div class="box2">
+        <h2>Lorem Ipsum cup</h2>
+        <img src="imges/식당컵.jpg" alt="" />
+        <pre>black cup</pre>
+      </div>
+      <div class="box3">
+        <h2>Lorem Ipsum cup</h2>
+        <img src="imges/유리컵.jpg" alt="" />
+        <pre>black cup</pre>
+      </div>
+      <div class="box4">
+        <h2>Lorem Ipsum cup</h2>
+        <img src="imges/은컵.jpg" alt="" />
+        <pre>black cup</pre>
+      </div>
+      <div class="box5">
+        <h2>Lorem Ipsum cup</h2>
+        <img src="imges/초록컵.jpg" alt="" />
+        <pre>black cup</pre>
+      </div>
+      <div class="box6" id="box6">
+        <h2>Lorem Ipsum cup</h2>
+        <img src="imges/파랑컵.jpg" alt="" />
+        <pre>black cup</pre>
+      </div>
+    </div>
+    </section>
+    <section class="section2" id="section2"></section>
+    <section class="section3" id="section3"></section>
+    <section class="section4" id="section4"></section>
+</html>

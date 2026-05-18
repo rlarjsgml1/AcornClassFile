@@ -1,0 +1,11 @@
+[    3194ms] [LOG] INKEEP | Initialized generic Proxy(Object) @ :4
+[    3914ms] Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
+    at rO (https://penpot.app/_next/static/chunks/framework-7f4f4a000e1276f6.js:1:35015)
+    at oG (https://penpot.app/_next/static/chunks/framework-7f4f4a000e1276f6.js:1:85061)
+    at sw (https://penpot.app/_next/static/chunks/framework-7f4f4a000e1276f6.js:1:116148)
+    at https://penpot.app/_next/static/chunks/framework-7f4f4a000e1276f6.js:1:115993
+    at sS (https://penpot.app/_next/static/chunks/framework-7f4f4a000e1276f6.js:1:116001)
+    at sc (https://penpot.app/_next/static/chunks/framework-7f4f4a000e1276f6.js:1:111908)
+    at sJ (https://penpot.app/_next/static/chunks/framework-7f4f4a000e1276f6.js:1:134514)
+    at MessagePort._ (https://penpot.app/_next/static/chunks/framework-7f4f4a000e1276f6.js:1:184399)
+[    5412ms] [ERROR] Permissions policy violation: compute-pressure is not allowed in this document. @ https://www.youtube.com/s/player/2d01abf7/player_embed_es6.vflset/ko_KR/base.js:5099

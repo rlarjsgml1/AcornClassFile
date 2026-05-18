@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오디오와 바디</title>
+</head>
+<body>
+    <body>
+        <!-- 
+            오디오
+            autoplay:오디/비디오 자동 실행
+            loop : 반복 재생
+            muted : 음속거(소리꺼짐)
+            type: mp3 way ogg 지원(브라우저마다 다를 수 있음)
+        -->
+        <audio src="images/chinese-lunar-new-year-465871.mp3" controls loop autoplay muted="muted" 
+        type="audio/mp3" id="aud"></audio>
+
+        <!-- 
+            비디오
+            src : 동영상 URL
+            controls : 플레이어 화면에 컨트롤 바를 표시
+            type : mp4 avi mov wmy asf...등 비디오 형식
+            autoplay : 보안상의 이유로 최근 브라우저에서는 작동하지 않는다.
+            poster : 동영상 재생이 안 될때 대체 이미지
+        -->
+        <video src="images/133165-755982945_tiny.mp4" controls autoplay width="500" height="300" 
+        type="video/mp4"></video>
+        <video src="images/istockphoto-482277170-640_adpp_is.mp4" controls autoplay width="500"
+        poster="images/볶음밥.jpg" autoplay controls></video>
+
+        <video controls autoplay loop>
+            <source src="images/istockphoto-482277170-640_adpp_is.mp4">
+        </video>
+    </body>
+</body>
+</html>

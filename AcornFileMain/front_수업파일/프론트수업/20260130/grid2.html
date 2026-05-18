@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>grid2</title>
+    <style>
+      #parents1{
+        display: grid;
+        grid-template-columns: repeat(auto-fit), minmax(100px, 1fr);
+        /* 화면을 꽉 채울만큼 컬럼 너비를 눌러서 표시 */
+        margin-bottom: 20px;
+      }
+      #parents2{
+        display: grid;
+        grid-template-columns: repeat(auto-fil, minmax(100px, 1fr));
+        /* 컬럼 취소 너비 만큼 채워서 표시 */
+      }
+      .box:nth-child(odd) {
+        background-color: lightblue;
+      }
+      .box:nth-child(even) {
+        background-color: pink;
+      }
+      .box {
+        padding: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    auto-fit 일때
+    <div id="parents1">
+      <div class="box">Lorem jpsum</div>
+      <div class="box">box2</div>
+      <div class="box">box3</div>
+      <div class="box">box4</div>
+      <div class="box">box5</div>
+      <div class="box">box6</div>
+      <div class="box">box7</div>
+      <div class="box">box8</div>
+      <div class="box">box9</div>
+      <div class="box">box10</div>
+    </div>
+
+    auto-fil 일 때
+    <div class="parents2">
+      <div class="box">Lorem jpsum</div>
+      <div class="box">box2</div>
+      <div class="box">box3</div>
+      <div class="box">box4</div>
+      <div class="box">box5</div>
+      <div class="box">box6</div>
+      <div class="box">box7</div>
+      <div class="box">box8</div>
+      <div class="box">box9</div>
+      <div class="box">box10</div>
+    </div>
+  </body>
+</html>

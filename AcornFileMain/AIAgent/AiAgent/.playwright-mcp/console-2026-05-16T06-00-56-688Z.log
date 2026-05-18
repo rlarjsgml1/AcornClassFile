@@ -1,0 +1,53 @@
+[     746ms] [ERROR] Refused to apply style from 'https://design.penpot.app/css/ui.css?ts=2.15.3-1778764938' because its MIME type ('text/html') is not a supported stylesheet MIME type, and strict MIME checking is enabled. @ https://design.penpot.app/#/workspace?team-id=bdb38471-86c5-8118-8008-06fa132d0161&project-id=bdb38471-86c5-8118-8008-0713cf46aaa0&file-id=bdb38471-86c5-8118-8008-0714bbf4c311&page-id=bdb38471-86c5-8118-8008-0714bbf4c312:0
+[    1863ms] [LOG] %c[PLUGINS] Loading plugin system color: #008d7c @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:789
+[    1880ms] [WARNING] Removing intrinsics.%MapPrototype%.getOrInsert @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[    1881ms] [WARNING] Removing intrinsics.%MapPrototype%.getOrInsertComputed @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[    1882ms] [WARNING] Removing intrinsics.%WeakMapPrototype%.getOrInsert @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[    1882ms] [WARNING] Removing intrinsics.%WeakMapPrototype%.getOrInsertComputed @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[    1883ms] [WARNING] Removing intrinsics.%DatePrototype%.toTemporalInstant @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[    1884ms] [WARNING] Removing intrinsics.%DatePrototype%.getTimeAlias @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[    5223ms] [LOG] INKEEP | Section changed: workspace @ :7
+[    5663ms] [LOG] %c[PLUGINS] Loading plugin system color: #008d7c @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:789
+[    5668ms] [WARNING] Removing intrinsics.%MapPrototype%.getOrInsert @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[    5669ms] [WARNING] Removing intrinsics.%MapPrototype%.getOrInsertComputed @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[    5669ms] [WARNING] Removing intrinsics.%WeakMapPrototype%.getOrInsert @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[    5670ms] [WARNING] Removing intrinsics.%WeakMapPrototype%.getOrInsertComputed @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[    5670ms] [WARNING] Removing intrinsics.%DatePrototype%.toTemporalInstant @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[    5671ms] [WARNING] Removing intrinsics.%DatePrototype%.getTimeAlias @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[    8086ms] [LOG] %c[PLUGINS] Initialize runtime color: #008d7c @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:789
+[   10103ms] [WARNING] An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing. @ https://design.penpot.app/plugins/mcp/#/?theme=light:0
+[   10130ms] [LOG] Penpot version: 2.15.3, MCP version: 2.15.0 @ :2
+[   11128ms] [LOG] Connected to MCP server @ https://design.penpot.app/plugins/mcp/index.js:0
+[   34886ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:4789/%3Cdiv%20style='font-family:sans-serif;padding:16px;color:?theme=light#111827'%3E%3Cstrong%3Ev2%20%EC%83%9D%EC%84%B1%20%EC%99%84%EB%A3%8C%3C/strong%3E%3Cp%3E%ED%85%8D%EC%8A%A4%ED%8A%B8%EC%99%80%20%EB%B2%84%ED%8A%BC%EC%9D%84%20%ED%81%AC%EA%B2%8C%20%EB%B3%B4%EA%B0%95%ED%95%9C%20%EB%B3%B4%EB%93%9C%EB%A5%BC%20%EC%B6%94%EA%B0%80%ED%95%A9%EB%8B%88%EB%8B%A4.%3C/p%3E%3C/div%3E:0
+[   35653ms] [ERROR] [PENPOT PLUGIN] Value not valid: Font weight '800' not supported for the current font. Code: :fontWeight @ https://design.penpot.app/js/main.js?version=2.15.3-1778764938:285
+[   36961ms] [ERROR] [PENPOT PLUGIN] Value not valid: Font weight '800' not supported for the current font. Code: :fontWeight @ https://design.penpot.app/js/main.js?version=2.15.3-1778764938:285
+[   37314ms] [ERROR] [PENPOT PLUGIN] Value not valid: Font weight '800' not supported for the current font. Code: :fontWeight @ https://design.penpot.app/js/main.js?version=2.15.3-1778764938:285
+[   37642ms] [ERROR] [PENPOT PLUGIN] Value not valid: Font weight '800' not supported for the current font. Code: :fontWeight @ https://design.penpot.app/js/main.js?version=2.15.3-1778764938:285
+[   38647ms] [ERROR] [PENPOT PLUGIN] Value not valid: Font weight '800' not supported for the current font. Code: :fontWeight @ https://design.penpot.app/js/main.js?version=2.15.3-1778764938:285
+[   40886ms] [ERROR] [PENPOT PLUGIN] Value not valid: Font weight '800' not supported for the current font. Code: :fontWeight @ https://design.penpot.app/js/main.js?version=2.15.3-1778764938:285
+[   41215ms] [ERROR] [PENPOT PLUGIN] Value not valid: Font weight '800' not supported for the current font. Code: :fontWeight @ https://design.penpot.app/js/main.js?version=2.15.3-1778764938:285
+[   41615ms] [ERROR] [PENPOT PLUGIN] Value not valid: Font weight '800' not supported for the current font. Code: :fontWeight @ https://design.penpot.app/js/main.js?version=2.15.3-1778764938:285
+[   47233ms] [ERROR] [PENPOT PLUGIN] Value not valid: Font weight '800' not supported for the current font. Code: :fontWeight @ https://design.penpot.app/js/main.js?version=2.15.3-1778764938:285
+[   48880ms] [ERROR] [PENPOT PLUGIN] Value not valid: Font weight '800' not supported for the current font. Code: :fontWeight @ https://design.penpot.app/js/main.js?version=2.15.3-1778764938:285
+[  180598ms] [ERROR] Refused to apply style from 'https://design.penpot.app/css/ui.css?ts=2.15.3-1778764938' because its MIME type ('text/html') is not a supported stylesheet MIME type, and strict MIME checking is enabled. @ https://design.penpot.app/#/workspace?team-id=bdb38471-86c5-8118-8008-06fa132d0161&project-id=bdb38471-86c5-8118-8008-0713cf46aaa0&file-id=bdb38471-86c5-8118-8008-0714bbf4c311&page-id=bdb38471-86c5-8118-8008-0714bbf4c312:0
+[  180611ms] [ERROR] Refused to apply style from 'https://design.penpot.app/css/ui.css?ts=2.15.3-1778764938' because its MIME type ('text/html') is not a supported stylesheet MIME type, and strict MIME checking is enabled. @ https://design.penpot.app/#/workspace?team-id=bdb38471-86c5-8118-8008-06fa132d0161&project-id=bdb38471-86c5-8118-8008-0713cf46aaa0&file-id=bdb38471-86c5-8118-8008-0714bbf4c311&page-id=bdb38471-86c5-8118-8008-0714bbf4c312:0
+[  181006ms] [LOG] %c[PLUGINS] Loading plugin system color: #008d7c @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:789
+[  181011ms] [WARNING] Removing intrinsics.%MapPrototype%.getOrInsert @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[  181011ms] [WARNING] Removing intrinsics.%MapPrototype%.getOrInsertComputed @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[  181011ms] [WARNING] Removing intrinsics.%WeakMapPrototype%.getOrInsert @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[  181011ms] [WARNING] Removing intrinsics.%WeakMapPrototype%.getOrInsertComputed @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[  181012ms] [WARNING] Removing intrinsics.%DatePrototype%.toTemporalInstant @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[  181012ms] [WARNING] Removing intrinsics.%DatePrototype%.getTimeAlias @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[  182003ms] [LOG] INKEEP | Section changed: workspace @ :7
+[  182549ms] [LOG] %c[PLUGINS] Loading plugin system color: #008d7c @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:789
+[  182552ms] [WARNING] Removing intrinsics.%MapPrototype%.getOrInsert @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[  182552ms] [WARNING] Removing intrinsics.%MapPrototype%.getOrInsertComputed @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[  182552ms] [WARNING] Removing intrinsics.%WeakMapPrototype%.getOrInsert @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[  182552ms] [WARNING] Removing intrinsics.%WeakMapPrototype%.getOrInsertComputed @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[  182552ms] [WARNING] Removing intrinsics.%DatePrototype%.toTemporalInstant @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[  182553ms] [WARNING] Removing intrinsics.%DatePrototype%.getTimeAlias @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[  183669ms] [LOG] %c[PLUGINS] Initialize runtime color: #008d7c @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:789
+[  185133ms] [WARNING] An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing. @ https://design.penpot.app/plugins/mcp/#/?theme=light:0
+[  185144ms] [LOG] Penpot version: 2.15.3, MCP version: 2.15.0 @ :2
+[  186027ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:4789/manifest.json:0
+[  186132ms] [LOG] Connected to MCP server @ https://design.penpot.app/plugins/mcp/index.js:0

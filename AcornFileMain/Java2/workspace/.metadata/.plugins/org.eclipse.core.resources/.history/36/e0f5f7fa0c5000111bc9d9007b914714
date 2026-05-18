@@ -1,0 +1,13 @@
+package day1prac.myarrays;
+
+public class AcornSort {
+	
+	public static void main(String[] args) {
+		
+		Acorn a = new Acorn("T1", "장해든", 20) ;
+		Acorn a = new Acorn("T2", "박세인", 20) ;
+		Acorn a = new Acorn("T3", "김건희", 20) ;
+		Acorn[] list = {new };
+	}
+
+}

@@ -1,0 +1,6 @@
+﻿
+## 2026-05-09 15:41:43 Task 3 Edge Checks
+- Confirmed Areas README says areas are not ending projects.
+- Confirmed deadline work is directed to 02-프로젝트.
+- Confirmed reference material is linked to 06-자료실.
+- Confirmed no rigid school-subject folder taxonomy was added.

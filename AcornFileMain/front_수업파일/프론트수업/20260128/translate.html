@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> translate </title>
+    <style>
+        .origin{
+            width: 350px;
+            border: 1px solid;
+        }
+        .movex:hover{
+            transform: translateX(50px); /*마우스 오버시 오른쪽으로 50px 이동*/
+        }
+        .movey:hover{
+            transform: translateY(50px); /*마우스 오버시 아래로 50px만큼 이동*/
+        }
+        .movexy:hover{
+            transform: translate(50px, 20px); /*마우스 오버시 사선으로 이*/
+        }
+    </style>
+</head>
+<body>
+    <h2> transform: translate 트랜스폼</h2>
+    <p>
+        특정 요소의 크기나 형태가 변하는 것을 변형(변환) 또는 트랜스폼이라고
+        한다. 사용자의 동작에 반응해 텍스트나 이미지 등을 움직이게 할 수 있다. 
+        2차원(x, y) / 3차원 (x, y, z) : 원근감의 표현
+        z축 앞뒤로 이동하는데 가까워지고 멀어진다. <br>
+
+        🟠🟠
+        위치이동 translate
+        확대/축소 scale
+        회전 rotate
+        기울임(비틀기) skew
+
+        🟠🟠
+        transition 전환 : 속성의 변화
+        transform  변환 : translate, skew, rotat3e, scale
+            트랜스포머(변신) 애니메이션효과1회만 적용
+    </p>
+    <div class="origin">
+        <div class="movex"><img src="../20260123/images/볶음밥.jpg" width="300"></div>
+    </div>
+    <div class="origin">
+        <div class="movey"><img src="../20260123/images/볶음밥.jpg" width="300"></div>
+    </div>
+    <div class="origin">
+        <div class="movexy"><img src="../20260123/images/볶음밥.jpg" width="300"></div>
+    </div>
+</body>
+</html>

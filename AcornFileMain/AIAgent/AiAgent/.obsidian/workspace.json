@@ -1,0 +1,239 @@
+{
+  "main": {
+    "id": "29b5f805da17b42e",
+    "type": "split",
+    "children": [
+      {
+        "id": "b45adeea26432eb1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dc5b1f5e84cb941e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "환영합니다!.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "환영합니다!"
+            }
+          },
+          {
+            "id": "08a6c16df60264c5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "01-수신함/Feed/substack/술 안 먹었는데 술값을 내야 함ㅣ영업중EP.65.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "술 안 먹었는데 술값을 내야 함ㅣ영업중EP.65"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "20a75c122673f664",
+    "type": "split",
+    "children": [
+      {
+        "id": "68598c6b81ed73b8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e6e1ce5cba7c2e1a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "파일 탐색기"
+            }
+          },
+          {
+            "id": "810169ca60d55672",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "검색"
+            }
+          },
+          {
+            "id": "e067c5dded8d9b62",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "북마크"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "200510209970c3f9",
+    "type": "split",
+    "children": [
+      {
+        "id": "831eef45856c13f1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0902e52d9e53fd9d",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "01-수신함/Feed/substack/La estética del dolor presentable.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "La estética del dolor presentable 의 백링크"
+            }
+          },
+          {
+            "id": "8326ad12a5988495",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "01-수신함/Feed/substack/La estética del dolor presentable.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "La estética del dolor presentable 의 나가는 링크"
+            }
+          },
+          {
+            "id": "3733140d3f5e35c8",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "태그"
+            }
+          },
+          {
+            "id": "8ed2e339f499d32e",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "모든 속성"
+            }
+          },
+          {
+            "id": "35db091e705d3774",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "01-수신함/Feed/substack/La estética del dolor presentable.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "La estética del dolor presentable 의 개요"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:빠른 전환기 열기": false,
+      "graph:그래프 뷰 열기": false,
+      "canvas:새 캔버스 만들기": false,
+      "daily-notes:오늘의 일일 노트 열기": false,
+      "templates:템플릿 삽입": false,
+      "command-palette:명령어 팔레트 열기": false,
+      "bases:새 베이스 생성하기": false,
+      "terminal:Open terminal": false,
+      "obsidian-excalidraw-plugin:New drawing": false
+    }
+  },
+  "active": "e6e1ce5cba7c2e1a",
+  "lastOpenFiles": [
+    "02.프로젝트/2026-05-16-web-cliper/resource.md",
+    "02.프로젝트/2026-05-16-web-cliper/Attatchements/image.png",
+    "02.프로젝트/2026-05-16-web-cliper/Attatchements",
+    "02.프로젝트/2026-05-16-web-cliper/resource/image.png",
+    "02.프로젝트/2026-05-16-web-cliper/resource/8C8CC4B5-8495-4A63-AE31-C333B249B7C7.png",
+    "02.프로젝트/2026-05-16-web-cliper/resource",
+    "99-Attachments",
+    "01-수신함/Feed/substack/술 안 먹었는데 술값을 내야 함ㅣ영업중EP.65.md",
+    "01-수신함/Feed/substack/이거 나 좋아하는 거 맞지.md",
+    "01-수신함/2026년 AI 트렌드.md",
+    "01-수신함/Feed/substack/La estética del dolor presentable.md",
+    "02-프로젝트/README.md",
+    "02-프로젝트/2026-05-16 AGENTS.md 만들기/resources/A Complete Guide To AGENTS.md - 요약 번역 노트.md",
+    "01-수신함/2026년 AI 트렌드 정리.md",
+    "05-학습자료/2026년 AI 트렌드 정리.md",
+    "01-수신함/substack/La estética del dolor presentable.md",
+    "01-수신함-substack/La estética del dolor presentable.md",
+    "01-수신함/substack",
+    "01-수신함-substack",
+    "Excalidraw/Drawing 2026-05-09 11.15.15.excalidraw.md",
+    "01-수신함/Feed/substack",
+    "01-수신함/Feed",
+    "06-자료실/README.md",
+    "02-프로젝트",
+    "05-학습자료/README.md",
+    "05-학습자료",
+    "06-자료실",
+    "03-영역/README.md",
+    "08-보관소/README.md",
+    "07-회고와성장/README.md",
+    "04-취업준비/README.md",
+    "01-수신함/README.md",
+    "환영합니다!.md"
+  ]
+}

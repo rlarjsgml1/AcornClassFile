@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parents{
+            display: grid;
+            grid-template-columns: repeat(4, 25%);
+            /* grid-template-columns: 1fr 1fr 1fr; */
+            /* grid-template-columns: 1fr 1fr 2fr; */
+            /* 1대 1대 1배 */
+            /* fr단위 fraction : 부분, 일부, 분수 */
+            grid-template-rows: 300px 100px repeat(2,100px);
+
+            /* 모든 행 (높이)150픽셀 */
+            grid-auto-rows: 150px;
+
+            /* 컨텐츠 없는 줄 취소 120유지, 있는 줄은 자 */
+            grid-auto-rows: minmax(120px, auto);
+
+            /* row 행간 column 새로운 폭 조절 */
+            grid-gap: 20px 30px;
+            /* grid-column-gap: 20px; */
+            /* grid-row-gap: 30px; */
+        }
+        .parents > div{
+            border: 1px solid;
+        }
+        /* 형제 사이에 홀수 선택 */
+        .box:nth-child(odd){
+            background-color: lightblue;
+        }
+        /* 형제 사이에 짝수 선택 */
+        .box:nth-child(even) {
+            background-color: darkorange;
+        }
+    </style>
+</head>
+<body>
+    <div class="parents">
+        <div class="box box1">box1
+            <!-- 플랙스 1차원, 그리드 2차원이다 -->
+             글자 그대로 앞뒤 맥락과 상관없이 그냥 아무 말이나 마구 하는 모양새를 일컫는 말로, 아무렇게나 말을 내뱉기 편한 X(구 트위터)의 특성을 그대로 ...
+        </div>
+        <div class="box box2">box2</div>
+        <div class="box box3">box3</div>
+        <div class="box box4">box4</div>
+        <div class="box box5">box5</div>
+        <div class="box box6">box6</div>
+        <div class="box box7">box7</div>
+        <div class="box box8">box8</div>
+        <div class="box box9">box9</div>
+        <div class="box box10">box10</div>
+    </div>
+</body>
+</html>

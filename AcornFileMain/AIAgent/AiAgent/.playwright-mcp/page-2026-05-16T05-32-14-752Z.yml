@@ -1,0 +1,119 @@
+- generic [active] [ref=e1]:
+  - img
+  - img
+  - img
+  - main [ref=e361]:
+    - navigation [ref=e362]:
+      - generic [ref=e363]:
+        - button "당신의 펜팟" [ref=e366] [cursor=pointer]:
+          - generic [ref=e367]:
+            - img [ref=e369]
+            - generic [ref=e371]: 당신의 펜팟
+          - img [ref=e372]
+        - generic [ref=e374]:
+          - textbox "검색…" [ref=e375]
+          - button "dashboard-search" [ref=e376] [cursor=pointer]:
+            - img [ref=e377]
+        - list [ref=e380]:
+          - listitem [ref=e381] [cursor=pointer]:
+            - generic [ref=e383]: 프로젝트
+          - listitem [ref=e384] [cursor=pointer]:
+            - generic [ref=e386]: 초안
+        - generic [ref=e387]:
+          - generic [ref=e388]: Sources
+          - list [ref=e389]:
+            - listitem [ref=e390] [cursor=pointer]:
+              - generic [ref=e392]: 폰트
+            - listitem [ref=e393] [cursor=pointer]:
+              - generic [ref=e395]: Libraries
+        - generic [ref=e396]:
+          - generic [ref=e397]: 고정된 프로젝트
+          - generic [ref=e398]:
+            - img [ref=e399]
+            - generic [ref=e401]: 고정된 프로젝트가 여기에 표시됩니다
+      - generic [ref=e403]:
+        - 'button "Your subscription: Professional plan" [ref=e404]':
+          - generic [ref=e405]:
+            - generic [ref=e406]: "Your subscription:"
+            - generic [ref=e407]: Professional plan
+        - generic [ref=e408]:
+          - generic [ref=e409] [cursor=pointer]: Get extra storage, file recovery and more for your teams.
+          - button "Power up!" [ref=e410]:
+            - generic [ref=e411]: Power up!
+      - generic [ref=e412] [cursor=pointer]:
+        - button "132 rjsgml 132 rjsgml" [ref=e413]:
+          - img "132 rjsgml" [ref=e414]
+          - generic [ref=e415]: 132 rjsgml
+        - generic "View notifications" [ref=e417]:
+          - button "View notifications" [ref=e418]:
+            - img [ref=e419]
+    - generic [ref=e421]:
+      - generic [ref=e422]:
+        - heading "프로젝트" [level=1] [ref=e424]
+        - button "+ New project" [ref=e425] [cursor=pointer]
+      - generic [ref=e427]:
+        - generic [ref=e429]:
+          - generic [ref=e430] [cursor=pointer]: 최근
+          - generic [ref=e431] [cursor=pointer]: Deleted
+        - article [ref=e432]:
+          - generic [ref=e434]:
+            - heading "New Project 1" [level=2] [ref=e435] [cursor=pointer]
+            - generic [ref=e436]:
+              - generic [ref=e437]: 2 files, 3 minutes ago
+              - generic [ref=e438]:
+                - button "Pin/Unpin" [ref=e439] [cursor=pointer]:
+                  - img [ref=e440]
+                - button "+ New File" [ref=e442] [cursor=pointer]:
+                  - img [ref=e443]
+                - button "Options" [ref=e445] [cursor=pointer]:
+                  - img [ref=e446]
+          - list [ref=e450]:
+            - listitem [ref=e451] [cursor=pointer]:
+              - button "New File 3 3 minutes ago Options" [ref=e452]:
+                - img [ref=e454]
+                - generic [ref=e455]:
+                  - generic [ref=e456]:
+                    - heading "New File 3" [level=3] [ref=e457]
+                    - generic "Will be deleted 3 minutes ago" [ref=e458]: 3 minutes ago
+                  - button "Options" [ref=e460]:
+                    - img [ref=e461]
+            - listitem [ref=e463] [cursor=pointer]:
+              - button "New File 2 7 minutes ago Options" [ref=e464]:
+                - img [ref=e466]
+                - generic [ref=e467]:
+                  - generic [ref=e468]:
+                    - heading "New File 2" [level=3] [ref=e469]
+                    - generic "Will be deleted 7 minutes ago" [ref=e470]: 7 minutes ago
+                  - button "Options" [ref=e472]:
+                    - img [ref=e473]
+        - article [ref=e475]:
+          - generic [ref=e477]:
+            - heading "초안" [level=2] [ref=e478] [cursor=pointer]
+            - generic [ref=e479]:
+              - generic [ref=e480]: 1 file, 18 minutes ago
+              - generic [ref=e481]:
+                - button "+ New File" [ref=e482] [cursor=pointer]:
+                  - img [ref=e483]
+                - button "Options" [ref=e485] [cursor=pointer]:
+                  - img [ref=e486]
+          - list [ref=e490]:
+            - listitem [ref=e491] [cursor=pointer]:
+              - button "New File 1 18 minutes ago Options" [ref=e492]:
+                - img [ref=e494]
+                - generic [ref=e495]:
+                  - generic [ref=e496]:
+                    - heading "New File 1" [level=3] [ref=e497]
+                    - generic "Will be deleted 18 minutes ago" [ref=e498]: 18 minutes ago
+                  - button "Options" [ref=e500]:
+                    - img [ref=e501]
+      - generic:
+        - button "Libraries & Templates Show" [ref=e504] [cursor=pointer]:
+          - generic [ref=e505]: Libraries & Templates
+          - generic [ref=e506]:
+            - text: Show
+            - img [ref=e508]
+        - button "Next" [ref=e510] [cursor=pointer]:
+          - img [ref=e511]
+  - button "AI Docs AI Avatar" [ref=e516] [cursor=pointer]:
+    - generic [ref=e517]: AI Docs
+    - img "AI Avatar" [ref=e519]

@@ -1,0 +1,43 @@
+ChatMock proxy를 docker compose로 C:\AcornFile\AIAgent\AiAgent\02.프로젝트\2026-05-16-web-cliper\chatmock-selfhost 에 셋업해줘.
+
+요구사항:
+1. 작업 디렉토리: C:\AcornFile\AIAgent\AiAgent\02.프로젝트\2026-05-16-web-cliper\chatmock-selfhost
+2. 다음 docker-compose.yml을 그대로 작성:
+
+```yaml
+services:
+  chatmock:
+    image: ${CHATMOCK_IMAGE:-storagetime/chatmock:latest}
+    container_name: chatmock
+    command: ["serve"]
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      - CHATGPT_LOCAL_HOME=/data
+      - CHATGPT_LOCAL_REASONING_EFFORT=${CHATGPT_LOCAL_REASONING_EFFORT:-medium}
+    ports:
+      - "${PORT:-8000}:8000"
+    volumes:
+      - chatmock_data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/health').status==200 else 1)\""]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  chatmock-login:
+    image: ${CHATMOCK_IMAGE:-storagetime/chatmock:latest}
+    profiles: ["login"]
+    command: ["login"]
+    environment:
+      - CHATGPT_LOCAL_HOME=/data
+      - CHATGPT_LOCAL_LOGIN_BIND=0.0.0.0
+    volumes:
+      - chatmock_data:/data
+    ports:
+      - "1455:1455"
+
+volumes:
+  chatmock_data:

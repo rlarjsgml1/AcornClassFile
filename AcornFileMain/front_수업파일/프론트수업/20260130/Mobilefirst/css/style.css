@@ -1,0 +1,265 @@
+/* 기본 */
+body {
+  line-height: 1.6;
+}
+a {
+  text-decoration: none;
+}
+.wrap {
+  /* border: 1px solid red; */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* main{
+    border: 1px solid red;
+} */
+
+.sec-tit {
+  background-color: lightblue;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+  letter-spacing: 2px;
+  /* font-size: 1.8rem; */
+  /* margin-bottom: 1rem; */
+  /* letter-spacing: 2px; */
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #222;
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+  /* position: relative; ⭐ 이 줄 추가 */
+}
+.logo a {
+  color: #fff;
+  font-size: 1.2rem;
+  line-height: 60px;
+  margin-left: 1rem;
+}
+
+/* 메뉴 기본 숨김 */
+nav{
+    display: none;
+    background: #333;
+    opacity: 0.9;
+}
+nav.is-open{
+  display: block;
+}
+
+/* 햄버거 버튼 */
+/* 이렇게 해도 됨🔴 */
+/* .menu-toggle-btn {
+  color: #fff;
+  font-size: 25px;
+  background: transparent;
+  border: none;
+} */
+.menu-toggle-btn {
+  width: 2rem;
+  position: absolute;
+  top: 1.3rem;
+  right: 1rem;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+.menu-toggle-btn span {
+  display: block;
+  height: 3px;
+  background-color: #fff;
+  margin-bottom: 5px;
+}
+
+/* SLIDER */
+.slider {
+  margin-top: 60px;
+}
+.slider img {
+  width: 100%;
+  height: auto;
+}
+
+.container {
+  /* border: 1px solid red; */
+  width: 100%;
+}
+/* .sec-tit{
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+} */
+
+.desc {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 3rem;
+}
+
+/* promotion */
+.promo-list li {
+  margin-bottom: 1.3rem;
+}
+
+.promo-list a {
+  /* border: 3px solid black; */
+  display: block;
+  text-align: center;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.promo-list a h3 {
+  color: #777;
+  font-weight: 600;
+}
+.promo-list a p {
+  color: #888;
+  font-size: 0.8rem;
+}
+
+/* work */
+.work-list li {
+  margin-bottom: 1.5rem;
+}
+.work-list a {
+  display: block;
+  background: #eaeaea;
+  text-align: center;
+  padding: 2rem;
+}
+.work-list li h3 {
+  color: #777;
+  font-weight: 600;
+}
+.work-list li span {
+  color: #888;
+  font-size: 0.8rem;
+}
+
+/* 블로그 */
+.blog-list li {
+  margin-bottom: 1.5rem;
+}
+.blog-list h3 {
+  font-size: 1rem;
+  color: #777;
+  font-weight: 600;
+}
+
+/* contact */
+textarea {
+  width: 100%;
+  height: 120px;
+  font-size: 1rem;
+  padding: 1rem;
+}
+
+/* footer */
+footer {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* 테블릿 최소 768px */
+
+@media (min-width: 768px) {
+  .promo-list {
+    display: flex;
+    /* 자식 요소가 부모 컨테이너의 비를 초과할 때 
+        , 자동으로 다음 줄로 넘어가게 한다 */
+    /* no-wrap 한 줄에 강제로 배치 */
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  .promo-list li {
+    width: 48%;
+  }
+  .work-list,
+  .blog-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  .work-list li,
+  .blog-list li {
+    width: 48%;
+  }
+  .sec-tit{
+    font-size: 2.5rem;
+  }
+}
+@media(min-width: 1024px){
+    /* Header */
+    .menu-toggle-btn{
+        display: none;
+    }
+    nav{
+        display: block;
+        background: none;
+    }
+    nav ul{
+        display: flex;
+        position: absolute;
+        top: 1rem;
+        right: 2rem;
+    }
+    nav li{
+        margin-left: 1.5rem;
+    }
+    nav a{
+        color: #fff;
+        font-size: 0.95rem;
+    }
+    .promo-list{
+        display: flex;
+    /* 자식 요소가 부모 컨테이너의 비를 초과할 때 
+        , 자동으로 다음 줄로 넘어가게 한다 */
+    /* no-wrap 한 줄에 강제로 배치 */
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    justify-content: center;
+    }
+    .promo-list li{
+        width: 23%;
+    }
+    .work-list{
+        display: flex;
+    /* 자식 요소가 부모 컨테이너의 비를 초과할 때 
+        , 자동으로 다음 줄로 넘어가게 한다 */
+    /* no-wrap 한 줄에 강제로 배치 */
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    justify-content: center;
+    }
+    .work-list li{
+        width: 23%;
+    }
+    .blog-list{
+        display: flex;
+    /* 자식 요소가 부모 컨테이너의 비를 초과할 때 
+        , 자동으로 다음 줄로 넘어가게 한다 */
+    /* no-wrap 한 줄에 강제로 배치 */
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    justify-content: center;
+    }
+    .blog-list li{
+        width: 23%;
+    }
+    .sec-tit{
+        font-size: 2.6rem;
+    }
+}

@@ -1,0 +1,1 @@
+INDEX VERSION 1.4+C:\AcornFile\Java2\workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes

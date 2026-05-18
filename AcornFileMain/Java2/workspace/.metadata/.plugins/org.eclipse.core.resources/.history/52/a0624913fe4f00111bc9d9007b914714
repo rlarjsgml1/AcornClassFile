@@ -1,0 +1,8 @@
+package day1prac.오늘의요리사;
+
+//생성자 해결
+//3개 인터페이스 중에서 한 개를 구현다음 
+//제출하기
+public class A extends Cook{
+
+}

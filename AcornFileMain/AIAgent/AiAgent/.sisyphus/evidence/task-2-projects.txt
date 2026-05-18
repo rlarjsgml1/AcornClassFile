@@ -1,0 +1,16 @@
+2026-05-09 Task 2 initial evidence
+Created C:\minjeong-brain\02-프로젝트\README.md and appended notepad entries.
+
+2026-05-09 Task 2 verification
+Test-Path README: True
+Headings in order: True
+Deadline/completion examples present: True
+Moves finished projects to 08-보관소: False
+Exact requested content match after newline normalization: True
+
+2026-05-09 Task 2 corrected verification
+Test-Path README: True
+Headings in order: True
+Deadline/completion examples present: True
+Moves finished projects to 08-보관소: True
+Exact requested content match after newline normalization: True

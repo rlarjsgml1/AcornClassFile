@@ -1,0 +1,5 @@
+Task 6 edge evidence
+Date: 2026-05-09
+- README was created with the exact required content from the task.
+- Exact content references 04-취업준비 and frames 06-자료실 as long-term reference material rather than active project work.
+- Exact content does not include the literal string 05-학습자료, so the active learning distinction is carried by the long-term reference framing rather than an explicit 05 folder mention.

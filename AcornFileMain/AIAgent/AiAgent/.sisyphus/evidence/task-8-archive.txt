@@ -1,0 +1,10 @@
+
+## 2026-05-09 Task 8 Archive README
+- Created `C:\minjeong-brain\08-보관소\README.md` with the requested Korean Markdown content.
+- `Test-Path -LiteralPath "C:\minjeong-brain\08-보관소\README.md"` returned `True`.
+- Exact content comparison against the requested README returned `exactMatch=True`.
+- UTF-8 BOM check returned `hasBom=False`.
+- Required examples were present: assignments/projects, job applications, learning, and reflections.
+- Preserve-not-delete wording was present through `삭제하지 않고` and `보관`.
+- Edge preservation checks returned `welcome=True`, `obsidian=True`, `sisyphus=True`, `excalidraw=True`.
+- Markdown LSP diagnostics could not run because no `.md` LSP server is configured.

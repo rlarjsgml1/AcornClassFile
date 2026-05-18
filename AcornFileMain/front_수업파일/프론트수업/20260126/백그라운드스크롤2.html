@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 와일드 카드 문자 : 전체 선택  */
+      * {
+        margin: 0;
+        scroll-behavior: smooth;
+      }
+      h3 {
+        font-size: 70px;
+        font-weight: 800px; /*글자의 두께*/
+        line-height: 700px; /*줄간격*/
+        text-align: center;
+        color: aliceblue;
+      }
+      .section1 {
+        height: 700px;
+        background: url(../20260126/imges/wrtFileImageView.jpg) no-repeat 50%
+          0px fixed;
+        background-size: cover;
+      }
+      .section2 {
+        background: url(../20260126/imges/산.jpg) no-repeat 50% 0 scroll;
+        background-size: cover;
+      }
+      .section3 {
+        background: url(../20260126/imges/산2.jpg) no-repeat 50% 0 fixed;
+        background-size: cover;
+      }
+      .section4 {
+        background: url(../20260126/imges/노을.jpg);
+        background-size: cover;
+      }
+
+      /* nav */
+      nav{
+        height: 70px;
+        border: solid red;
+        text-align: center;
+      }
+      ul {
+        /* list-style: none (점 삭제) */
+        list-style: none;
+      }
+      li {
+        display: inline;
+        border: solid 3px black;
+      }
+      li:hover {
+        background-color: black;
+        color: whitesmoke;
+      }
+      a {
+        /* text-decoration : none : 밑줄 삭제 */
+        text-decoration: none; /* a태그 기본 꾸미기 속성을 없애줌*/
+        color: black;
+      }
+      a:hover {
+        color: whitesmoke;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <section class="section1">
+        <nav>
+          <ul>
+            <li><a href="#section2">버튼1</a></li>
+            <li><a href="#section3">버튼2</a></li>
+            <li><a href="#section4">버튼3</a></li>
+          </ul>
+        </nav>
+        <h3>WEB FRONTEND</h3>
+      </section>
+      <section class="section2" id="section2">
+        <h3>WEB FRONTEND</h3>
+      </section>
+      <section class="section3" id="section3">
+        <h3>WEB FRONTEND</h3>
+      </section>
+      <section class="section4" id="section4">
+        <h3>WEB FRONTEND</h3>
+        <a href="#" class="top">맨 위로</a>
+      </section>
+    </div>
+  </body>
+</html>

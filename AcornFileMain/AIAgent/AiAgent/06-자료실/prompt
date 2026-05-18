@@ -1,0 +1,11 @@
+옵시디안 내의 ‘자료실' 폴더를 LLM wiki 개념을 도입해서 구축 및 운영 하려고 한다.
+아래 URL 내용 참고해서 LLM wiki 를 위한 초기 디렉토리 구조 및 파일을 생성 해줘.
+https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f#file-llm-wiki-md
+
+- 폴더는 raw, wiki, schema 3-layered 구조로 가자
+- wiki 밑에는 entities, concepts, sources, synthesis 디렉토리를 만들자.
+- raw 밑에는 articles, notes, books, papers 디렉토리 만들자
+- 모든 wiki 페이지에는 관리를 위한 frontmatter 를 포함하자
+- 저장된 지식의 네비게이션 역할을 하는 MOC.md 파일을 최상위에 만들고 도메인 지식에 대한 <도메인명>-MOC.md 파일은 schema 디렉토리에 만들자.
+
+그리고 현재 워킹디렉토리에 관심 도메인만 기록해둔 AGENTS.md 파일을 wiki 운영을 위한 용도로 내용을 업데이트 해자.

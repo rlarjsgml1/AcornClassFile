@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            /* 표의 테두리를 한 줄로 표시(붕괴하) */
+            border-collapse: collapse;
+            background: beige;
+        }
+        th,td{
+            /* 테두리를 3픽셀 실선 초록색 */
+            border: 3px solid green;
+        }
+    </style>
+</head>
+<body>
+    <!-- 행 row(tr) 열column(td) 제목셀(th) -->
+    <table>
+        <caption> 
+            <strong>Modern Browser</strong>
+            <p>국내에서 자주 사용하는 모던 브라우저</p>
+        </caption>
+        <tr>
+            <th>브라우저</th>
+            <th>제조업체</th>
+            <th>다운로드</th>
+        </tr>
+        <tr>
+            <th>크롬 (Chorme)</th>
+            <th>Google</th>
+            <td><a href="https://www.google.com/?hl=ko" target="_parent">https://www.google.com/?hl=ko</a></td>
+        </tr>
+        <tr>
+            <th>파이어폭스 (Firefox)</th>
+            <th>Mozilla</th>
+            <td><a href="https://www.mozilla.org/ko/" target="_top">https://www.mozilla.org/ko/</a></td>
+        </tr>
+        <tr>
+            <th>엣지 (Edge)</th>
+            <th>Microsoft</th>
+            <td><a href="https://www.microsoft.com/ko-kr/edge/download?ch=1&form=MA13FJ" target="_blank">https://www.microsoft.com/ko-kr/edge/download?ch=1&form=MA13FJ</a></td>
+        </tr>
+    </table>
+</body>
+</html>

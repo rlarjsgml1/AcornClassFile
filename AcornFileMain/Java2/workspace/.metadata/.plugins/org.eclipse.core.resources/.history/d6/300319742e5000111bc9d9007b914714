@@ -1,0 +1,15 @@
+package day1prac.제네릭클래스;
+
+public class BoxG <T>	{
+	//타입매개변수
+	//다이아몬드연산자
+	Object[] list = new Object[10];
+	int index;
+	//추가
+	public void add(T item) {
+		list[index] = item;
+	}
+	//꺼내기
+	
+	//사이즈 얻어오기
+}

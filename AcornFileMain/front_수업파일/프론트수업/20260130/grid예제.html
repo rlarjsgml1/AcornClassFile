@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      background-color: aqua;
+    }
+    section {
+      border: 1px red solid;
+      background-color: white;
+      width: 720px;
+
+    }
+    #wrapper {
+      width: 700px;
+      display: grid; /*그리드 컨테이너 지정*/
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(5, 150px); /*줄은 100px 씩 3개*/
+      grid-template-areas: /*각 클래스에 grid-area 번호 설정*/
+        "box1 box1 box2"
+        "box3 box4 box2"
+        "box3 box4 box2"
+        "box5 box4 box6"
+        "box5 box7 box7";
+    }
+    div {
+      margin: 10px;
+    }
+    .box1 {
+      background: url(../20260130/Mobilefirst/images/3.jpg);
+      background-size: cover;
+      grid-area: box1;
+    }
+    .box2 {
+      background: url(../20260123/images/루피.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      grid-area: box2;
+    }
+    .box3 {
+      background: url(../20260129/images/happynewyear.png);
+      background-size: cover;
+      grid-area: box3;
+    }
+    .box4 {
+      background: url(../20260129/images/123.png);
+      background-size: cover;
+      grid-area: box4;
+    }
+    .box5 {
+      background: url(../20260130/Mobilefirst/images/4.jpg);
+      grid-area: box5;
+    }
+    .box6 {
+      background: url(../20260130/Mobilefirst/images/자전거.jpg);
+      background-size: cover;
+      grid-area: box6;
+    }
+    .box7 {
+      background: url(../20260130/starbuks/imges/컵imgstar.png);
+      grid-area: box7;
+    }
+  </style>
+  <body>
+    <section class="">
+      <div id="wrapper">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+        <div class="box box4"></div>
+        <div class="box box5"></div>
+        <div class="box box6"></div>
+        <div class="box box7"></div>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,179 @@
+- generic [active] [ref=e1]:
+  - img
+  - img
+  - img
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - list [ref=e7]:
+        - listitem [ref=e8]:
+          - button "Color Palette (Alt+P)" [ref=e9] [cursor=pointer]:
+            - img [ref=e10]
+        - listitem [ref=e12]:
+          - button "Typographies (Alt+T)" [ref=e13] [cursor=pointer]:
+            - img [ref=e14]
+      - button [ref=e18] [cursor=pointer]:
+        - img [ref=e19]
+    - generic [ref=e23]:
+      - complementary [ref=e24]:
+        - list [ref=e25]:
+          - listitem [ref=e26]:
+            - button "Move (V)" [ref=e27] [cursor=pointer]:
+              - img [ref=e28]
+          - listitem [ref=e30]:
+            - button "Board (B)" [ref=e31] [cursor=pointer]:
+              - img [ref=e32]
+          - listitem [ref=e34]:
+            - button "Rectangle (R)" [ref=e35] [cursor=pointer]:
+              - img [ref=e36]
+          - listitem [ref=e38]:
+            - button "Ellipse (E)" [ref=e39] [cursor=pointer]:
+              - img [ref=e40]
+          - listitem [ref=e42]:
+            - button "Text (T)" [ref=e43] [cursor=pointer]:
+              - img [ref=e44]
+          - listitem [ref=e46]:
+            - button "Image (Shift+K)" [ref=e47] [cursor=pointer]:
+              - img [ref=e48]
+          - listitem [ref=e50]:
+            - button "Curve (Shift+C)" [ref=e51] [cursor=pointer]:
+              - img [ref=e52]
+          - listitem [ref=e54]:
+            - button "Path (P)" [ref=e55] [cursor=pointer]:
+              - img [ref=e56]
+          - listitem [ref=e58]:
+            - button "Plugins (Ctrl+Alt+P)" [ref=e59] [cursor=pointer]:
+              - img [ref=e60]
+        - button "Toggle toolbar" [ref=e62] [cursor=pointer]
+      - generic:
+        - img
+      - img
+      - img [ref=e64]:
+        - generic [ref=e65]:
+          - generic [ref=e66]:
+            - generic [ref=e68]: 디자인 토큰과 UX 근거
+            - generic [ref=e70]: 중고차 매매 사이트 - Mobile 390
+            - generic [ref=e72]: 중고차 매매 사이트 - Desktop 1440
+          - generic:
+            - generic:
+              - generic:
+                - generic: "0"
+                - generic: "250"
+                - generic: "500"
+                - generic: "750"
+                - generic: "1000"
+                - generic: "1250"
+                - generic: "1500"
+                - generic: "1750"
+                - generic: "2000"
+                - generic: "2250"
+                - generic: "2500"
+                - generic: "2750"
+              - generic:
+                - generic: "0"
+                - generic: "250"
+                - generic: "500"
+                - generic: "750"
+                - generic: "1000"
+                - generic: "1250"
+                - generic: "1500"
+                - generic: "1750"
+                - generic: "2000"
+    - complementary [ref=e78]:
+      - generic [ref=e79]:
+        - img [ref=e81] [cursor=pointer]
+        - generic [ref=e83]:
+          - generic [ref=e84] [cursor=pointer]: New Project 1
+          - generic "New File 3" [ref=e85] [cursor=pointer]:
+            - generic [ref=e87]: New File 3
+        - generic "Main menu" [ref=e89]:
+          - button "Main menu" [ref=e90]:
+            - img [ref=e91]
+      - generic [ref=e95]:
+        - navigation [ref=e97]:
+          - button "Collapse sidebar" [ref=e98] [cursor=pointer]:
+            - img "Collapse sidebar" [ref=e99]
+          - tablist [ref=e101]:
+            - listitem [ref=e102]:
+              - tab "Layers" [selected] [ref=e103]:
+                - generic [ref=e104]: Layers
+            - listitem [ref=e105]:
+              - tab "Assets" [ref=e106]:
+                - generic [ref=e107]: Assets
+            - listitem [ref=e108]:
+              - tab "Tokens" [ref=e109]:
+                - generic [ref=e110]: Tokens
+        - tabpanel "Layers" [ref=e111]:
+          - article [ref=e112]:
+            - generic [ref=e113]:
+              - generic [ref=e114]:
+                - button "Pages" [ref=e116] [cursor=pointer]:
+                  - img [ref=e117]
+                  - generic [ref=e119]: Pages
+                - generic "Add page" [ref=e120]:
+                  - button "Add page" [ref=e121]:
+                    - img [ref=e122]
+              - list [ref=e125]:
+                - listitem [ref=e126] [cursor=pointer]:
+                  - generic [ref=e127]:
+                    - img [ref=e129]
+                    - generic "Page 1" [ref=e131]
+            - generic [ref=e134]:
+              - generic [ref=e136]:
+                - generic [ref=e137]: Page 1
+                - generic "검색" [ref=e138]:
+                  - button "검색" [ref=e139]:
+                    - img [ref=e140]
+              - generic [ref=e143]:
+                - generic [ref=e145] [cursor=pointer]:
+                  - generic [ref=e146]:
+                    - button [ref=e147]:
+                      - img [ref=e148]
+                    - img [ref=e151]
+                  - generic [ref=e153]: 디자인 토큰과 UX 근거
+                - generic [ref=e155] [cursor=pointer]:
+                  - generic [ref=e156]:
+                    - button [ref=e157]:
+                      - img [ref=e158]
+                    - img [ref=e161]
+                  - generic [ref=e163]: 중고차 매매 사이트 - Mobile 390
+                - generic [ref=e165] [cursor=pointer]:
+                  - generic [ref=e166]:
+                    - button [ref=e167]:
+                      - img [ref=e168]
+                    - img [ref=e171]
+                  - generic [ref=e173]: 중고차 매매 사이트 - Desktop 1440
+    - complementary [ref=e174]:
+      - generic [ref=e175]:
+        - button "132 rjsgml" [ref=e177] [cursor=pointer]:
+          - list [ref=e178]:
+            - listitem "132 rjsgml" [ref=e179]:
+              - img "132 rjsgml" [ref=e180]
+        - generic "Zoom" [ref=e182] [cursor=pointer]:
+          - generic [ref=e183]: 30%
+        - button "Comments (C)" [ref=e185] [cursor=pointer]:
+          - img [ref=e186]
+        - button "History" [ref=e189] [cursor=pointer]:
+          - img [ref=e190]
+        - generic "View mode (G V)" [ref=e192] [cursor=pointer]:
+          - img [ref=e193]
+      - generic [ref=e197]:
+        - navigation [ref=e199]:
+          - tablist [ref=e200]:
+            - listitem [ref=e201]:
+              - tab "Design" [selected] [ref=e202]:
+                - generic [ref=e203]: Design
+            - listitem [ref=e204]:
+              - tab "Prototype" [ref=e205]:
+                - generic [ref=e206]: Prototype
+            - listitem [ref=e207]:
+              - tab "Inspect" [ref=e208]:
+                - generic [ref=e209]: Inspect
+        - tabpanel "Design" [ref=e210]:
+          - generic [ref=e212]:
+            - generic [ref=e215]: Canvas background
+            - generic [ref=e219]:
+              - generic "#E8E9EA" [ref=e221]:
+                - button "#E8E9EA" [ref=e222] [cursor=pointer]
+              - textbox "Color" [ref=e227]:
+                - /placeholder: Mixed
+                - text: E8E9EA

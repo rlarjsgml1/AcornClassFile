@@ -1,0 +1,17 @@
+package day1prac.오늘의요리사;
+
+//생성자 해결
+//3개 인터페이스 중에서 한 개를 구현다음 
+//제출하기
+public class A extends Cook implements 중식가능한 {
+
+	public A(String name) {
+		super(name);
+	}
+
+	@Override
+	public String 탕수육만들기() {
+		return "찹쌀탕수육";
+	}
+
+}

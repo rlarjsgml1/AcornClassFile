@@ -1,0 +1,17 @@
+[      28ms] [ERROR] Refused to apply style from 'https://design.penpot.app/css/ui.css?ts=2.15.3-1778764938' because its MIME type ('text/html') is not a supported stylesheet MIME type, and strict MIME checking is enabled. @ https://design.penpot.app/#/dashboard/files?team-id=bdb38471-86c5-8118-8008-06fa132d0161&project-id=bdb38471-86c5-8118-8008-0713cf46aaa0:0
+[     565ms] [LOG] %c[PLUGINS] Loading plugin system color: #008d7c @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:789
+[     570ms] [WARNING] Removing intrinsics.%MapPrototype%.getOrInsert @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[     570ms] [WARNING] Removing intrinsics.%MapPrototype%.getOrInsertComputed @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[     570ms] [WARNING] Removing intrinsics.%WeakMapPrototype%.getOrInsert @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[     570ms] [WARNING] Removing intrinsics.%WeakMapPrototype%.getOrInsertComputed @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[     571ms] [WARNING] Removing intrinsics.%DatePrototype%.toTemporalInstant @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[     571ms] [WARNING] Removing intrinsics.%DatePrototype%.getTimeAlias @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[    1727ms] [LOG] INKEEP | Section changed: dashboard @ :7
+[    1728ms] [LOG] INKEEP | Initialized generic Proxy(Object) @ :4
+[    2308ms] [LOG] %c[PLUGINS] Loading plugin system color: #008d7c @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:789
+[    2310ms] [WARNING] Removing intrinsics.%MapPrototype%.getOrInsert @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[    2311ms] [WARNING] Removing intrinsics.%MapPrototype%.getOrInsertComputed @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[    2311ms] [WARNING] Removing intrinsics.%WeakMapPrototype%.getOrInsert @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[    2311ms] [WARNING] Removing intrinsics.%WeakMapPrototype%.getOrInsertComputed @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[    2311ms] [WARNING] Removing intrinsics.%DatePrototype%.toTemporalInstant @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:786
+[    3284ms] [LOG] %c[PLUGINS] Initialize runtime color: #008d7c @ https://design.penpot.app/js/libs.js?version=2.15.3-1778764938:789

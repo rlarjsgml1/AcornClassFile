@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+C:\AcornFile\Java2\workspace\.metadata\.plugins\org.eclipse.jdt.core
+2861948910.index
+1865797976.index
+3641779847.index

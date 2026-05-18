@@ -1,0 +1,19 @@
+package day1prac.오늘의요리사;
+
+public class KKHCook4 extends Cook{
+
+	public KKHCook4(String name) {
+//		super(name);
+		System.out.println("자식 기본생성자");
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "KKHCook4 [name=" + name + "]";
+	}
+
+	public static void main(String[] args) {
+		KKHCook4 w = new KKHCook4("김건희");
+	}
+}

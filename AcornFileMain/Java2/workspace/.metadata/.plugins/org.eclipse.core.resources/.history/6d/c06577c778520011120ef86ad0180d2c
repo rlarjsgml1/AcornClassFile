@@ -1,0 +1,51 @@
+package day2prac.lamda.consumer;
+
+ 
+
+public class Ex03김태준 {
+	
+	public static void main(String[] args) {
+		
+		// 1. 클래스 만들기 (지역 클래스)
+				class GugudanClass implements MyConsumer<Integer> {
+					@Override
+					public void accept(Integer dan) {
+						System.out.println("===" + dan + "단 (지역 클래스) ===");
+						for (int i = 1; i <= 9; i++) {
+							System.out.println(dan + " * " + i + " = " + (dan * i));
+						}
+					}
+				}
+				
+				MyConsumer<Integer> c1 = new GugudanClass();
+				c1.accept(3); // 3단 실행
+				
+				System.out.println("-------------------------");
+				
+				// 2. 익명 클래스
+				MyConsumer<Integer> c2 = new MyConsumer<Integer>() {
+					@Override
+					public void accept(Integer dan) {
+						System.out.println("===" + dan + "단 (익명 클래스) ===");
+						for (int i = 1; i <= 9; i++) {
+							System.out.println(dan + " * " + i + " = " + (dan * i));
+						}
+					}
+				};
+				
+				c2.accept(4); // 4단 실행
+				
+				System.out.println("-------------------------");
+				
+				// 3. 람다식
+				MyConsumer<Integer> c3 = dan -> {
+					System.out.println("===" + dan + "단 (람다식) ===");
+					for (int i = 1; i <= 9; i++) {
+						System.out.println(dan + " * " + i + " = " + (dan * i));
+					}
+				};
+				
+				c3.accept(5); // 5단 실행
+		}
+}
+

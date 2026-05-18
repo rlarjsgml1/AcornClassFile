@@ -1,0 +1,18 @@
+package day1prac.오늘의요리사;
+
+public class KKHCook4 extends Cook implements 한식가능한 {
+
+	public KKHCook4(String name) {
+//		super(name);
+		System.out.println("자식 기본생성자");
+	}
+
+//	@Override
+//	public String 비빔밥만들기() {
+//		return "돌솥비빔밥";
+//	}
+
+	public static void main(String[] args) {
+		KKHCook4 w = new KKHCook4("김건희");
+	}
+}

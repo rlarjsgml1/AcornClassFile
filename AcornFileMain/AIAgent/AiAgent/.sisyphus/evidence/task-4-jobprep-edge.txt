@@ -1,0 +1,4 @@
+## 2026-05-09 Task 4 Edge Checks
+- Confirmed 취업준비 is an independent top-level folder.
+- Confirmed no nested 02-프로젝트\취업준비 folder was created.
+- Confirmed no extra subfolders were created under 04-취업준비.

@@ -1,0 +1,1059 @@
+- generic [active] [ref=e1]:
+  - img
+  - img
+  - img
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - list [ref=e7]:
+        - listitem [ref=e8]:
+          - button "Color Palette (Alt+P)" [ref=e9] [cursor=pointer]:
+            - img [ref=e10]
+        - listitem [ref=e12]:
+          - button "Typographies (Alt+T)" [ref=e13] [cursor=pointer]:
+            - img [ref=e14]
+      - button [ref=e18] [cursor=pointer]:
+        - img [ref=e19]
+    - generic [ref=e23]:
+      - complementary [ref=e24]:
+        - list [ref=e25]:
+          - listitem [ref=e26]:
+            - button "Move (V)" [ref=e27] [cursor=pointer]:
+              - img [ref=e28]
+          - listitem [ref=e30]:
+            - button "Board (B)" [ref=e31] [cursor=pointer]:
+              - img [ref=e32]
+          - listitem [ref=e34]:
+            - button "Rectangle (R)" [ref=e35] [cursor=pointer]:
+              - img [ref=e36]
+          - listitem [ref=e38]:
+            - button "Ellipse (E)" [ref=e39] [cursor=pointer]:
+              - img [ref=e40]
+          - listitem [ref=e42]:
+            - button "Text (T)" [ref=e43] [cursor=pointer]:
+              - img [ref=e44]
+          - listitem [ref=e46]:
+            - button "Image (Shift+K)" [ref=e47] [cursor=pointer]:
+              - img [ref=e48]
+          - listitem [ref=e50]:
+            - button "Curve (Shift+C)" [ref=e51] [cursor=pointer]:
+              - img [ref=e52]
+          - listitem [ref=e54]:
+            - button "Path (P)" [ref=e55] [cursor=pointer]:
+              - img [ref=e56]
+          - listitem [ref=e58]:
+            - button "Plugins (Ctrl+Alt+P)" [ref=e59] [cursor=pointer]:
+              - img [ref=e60]
+        - button "Toggle toolbar" [ref=e62] [cursor=pointer]
+      - generic:
+        - img
+      - img:
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 비교표 보기
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 가격, 연식, 주행거리, 사고 이력, 예상 총비용을 비교합니다.
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 찜한 차량 2대 비교 중
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 찜하기
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 방문예약
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 3,612만원
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 예상 총비용
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 3,260만원
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 차량가
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 성능점검표, 보험이력, 촬영일을 상세 페이지에서 바로 확인
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 총비용 공개
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 무사고
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 진단완료
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 2022년 · 35,000km · 디젤 · 인천
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 기아 쏘렌토 MQ4 디젤 2WD
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 보증가능
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 실사진 인증
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 찜하기
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 방문예약
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 3,184만원
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 예상 총비용
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 2,880만원
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 차량가
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 성능점검표, 보험이력, 촬영일을 상세 페이지에서 바로 확인
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 총비용 공개
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 무사고
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 진단완료
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 2021년 · 42,000km · 가솔린 · 경기 성남
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 현대 그랜저 IG 2.5 프리미엄
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 무사고
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 실사진 인증
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 낮은 총비용순
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 총비용 공개
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 무사고
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 현대
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 총 12,480대
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 조건 적용
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 진단완료
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 무사고
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 60,000km 이하
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 주행거리
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 2020년 이후
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 연식
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 2,000만~3,500만
+                                        - generic:
+                                          - generic: 원
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 가격
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 12,480대 검색 가능
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 상세 필터
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 차량 카드마다 버튼, 배지, 가격, 예상 총비용이 크게 보이도록 다시 구성했습니다.
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 검색 결과와 필터를 한 화면에서 확인
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 필터 열기
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 총비용 공개
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 오늘 방문 가능
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 인증중고
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 무사고
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 실매물 확인
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 3,184만원
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 예상 총비용
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 검색하기
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 서울/경기
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 지역
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 2,000만~3,500만원
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 예산
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 현대 그랜저
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 제조사/모델
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 검색 -> 목록 -> 상세 -> 진단/이력 확인 -> 문의/방문예약 흐름을 명확한 버튼과 텍스
+                                        - generic:
+                                          - generic: 트로 설계했습니다.
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 실매물과 총비용까지
+                                        - generic:
+                                          - generic: 한 번에 확인하는 중고차 검색
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 2026 VERIFIED USED CAR MARKET
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 상담하기
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 중고차 검색 인증차 내차 팔기 비교함 찜한 차량
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: AUTO TRUST
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 전화 · 채팅 · 시승예약
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 방문예약
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 예상 총비용 3,184만원
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 총비용 공개
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 진단완료
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 2021년 · 42,000km · 경기 성남
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 현대 그랜저 IG
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 무사고
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 현대
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 필터
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 12,480대 검색됨
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 방문가능
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 총비용
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 무사고
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 검색
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 제조사, 모델 검색
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 실매물, 진단, 총비용을 카드에서 바로
+                                        - generic:
+                                          - generic: 확인
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 믿을 수 있는
+                                        - generic:
+                                          - generic: 중고차를 빠르게
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: 메뉴
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic: AUTO TRUST
+      - img [ref=e64]:
+        - generic [ref=e65]:
+          - generic [ref=e66]:
+            - generic [ref=e259]: 중고차 매매 사이트 - Mobile v2 텍스트 / 버튼 강화
+            - generic [ref=e261]: 중고차 매매 사이트 - Desktop v2 텍스트 / 버튼 강화
+            - generic [ref=e68]: 디자인 토큰과 UX 근거
+            - generic [ref=e70]: 중고차 매매 사이트 - Mobile 390
+            - generic [ref=e72]: 중고차 매매 사이트 - Desktop 1440
+          - generic:
+            - generic:
+              - generic:
+                - generic: "0"
+                - generic: "250"
+                - generic: "500"
+                - generic: "750"
+                - generic: "1000"
+                - generic: "1250"
+                - generic: "1500"
+                - generic: "1750"
+                - generic: "2000"
+                - generic: "2250"
+                - generic: "2500"
+                - generic: "2750"
+              - generic:
+                - generic: "0"
+                - generic: "250"
+                - generic: "500"
+                - generic: "750"
+                - generic: "1000"
+                - generic: "1250"
+                - generic: "1500"
+                - generic: "1750"
+                - generic: "2000"
+    - complementary [ref=e78]:
+      - generic [ref=e79]:
+        - img [ref=e81] [cursor=pointer]
+        - generic [ref=e83]:
+          - generic [ref=e84] [cursor=pointer]: New Project 1
+          - generic "New File 3" [ref=e85] [cursor=pointer]:
+            - generic "Saving" [ref=e262]:
+              - img [ref=e263]
+            - generic [ref=e87]: New File 3
+        - generic "Main menu" [ref=e89]:
+          - button "Main menu" [ref=e90]:
+            - img [ref=e91]
+      - generic [ref=e95]:
+        - navigation [ref=e97]:
+          - button "Collapse sidebar" [ref=e98] [cursor=pointer]:
+            - img "Collapse sidebar" [ref=e99]
+          - tablist [ref=e101]:
+            - listitem [ref=e102]:
+              - tab "Layers" [selected] [ref=e103]:
+                - generic [ref=e104]: Layers
+            - listitem [ref=e105]:
+              - tab "Assets" [ref=e106]:
+                - generic [ref=e107]: Assets
+            - listitem [ref=e108]:
+              - tab "Tokens" [ref=e109]:
+                - generic [ref=e110]: Tokens
+        - tabpanel "Layers" [ref=e111]:
+          - article [ref=e112]:
+            - generic [ref=e113]:
+              - generic [ref=e114]:
+                - button "Pages" [ref=e116] [cursor=pointer]:
+                  - img [ref=e117]
+                  - generic [ref=e119]: Pages
+                - generic "Add page" [ref=e120]:
+                  - button "Add page" [ref=e121]:
+                    - img [ref=e122]
+              - list [ref=e125]:
+                - listitem [ref=e126] [cursor=pointer]:
+                  - generic [ref=e127]:
+                    - img [ref=e129]
+                    - generic "Page 1" [ref=e131]
+            - generic [ref=e134]:
+              - generic [ref=e136]:
+                - generic [ref=e137]: Page 1
+                - generic "검색" [ref=e138]:
+                  - button "검색" [ref=e139]:
+                    - img [ref=e140]
+              - generic [ref=e143]:
+                - generic [ref=e266] [cursor=pointer]:
+                  - generic [ref=e267]:
+                    - button [expanded] [ref=e268]:
+                      - img [ref=e269]
+                    - img [ref=e272]
+                  - generic [ref=e274]: 중고차 매매 사이트 - Mobile v2 텍스트 / 버튼 강화
+                - generic [ref=e275]:
+                  - generic [ref=e278] [cursor=pointer]:
+                    - img [ref=e282]
+                    - generic [ref=e284]: Mobile Header
+                  - generic [ref=e287] [cursor=pointer]:
+                    - img [ref=e291]
+                    - generic [ref=e293]: Mobile Logo
+                  - generic [ref=e296] [cursor=pointer]:
+                    - img [ref=e300]
+                    - generic [ref=e302]: Button Shape / Mobile Menu Button
+                  - generic [ref=e305] [cursor=pointer]:
+                    - img [ref=e309]
+                    - generic [ref=e311]: Button Text / Mobile Menu Button
+                  - generic [ref=e314] [cursor=pointer]:
+                    - img [ref=e318]
+                    - generic [ref=e320]: Mobile Hero
+                  - generic [ref=e323] [cursor=pointer]:
+                    - img [ref=e327]
+                    - generic [ref=e329]: Mobile Hero Title
+                  - generic [ref=e332] [cursor=pointer]:
+                    - img [ref=e336]
+                    - generic [ref=e338]: Mobile Hero Copy
+                  - generic [ref=e341] [cursor=pointer]:
+                    - img [ref=e345]
+                    - generic [ref=e347]: Mobile Search Input
+                  - generic [ref=e350] [cursor=pointer]:
+                    - img [ref=e354]
+                    - generic [ref=e356]: Mobile Search Placeholder
+                  - generic [ref=e359] [cursor=pointer]:
+                    - img [ref=e363]
+                    - generic [ref=e365]: Button Shape / Mobile Search Button
+                  - generic [ref=e368] [cursor=pointer]:
+                    - img [ref=e372]
+                    - generic [ref=e374]: Button Text / Mobile Search Button
+                  - generic [ref=e377] [cursor=pointer]:
+                    - img [ref=e381]
+                    - generic [ref=e383]: Filter Chip / 무사고
+                  - generic [ref=e386] [cursor=pointer]:
+                    - img [ref=e390]
+                    - generic [ref=e392]: Filter Chip Text / 무사고
+                  - generic [ref=e395] [cursor=pointer]:
+                    - img [ref=e399]
+                    - generic [ref=e401]: Filter Chip / 총비용
+                  - generic [ref=e404] [cursor=pointer]:
+                    - img [ref=e408]
+                    - generic [ref=e410]: Filter Chip Text / 총비용
+                  - generic [ref=e413] [cursor=pointer]:
+                    - img [ref=e417]
+                    - generic [ref=e419]: Filter Chip / 방문가능
+                  - generic [ref=e422] [cursor=pointer]:
+                    - img [ref=e426]
+                    - generic [ref=e428]: Filter Chip Text / 방문가능
+                  - generic [ref=e431] [cursor=pointer]:
+                    - img [ref=e435]
+                    - generic [ref=e437]: Mobile Result Header
+                  - generic [ref=e440] [cursor=pointer]:
+                    - img [ref=e444]
+                    - generic [ref=e446]: Mobile Result Count
+                  - generic [ref=e449] [cursor=pointer]:
+                    - img [ref=e453]
+                    - generic [ref=e455]: Button Shape / Mobile Filter Button
+                  - generic [ref=e458] [cursor=pointer]:
+                    - img [ref=e462]
+                    - generic [ref=e464]: Button Text / Mobile Filter Button
+                  - generic [ref=e467] [cursor=pointer]:
+                    - img [ref=e471]
+                    - generic [ref=e473]: Filter Chip / 현대
+                  - generic [ref=e476] [cursor=pointer]:
+                    - img [ref=e480]
+                    - generic [ref=e482]: Filter Chip Text / 현대
+                  - generic [ref=e485] [cursor=pointer]:
+                    - img [ref=e489]
+                    - generic [ref=e491]: Filter Chip / 무사고
+                  - generic [ref=e494] [cursor=pointer]:
+                    - img [ref=e498]
+                    - generic [ref=e500]: Filter Chip Text / 무사고
+                  - generic [ref=e503] [cursor=pointer]:
+                    - img [ref=e507]
+                    - generic [ref=e509]: Mobile Vehicle Card 1
+                  - generic [ref=e512] [cursor=pointer]:
+                    - img [ref=e516]
+                    - generic [ref=e518]: Mobile Photo 1
+                  - generic [ref=e521] [cursor=pointer]:
+                    - img [ref=e525]
+                    - generic [ref=e527]: Car Body
+                  - generic [ref=e530] [cursor=pointer]:
+                    - img [ref=e534]
+                    - generic [ref=e536]: Car Window
+                  - generic [ref=e539] [cursor=pointer]:
+                    - img [ref=e543]
+                    - generic [ref=e545]: Car Light Left
+                  - generic [ref=e548] [cursor=pointer]:
+                    - img [ref=e552]
+                    - generic [ref=e554]: Car Light Right
+                  - generic [ref=e557] [cursor=pointer]:
+                    - img [ref=e561]
+                    - generic [ref=e563]: Car Wheel Left
+                  - generic [ref=e566] [cursor=pointer]:
+                    - img [ref=e570]
+                    - generic [ref=e572]: Car Wheel Right
+                  - generic [ref=e575] [cursor=pointer]:
+                    - img [ref=e579]
+                    - generic [ref=e581]: Mobile Car Title 1
+                  - generic [ref=e584] [cursor=pointer]:
+                    - img [ref=e588]
+                    - generic [ref=e590]: Mobile Car Spec 1
+                  - generic [ref=e593] [cursor=pointer]:
+                    - img [ref=e597]
+                    - generic [ref=e599]: Filter Chip / 진단완료
+                  - generic [ref=e602] [cursor=pointer]:
+                    - img [ref=e606]
+                    - generic [ref=e608]: Filter Chip Text / 진단완료
+                  - generic [ref=e611] [cursor=pointer]:
+                    - img [ref=e615]
+                    - generic [ref=e617]: Filter Chip / 총비용 공개
+                  - generic [ref=e620] [cursor=pointer]:
+                    - img [ref=e624]
+                    - generic [ref=e626]: Filter Chip Text / 총비용 공개
+                  - generic [ref=e629] [cursor=pointer]:
+                    - img [ref=e633]
+                    - generic [ref=e635]: Mobile Total Price 1
+                  - generic [ref=e638] [cursor=pointer]:
+                    - img [ref=e642]
+                    - generic [ref=e644]: Button Shape / Mobile Visit Button 1
+                  - generic [ref=e647] [cursor=pointer]:
+                    - img [ref=e651]
+                    - generic [ref=e653]: Button Text / Mobile Visit Button 1
+                  - generic [ref=e656] [cursor=pointer]:
+                    - img [ref=e660]
+                    - generic [ref=e662]: Mobile Bottom CTA
+                  - generic [ref=e665] [cursor=pointer]:
+                    - img [ref=e669]
+                    - generic [ref=e671]: Mobile Bottom CTA Text
+                - generic [ref=e673] [cursor=pointer]:
+                  - generic [ref=e674]:
+                    - button [expanded] [ref=e675]:
+                      - img [ref=e676]
+                    - img [ref=e679]
+                  - generic [ref=e681]: 중고차 매매 사이트 - Desktop v2 텍스트 / 버튼 강화
+                - generic [ref=e682]:
+                  - generic [ref=e685] [cursor=pointer]:
+                    - img [ref=e689]
+                    - generic [ref=e691]: Desktop Header Background
+                  - generic [ref=e694] [cursor=pointer]:
+                    - img [ref=e698]
+                    - generic [ref=e700]: Header Logo Text
+                  - generic [ref=e703] [cursor=pointer]:
+                    - img [ref=e707]
+                    - generic [ref=e709]: Header Nav Text
+                  - generic [ref=e712] [cursor=pointer]:
+                    - img [ref=e716]
+                    - generic [ref=e718]: Button Shape / Header Consult CTA
+                  - generic [ref=e721] [cursor=pointer]:
+                    - img [ref=e725]
+                    - generic [ref=e727]: Button Text / Header Consult CTA
+                  - generic [ref=e730] [cursor=pointer]:
+                    - img [ref=e734]
+                    - generic [ref=e736]: Hero Main Area
+                  - generic [ref=e739] [cursor=pointer]:
+                    - img [ref=e743]
+                    - generic [ref=e745]: Hero Eyebrow Text
+                  - generic [ref=e748] [cursor=pointer]:
+                    - img [ref=e752]
+                    - generic [ref=e754]: Hero Main Title
+                  - generic [ref=e757] [cursor=pointer]:
+                    - img [ref=e761]
+                    - generic [ref=e763]: Hero Description
+                  - generic [ref=e766] [cursor=pointer]:
+                    - img [ref=e770]
+                    - generic [ref=e772]: Hero Search Card
+                  - generic [ref=e775] [cursor=pointer]:
+                    - img [ref=e779]
+                    - generic [ref=e781]: Input Box / 제조사 / 모델
+                  - generic [ref=e784] [cursor=pointer]:
+                    - img [ref=e788]
+                    - generic [ref=e790]: Input Label / 제조사 / 모델
+                  - generic [ref=e793] [cursor=pointer]:
+                    - img [ref=e797]
+                    - generic [ref=e799]: Input Value / 제조사 / 모델
+                  - generic [ref=e802] [cursor=pointer]:
+                    - img [ref=e806]
+                    - generic [ref=e808]: Input Box / 예산
+                  - generic [ref=e811] [cursor=pointer]:
+                    - img [ref=e815]
+                    - generic [ref=e817]: Input Label / 예산
+                  - generic [ref=e820] [cursor=pointer]:
+                    - img [ref=e824]
+                    - generic [ref=e826]: Input Value / 예산
+                  - generic [ref=e829] [cursor=pointer]:
+                    - img [ref=e833]
+                    - generic [ref=e835]: Input Box / 지역
+                  - generic [ref=e838] [cursor=pointer]:
+                    - img [ref=e842]
+                    - generic [ref=e844]: Input Label / 지역
+                  - generic [ref=e847] [cursor=pointer]:
+                    - img [ref=e851]
+                    - generic [ref=e853]: Input Value / 지역
+                  - generic [ref=e856] [cursor=pointer]:
+                    - img [ref=e860]
+                    - generic [ref=e862]: Button Shape / Hero Search Button
+                  - generic [ref=e865] [cursor=pointer]:
+                    - img [ref=e869]
+                    - generic [ref=e871]: Button Text / Hero Search Button
+                  - generic [ref=e874] [cursor=pointer]:
+                    - img [ref=e878]
+                    - generic [ref=e880]: Hero Car Showcase
+                  - generic [ref=e883] [cursor=pointer]:
+                    - img [ref=e887]
+                    - generic [ref=e889]: Car Body
+                  - generic [ref=e892] [cursor=pointer]:
+                    - img [ref=e896]
+                    - generic [ref=e898]: Car Window
+                  - generic [ref=e901] [cursor=pointer]:
+                    - img [ref=e905]
+                    - generic [ref=e907]: Car Light Left
+                  - generic [ref=e910] [cursor=pointer]:
+                    - img [ref=e914]
+                    - generic [ref=e916]: Car Light Right
+                  - generic [ref=e919] [cursor=pointer]:
+                    - img [ref=e923]
+                    - generic [ref=e925]: Car Wheel Left
+                  - generic [ref=e928] [cursor=pointer]:
+                    - img [ref=e932]
+                    - generic [ref=e934]: Car Wheel Right
+                  - generic [ref=e937] [cursor=pointer]:
+                    - img [ref=e941]
+                    - generic [ref=e943]: Stat Card / 예상 총비용
+                  - generic [ref=e946] [cursor=pointer]:
+                    - img [ref=e950]
+                    - generic [ref=e952]: Stat Title / 예상 총비용
+                  - generic [ref=e955] [cursor=pointer]:
+                    - img [ref=e959]
+                    - generic [ref=e961]: Stat Value / 예상 총비용
+                  - generic [ref=e964] [cursor=pointer]:
+                    - img [ref=e968]
+                    - generic [ref=e970]: Filter Chip / 실매물 확인
+                  - generic [ref=e973] [cursor=pointer]:
+                    - img [ref=e977]
+                    - generic [ref=e979]: Filter Chip Text / 실매물 확인
+                  - generic [ref=e982] [cursor=pointer]:
+                    - img [ref=e986]
+                    - generic [ref=e988]: Quick Filter Bar
+                  - generic [ref=e991] [cursor=pointer]:
+                    - img [ref=e995]
+                    - generic [ref=e997]: Filter Chip / 무사고
+                  - generic [ref=e1000] [cursor=pointer]:
+                    - img [ref=e1004]
+                    - generic [ref=e1006]: Filter Chip Text / 무사고
+                  - generic [ref=e1009] [cursor=pointer]:
+                    - img [ref=e1013]
+                    - generic [ref=e1015]: Filter Chip / 인증중고
+                  - generic [ref=e1018] [cursor=pointer]:
+                    - img [ref=e1022]
+                    - generic [ref=e1024]: Filter Chip Text / 인증중고
+                  - generic [ref=e1027] [cursor=pointer]:
+                    - img [ref=e1031]
+                    - generic [ref=e1033]: Filter Chip / 오늘 방문 가능
+                  - generic [ref=e1036] [cursor=pointer]:
+                    - img [ref=e1040]
+                    - generic [ref=e1042]: Filter Chip Text / 오늘 방문 가능
+                  - generic [ref=e1045] [cursor=pointer]:
+                    - img [ref=e1049]
+                    - generic [ref=e1051]: Filter Chip / 총비용 공개
+                  - generic [ref=e1054] [cursor=pointer]:
+                    - img [ref=e1058]
+                    - generic [ref=e1060]: Filter Chip Text / 총비용 공개
+                  - generic [ref=e1063] [cursor=pointer]:
+                    - img [ref=e1067]
+                    - generic [ref=e1069]: Button Shape / Open Filter Button
+                  - generic [ref=e1072] [cursor=pointer]:
+                    - img [ref=e1076]
+                    - generic [ref=e1078]: Button Text / Open Filter Button
+                  - generic [ref=e1081] [cursor=pointer]:
+                    - img [ref=e1085]
+                    - generic [ref=e1087]: Section Heading
+                  - generic [ref=e1090] [cursor=pointer]:
+                    - img [ref=e1094]
+                    - generic [ref=e1096]: Section Subcopy
+                  - generic [ref=e1099] [cursor=pointer]:
+                    - img [ref=e1103]
+                    - generic [ref=e1105]: Left Filter Panel v2
+                  - generic [ref=e1108] [cursor=pointer]:
+                    - img [ref=e1112]
+                    - generic [ref=e1114]: Filter Panel Title
+                  - generic [ref=e1117] [cursor=pointer]:
+                    - img [ref=e1121]
+                    - generic [ref=e1123]: Filter Panel Count
+                  - generic [ref=e1126] [cursor=pointer]:
+                    - img [ref=e1130]
+                    - generic [ref=e1132]: Input Box / 가격
+                - generic [ref=e145] [cursor=pointer]:
+                  - generic [ref=e146]:
+                    - button [ref=e147]:
+                      - img [ref=e148]
+                    - img [ref=e151]
+                  - generic [ref=e153]: 디자인 토큰과 UX 근거
+                - generic [ref=e155] [cursor=pointer]:
+                  - generic [ref=e156]:
+                    - button [ref=e157]:
+                      - img [ref=e158]
+                    - img [ref=e161]
+                  - generic [ref=e163]: 중고차 매매 사이트 - Mobile 390
+                - generic [ref=e165] [cursor=pointer]:
+                  - generic [ref=e166]:
+                    - button [ref=e167]:
+                      - img [ref=e168]
+                    - img [ref=e171]
+                  - generic [ref=e173]: 중고차 매매 사이트 - Desktop 1440
+    - complementary [ref=e174]:
+      - generic [ref=e175]:
+        - button "132 rjsgml" [ref=e177] [cursor=pointer]:
+          - list [ref=e178]:
+            - listitem "132 rjsgml" [ref=e179]:
+              - img "132 rjsgml" [ref=e180]
+        - generic "Zoom" [ref=e182] [cursor=pointer]:
+          - generic [ref=e183]: 30%
+        - button "Comments (C)" [ref=e185] [cursor=pointer]:
+          - img [ref=e186]
+        - button "History" [ref=e189] [cursor=pointer]:
+          - img [ref=e190]
+        - generic "View mode (G V)" [ref=e192] [cursor=pointer]:
+          - img [ref=e193]
+      - generic [ref=e197]:
+        - navigation [ref=e199]:
+          - tablist [ref=e200]:
+            - listitem [ref=e201]:
+              - tab "Design" [selected] [ref=e202]:
+                - generic [ref=e203]: Design
+            - listitem [ref=e204]:
+              - tab "Prototype" [ref=e205]:
+                - generic [ref=e206]: Prototype
+            - listitem [ref=e207]:
+              - tab "Inspect" [ref=e208]:
+                - generic [ref=e209]: Inspect
+        - tabpanel "Design" [ref=e210]:
+          - generic [ref=e212]:
+            - generic [ref=e215]: Canvas background
+            - generic [ref=e219]:
+              - generic "#E8E9EA" [ref=e221]:
+                - button "#E8E9EA" [ref=e222] [cursor=pointer]
+              - textbox "Color" [ref=e227]:
+                - /placeholder: Mixed
+                - text: E8E9EA
+  - generic "Used Car Site Generator v2":
+    - generic [ref=e1134]:
+      - generic [ref=e1135]:
+        - heading "Used Car Site Generator v2" [level=1] [ref=e1136]
+        - button [ref=e1137] [cursor=pointer]:
+          - img [ref=e1139]
+      - iframe [ref=e1146]:
+        - generic [ref=f4e2]: Not found

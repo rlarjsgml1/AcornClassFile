@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        section{
+            background: url(images/d8a7fe1b-a91c-4564-944d-55478e322099.jpg);
+            height: 900px;
+            width: 100%;
+            background-size: cover;
+        }
+        .firPart span{
+            color: aliceblue;
+            font-size: 50px;
+            position: absolute;
+            top: 52%;
+            right: 5%;
+            animation: movIn 2s ease-out;
+        }
+        @keyframes movIn {
+            from{
+                right: -10%;
+                opacity: 0;
+            } to {
+                right: 5%;
+                opacity: 1;
+            }
+        }
+        .firPart p{
+            color: aliceblue;
+            font-size: 20px;
+            position: absolute;
+            top: 52%;
+            right: 5%;
+            animation: movIn2 2s ease-out;
+        }
+        @keyframes movIn2{
+            from{
+                left: -10%;
+            } to {
+                left: 5%;
+            }
+
+        }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="firPart">
+        <span>pour un logiciel CRM</span>
+        <p>
+          맛도리잖어 아니 배고픈데 니 뭔데 꺼져버려<br />
+          아니 니가 꺼져 맛도리인데 <br />
+          그럼 한입만
+        </p>
+      </div>
+    </section>
+  </body>
+</html>

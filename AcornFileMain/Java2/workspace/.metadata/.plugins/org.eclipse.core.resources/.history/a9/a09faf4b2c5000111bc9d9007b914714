@@ -1,0 +1,13 @@
+package day1prac.제네릭클래스;
+
+import java.util.ArrayList;
+
+public class ArrayList노제네릭버전 {
+	public static void main(String[] args) {
+		ArrayList list = new ArrayList();
+		
+		list.add(new Score( "홍길동", 99 ,100));
+		list.add( new Score( "김길동", 100,99));
+		list.add("hello");
+	}
+}

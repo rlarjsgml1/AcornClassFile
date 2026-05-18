@@ -1,0 +1,21 @@
+package day1prac.라이브러리만들기;
+
+public class MyLib {
+	public void Star() {
+		System.out.println("⭐");
+	}
+	
+	public void printChar(char ch) {
+		for(int i = 1; i<=3; i++) {
+			System.out.println(ch);
+		}
+	}
+	
+	
+	//당신의 코드 => 인터페이스 사용( 약속 정하기) : 약속을 지키면서 당신의 코드르 적용
+	public void codeRun(CodeRunnable r) {
+		
+		r.codeRun();
+		
+	}
+}

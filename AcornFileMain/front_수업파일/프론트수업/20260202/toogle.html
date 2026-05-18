@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toogle 토글 버튼</title>
+    <style>
+        img{
+            width: 200px;
+            height: 200px;
+        }
+        .pic1{
+            display: block;
+        }
+        .pic2{
+            display: none;
+        }
+        .pic1.active{
+            display: none;
+        }
+        .pic2.active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <img src="../20260130/imges/책.jpg" class="pic1">
+    <img src="../20260130/imges/슬리퍼.jpg" class="pic2">
+    <button class="toogleBtn">토글 버튼</button>
+    <script>
+        const toogleBtn = document.querySelector(".toogleBtn");
+        const pic1 = document.querySelector(".pic1");
+        const pic2 = document.querySelector(".pic2");
+
+        toogleBtn.addEventListener("click", ()=>{
+            pic1.classList.toggle("active"); //active가 없으면 추가해주고 
+            pic2.classList.toggle("active"); //active가 있다면 빼준다
+        })
+    </script>
+</body>
+</html>

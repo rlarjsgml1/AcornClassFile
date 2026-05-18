@@ -1,0 +1,182 @@
+- generic [ref=e1]:
+  - img
+  - img
+  - img
+  - generic [ref=e566]:
+    - generic [ref=e567]:
+      - list [ref=e570]:
+        - listitem [ref=e571]:
+          - button "Color Palette (Alt+P)" [ref=e572] [cursor=pointer]:
+            - img [ref=e573]
+        - listitem [ref=e575]:
+          - button "Typographies (Alt+T)" [ref=e576] [cursor=pointer]:
+            - img [ref=e577]
+      - button [ref=e581] [cursor=pointer]:
+        - img [ref=e582]
+    - generic [ref=e586]:
+      - complementary [ref=e587]:
+        - list [ref=e588]:
+          - listitem [ref=e589]:
+            - button "Move (V)" [ref=e590] [cursor=pointer]:
+              - img [ref=e591]
+          - listitem [ref=e593]:
+            - button "Board (B)" [ref=e594] [cursor=pointer]:
+              - img [ref=e595]
+          - listitem [ref=e597]:
+            - button "Rectangle (R)" [ref=e598] [cursor=pointer]:
+              - img [ref=e599]
+          - listitem [ref=e601]:
+            - button "Ellipse (E)" [ref=e602] [cursor=pointer]:
+              - img [ref=e603]
+          - listitem [ref=e605]:
+            - button "Text (T)" [ref=e606] [cursor=pointer]:
+              - img [ref=e607]
+          - listitem [ref=e609]:
+            - button "Image (Shift+K)" [ref=e610] [cursor=pointer]:
+              - img [ref=e611]
+          - listitem [ref=e613]:
+            - button "Curve (Shift+C)" [ref=e614] [cursor=pointer]:
+              - img [ref=e615]
+          - listitem [ref=e617]:
+            - button "Path (P)" [ref=e618] [cursor=pointer]:
+              - img [ref=e619]
+          - listitem [ref=e621]:
+            - button "Plugins (Ctrl+Alt+P)" [active] [ref=e622] [cursor=pointer]:
+              - img [ref=e623]
+        - button "Toggle toolbar" [ref=e625] [cursor=pointer]
+      - generic:
+        - img
+      - img
+      - img [ref=e627]:
+        - generic [ref=e628]:
+          - generic:
+            - generic:
+              - generic:
+                - generic: "-200"
+                - generic: "-150"
+                - generic: "-100"
+                - generic: "-50"
+                - generic: "0"
+                - generic: "50"
+                - generic: "100"
+                - generic: "150"
+                - generic: "200"
+                - generic: "250"
+                - generic: "300"
+                - generic: "350"
+                - generic: "400"
+                - generic: "450"
+                - generic: "500"
+                - generic: "550"
+                - generic: "600"
+                - generic: "650"
+              - generic:
+                - generic: "0"
+                - generic: "50"
+                - generic: "100"
+                - generic: "150"
+                - generic: "200"
+                - generic: "250"
+                - generic: "300"
+                - generic: "350"
+                - generic: "400"
+                - generic: "450"
+                - generic: "500"
+                - generic: "550"
+                - generic: "600"
+                - generic: "650"
+    - complementary [ref=e631]:
+      - generic [ref=e632]:
+        - img [ref=e634] [cursor=pointer]
+        - generic [ref=e636]:
+          - generic [ref=e637] [cursor=pointer]: New Project 1
+          - generic "New File 3" [ref=e638] [cursor=pointer]:
+            - generic [ref=e640]: New File 3
+        - generic "Main menu" [ref=e642]:
+          - button "Main menu" [ref=e643]:
+            - img [ref=e644]
+      - generic [ref=e648]:
+        - navigation [ref=e650]:
+          - button "Collapse sidebar" [ref=e651] [cursor=pointer]:
+            - img "Collapse sidebar" [ref=e652]
+          - tablist [ref=e654]:
+            - listitem [ref=e655]:
+              - tab "Layers" [selected] [ref=e656]:
+                - generic [ref=e657]: Layers
+            - listitem [ref=e658]:
+              - tab "Assets" [ref=e659]:
+                - generic [ref=e660]: Assets
+            - listitem [ref=e661]:
+              - tab "Tokens" [ref=e662]:
+                - generic [ref=e663]: Tokens
+        - tabpanel "Layers" [ref=e664]:
+          - article [ref=e665]:
+            - generic [ref=e666]:
+              - generic [ref=e667]:
+                - button "Pages" [ref=e669] [cursor=pointer]:
+                  - img [ref=e670]
+                  - generic [ref=e672]: Pages
+                - generic "Add page" [ref=e673]:
+                  - button "Add page" [ref=e674]:
+                    - img [ref=e675]
+              - list [ref=e678]:
+                - listitem [ref=e679] [cursor=pointer]:
+                  - generic [ref=e680]:
+                    - img [ref=e682]
+                    - generic "Page 1" [ref=e684]
+            - generic [ref=e689]:
+              - generic [ref=e690]: Page 1
+              - generic "검색" [ref=e691]:
+                - button "검색" [ref=e692]:
+                  - img [ref=e693]
+    - complementary [ref=e696]:
+      - generic [ref=e697]:
+        - button "132 rjsgml" [ref=e699] [cursor=pointer]:
+          - list [ref=e700]:
+            - listitem "132 rjsgml" [ref=e701]:
+              - img "132 rjsgml" [ref=e702]
+        - generic "Zoom" [ref=e704] [cursor=pointer]:
+          - generic [ref=e705]: 100%
+        - button "Comments (C)" [ref=e707] [cursor=pointer]:
+          - img [ref=e708]
+        - button "History" [ref=e711] [cursor=pointer]:
+          - img [ref=e712]
+        - generic "View mode (G V)" [ref=e714] [cursor=pointer]:
+          - img [ref=e715]
+      - generic [ref=e719]:
+        - navigation [ref=e721]:
+          - tablist [ref=e722]:
+            - listitem [ref=e723]:
+              - tab "Design" [selected] [ref=e724]:
+                - generic [ref=e725]: Design
+            - listitem [ref=e726]:
+              - tab "Prototype" [ref=e727]:
+                - generic [ref=e728]: Prototype
+            - listitem [ref=e729]:
+              - tab "Inspect" [ref=e730]:
+                - generic [ref=e731]: Inspect
+        - tabpanel "Design" [ref=e732]:
+          - generic [ref=e734]:
+            - generic [ref=e737]: Canvas background
+            - generic [ref=e741]:
+              - generic "#E8E9EA" [ref=e743]:
+                - button "#E8E9EA" [ref=e744] [cursor=pointer]
+              - textbox "Color" [ref=e749]:
+                - /placeholder: Mixed
+                - text: E8E9EA
+  - generic [ref=e887]:
+    - button [ref=e888] [cursor=pointer]:
+      - img [ref=e889]
+    - generic [ref=e891]: Plugins
+    - generic [ref=e892]:
+      - generic [ref=e893]:
+        - textbox "Write a plugin URL" [ref=e896]
+        - button "Install" [ref=e897] [cursor=pointer]
+      - separator [ref=e898]
+      - generic [ref=e899]:
+        - img [ref=e901]
+        - generic [ref=e903]: No plugins installed yet
+        - link "Plugins List" [ref=e904] [cursor=pointer]:
+          - /url: https://penpot.app/penpothub/plugins
+          - text: Plugins List
+          - img [ref=e905]

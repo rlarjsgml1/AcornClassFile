@@ -1,0 +1,20 @@
+package day1prac.myarrays;
+
+public class MyArrayEx {
+
+	public static void main(String[] args) {
+		Acorn a = new Acorn("T1", "장해든", 23) ;
+		Acorn b = new Acorn("T2", "박세인", 24) ;
+		Acorn c = new Acorn("T3", "김건희", 25) ;
+		Acorn[] list = {a,b,c};
+		
+		MyArrays.sort(list);
+		
+		/*
+		 Exception in thread "main" java.lang.ClassCastException: class day1prac.myarrays.Acorn cannot be cast to class day1prac.myarrays.MyComparable (day1prac.myarrays.Acorn and day1prac.myarrays.MyComparable are in module java2prj of loader 'app')
+		 at java2prj/day1prac.myarrays.MyArrays.sort(MyArrays.java:22)
+		 at java2prj/day1prac.myarrays.MyArrayEx.main(MyArrayEx.java:11)
+		 */
+	}
+
+}

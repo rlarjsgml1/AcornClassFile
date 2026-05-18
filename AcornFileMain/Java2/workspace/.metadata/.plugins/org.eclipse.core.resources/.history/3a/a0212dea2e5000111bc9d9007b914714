@@ -1,0 +1,7 @@
+package day1prac.제네릭클래스;
+
+public class BoxGMain {
+	public static void main(String[] args) {
+
+	}
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h1{
+        font-size: 50px;
+        font-family: Arial,Helvetica, sans-serif;;
+    }
+    .shadow1{
+        color: olive;
+        text-shadow: 20px 20px 20px gray;
+        /* 가로,세로,번짐정도,색상 */
+    }
+    .shadow2{
+        color: blue;
+        text-shadow: 3px 3px;
+    }
+    .shadow3 {
+        color: aliceblue;
+        text-shadow: 7px -7px 5px gray;
+    }
+    .shadow4 {
+        color: aquamarine;
+        text-shadow: 0px 0px 4px lightgray, 2px -10px 6px yellow, 
+        2px -19px 18px red, 2px 19px 18px orange;
+    }
+    .wordArtEffect{
+        color: white;
+        text-shadow: 0px 0px 3px darkblue;
+    }
+    .threeDEffect{
+        color: white;
+        text-shadow: 2px 2px 4px black;
+    }
+    .multiEffect{
+        color: yellow;
+        text-shadow: 2px 2px 2px black, 0px 0px 25px blue, 0px 0px 5px darkblue;
+    }
+    .redbox{
+        box-shadow: 10px 10px red;
+        width: 150px;
+        height: 70px;
+        padding: 10px;
+        border: 10px solid lightgray;
+        background-image: url(../20260123/images/루피.png);
+        /* 배경이미지 사이즈 조절 */
+        background-size: 150px 100px;
+        /* 이미지 반복 안함 */
+        background-repeat: no-repeat;
+    }
+    .bluebox{
+        border: 10px solid lightgrey;
+        padding: 10px;
+        width: 150px;
+        height: 70px;
+        box-shadow: 10px 10px 5px skyblue;
+        background-image: url(../20260123/images/루피.png);
+        background-size: 150px 150px;
+        background-repeat: no-repeat;
+    }
+</style>
+<body>
+    <h1 class="shadow1">HTML5</h1>
+    <h1 class="shadow2">HTML5</h1>
+    <h1 class="shadow3">HTML5</h1>
+    <h1 class="shadow4">HTML5</h1>
+    <div class="wordArtEffect">WordArt Effect</div>
+    <div class="threeDEffect">3D Effect</div>
+    <div class="multiEffect">Multiple Show Effect</div>
+
+    <hr>
+    <h3>박스 그림자 만들기</h3>
+    <div class="redbox">스폰지밥과 함께</div>
+    <div class="bluebox">스폰지밥과 함께</div>
+    <div class="multiEffect">스폰지밥과 함께</div>
+
+    <hr>
+    <h3>마우스 커서</h3>
+    <p style="cursor: crosshair;">십자 모양 커서</p>
+    <p style="cursor: pointer;">포인터 모양 커서</p>
+    <p style="cursor: help;">도움말 모양 커서</p>
+    <p style="cursor: progress;">프로그램 실행 중 모양 커서</p>
+    <p style="cursor: n-resize;">상하 크기 조절 모양 커서</p>
+</body>
+</html>

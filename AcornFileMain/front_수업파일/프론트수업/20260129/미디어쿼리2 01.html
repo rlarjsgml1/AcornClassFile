@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .container{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .item{
+        color: black;
+        border: 3px solid blue;
+        padding: 30px;
+        margin: 5px;
+    }
+    /* 테블릿 */
+    @media (min-width: 768px) {
+        .container{
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        .item{
+            width: 50%;
+        }
+    }
+    /* pc */
+    @media (min-width: 1024px) {
+        .container{
+            flex-wrap: nowrap;
+        }
+        .item{
+            width: 30%;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">상품1</div>
+        <div class="item">상품2</div>
+        <div class="item">상품3</div>
+    </div>
+    
+</body>
+</html>

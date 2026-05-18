@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/4ec79785b5.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .nav1 {
+        background-color: 	#dfd3c3;
+        display: flex;
+        justify-content: space-around;
+        height: 100px;
+        align-items: center;
+        padding-top: 5px;
+      }
+      .img1 {
+        width: 80px;
+      }
+      .button1 {
+        width: 30px;
+        height: 30px;
+        background-color: white;
+        border: 1px solid;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+      ul {
+        list-style: none;
+        display: flex;
+      }
+      .ul1 {
+        justify-content: flex-end;
+        align-items: center;
+      }
+      li {
+        padding: 15px 10px;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+        font-size: 180;
+      }
+      a:hover {
+        color: gray;
+      }
+
+      .menu1 {
+        display: flex;
+      }
+      .item1 {
+        position: relative;
+      }
+      .m-mega1 {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100vw;
+        background: #2c2a29;
+        color: white;
+        display: none;
+        padding: 40px;
+      }
+      .item1:hover .m-mega1 {
+        display: flex;
+      }
+      @media screen and (max-width: 768px) {
+        .nav1 {
+          height: 180px;
+          align-items: flex-end;
+        }
+        .navbar ul {
+          flex-direction: column;
+        }
+        .navbar ul li {
+          line-height: 2;
+        }
+        .navbar {
+          display: none;
+        }
+      }
+      /* main1 */
+      .main1 {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background-image: url(images/12345.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 500px;
+        width: 1400px;
+        margin: 0 auto;
+      }
+      .ment1 {
+        position: relative;
+        top: 200px;
+        left: 45px;
+        font-size: 2em;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        animation: movIn1 1s ease-out;
+      }
+      @keyframes movIn1{
+        from{
+                right: -10%;
+                opacity: 0;
+            } to {
+                right: 5%;
+                opacity: 1;
+            }
+      }
+      .ment2 {
+        position: relative;
+        top: 200px;
+        left: 45px;
+        font-size: 2em;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        animation: movIn2 2s ease-out;
+      }
+      @keyframes movIn2{
+            from{
+                right: -10%;
+                opacity: 0;
+            } to {
+                right: 3%;
+                opacity: 1;
+            }
+
+        }
+      .button2 {
+        position: relative;
+        top: 250px;
+        left: 45px;
+        background-color: white;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border: 0;
+        padding: 5px 24px;
+        font-weight: 400;
+        cursor: pointer;
+      }
+
+      /* main2 */
+      .section1{
+        background-image: url('https://image.istarbucks.co.kr/upload/common/img/main/2025/2026_new_year_promotion_bg_251226.jpg');
+        height: 500px;
+        width: 1400px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        margin: 0 auto;
+      }
+      .firPart span{
+        color: aliceblue;
+            font-size: 30px;
+            position: absolute;
+            top: 40%;
+            right: 10%;
+            animation: movIn3 1s ease-out;
+        }
+        @keyframes movIn3 {
+            from{
+                right: -15%;
+            } to {
+                right: 10%;
+            }
+        }
+        .firPart .title1{
+            color: aliceblue;
+            font-size: 32px;
+            position: absolute;
+            top: 50%;
+            right: 10%;
+            animation: movIn4 1s ease-out;
+        }
+        @keyframes movIn4 {
+            from{
+                right: -15%;
+            } to {
+                right: 10%;
+            }
+        }
+        .firPart .title2{
+            color: aliceblue;
+            font-size: 18px;
+            position: absolute;
+            top: 60%;
+            right: 10%;
+            animation: movIn5 1s ease-out;
+        }
+        @keyframes movIn5 {
+            from{
+                right: -15%;
+            } to {
+                right: 10%;
+            }
+        }
+      .firPart .button3{
+        position: absolute;
+        top: 80%;
+        right: 10%;
+        background-color: white;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border: 0;
+        padding: 5px 24px;
+        cursor: pointer;
+        animation: movIn6 1s ease-out;
+      }
+      @keyframes movIn6{
+            from{
+                right: -10%;
+            } to {
+                right: 10%;
+            }
+
+        }
+        .firPart .img2{
+            color: aliceblue;
+            font-size: 20px;
+            position: absolute;
+            top: 2%;
+            left: 20%;
+            animation: movIn2 1s ease-out;
+        }
+        @keyframes movIn2{
+            from{
+                left: -10%;
+            } to {
+                left: 20%;
+            }
+
+        }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="nav1">
+        <div class="log">
+          <h1>
+            &nbsp;<img
+              src="images/icons8-스타-벅스-144.png"
+              alt=""
+              class="img1"
+            />
+          </h1>
+        </div>
+        <div class="navbar">
+          <ul class="ul1">
+            <li><a href="#">Sign in</a></li>
+            <li><a href="#">My Starbucks</a></li>
+            <li><a href="#">Customer Service & Ideas</a></li>
+            <li><a href="#">Find a Store</a></li>
+            <div class="icons">
+              <ul>
+                <li>
+                  <button class="button1">
+                    <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </ul>
+          <ul class="ul2">
+            <ul class="menu1">
+              <li class="item1">
+                <a href="#">COFFEE</a>
+                <div class="m-mega1">
+                  <div class="m-column">
+                    <h4>커피</h4>
+                    <p>스타벅스 원두</p>
+                    <p>스타벅스 비아</p>
+                    <p>스타벅스 오리가미</p>
+                  </div>
+
+                  <div class="m-mega1">
+                    <h4>커피 이야기</h4>
+                    <p>농장에서 우리의 손으로</p>
+                    <p>스타벅스 로스트 스펙트럼</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <li><a href="#">MENU</a></li>
+            <li><a href="#">STORE</a></li>
+            <li><a href="#">ESG</a></li>
+            <li><a href="#">STARBUCKSREWARDS</a></li>
+            <li><a href="#">CORPORATESALES</a></li>
+            <li><a href="#">WHAT'S New</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- main1 -->
+    <main class="main1">
+      <div class="ment1">Happy New Year</div>
+      <div class="ment2">my Budd my Friends</div>
+      <button class="button2">자세히 보기</button>
+    </main>
+
+    <!-- main2 -->
+    <main class="main2">
+        <section class="section1">
+            <div class="firPart">
+                <span>NOTES OF JUJUBE & VIBRANT HERBS</span>
+                <p class="title1">루나 뉴이어 블렌드</p>
+                <P class="title2">대추와 허브의 깊은 풍미에 달콤한 시럽 피니시, 풍부한 바다감으로 <br>
+                설날의 따듯함을 담은 시즌 한정 원두입니다</P>
+                <button class="button3">자세히 보기</button>
+                <img src="images/123.png" alt="" class="img2">
+            </div>
+        </section>
+    </main>
+  </body>
+</html>
