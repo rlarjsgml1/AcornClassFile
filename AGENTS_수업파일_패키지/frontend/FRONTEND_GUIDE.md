@@ -14,6 +14,6 @@
 
 ```text
 FRONTEND_RULES.md
+CSS_FOUNDATION_RULES.md
 ASSET_RULES.md
 ```
-

@@ -58,10 +58,13 @@ AGENTS_수업파일_패키지/
 code/JAVA_ECLIPSE.md
 code/JAVA_WEB.md
 code/JAVASCRIPT.md
-backend/README.md
-frontend/README.md
-디자인/README.md
-모델/README.md
+code/CODE_REVIEW_99_CHECKLIST.md
+backend/BACKEND_GUIDE.md
+backend/API_SECURITY.md
+backend/BACKEND_REVIEW_99_CHECKLIST.md
+frontend/FRONTEND_GUIDE.md
+디자인/DESIGN_GUIDE.md
+모델/MODEL_GUIDE.md
 규칙/GIT_SOURCE_TREE.md
 logs/개발로그.md
 logs/디버깅로그.md
