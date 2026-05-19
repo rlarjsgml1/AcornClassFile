@@ -92,6 +92,10 @@ logs
 Java2 / Eclipse          code/JAVA_ECLIPSE.md
 WEB_CLOUD / JSP/Servlet  code/JAVA_WEB.md, backend/BACKEND_GUIDE.md
 프론트 화면              frontend/FRONTEND_GUIDE.md, 디자인/DESIGN_GUIDE.md
+헤더 / 네비게이션        frontend/HEADER_COMPONENT_RULES.md, frontend/STATIC_HEADER_REDESIGN_WORKFLOW.md, 디자인/MOTION_INTERACTION_RULES.md
+브랜드 참고 리디자인      디자인/REFERENCE_BRAND_TRANSFORM_RULES.md
+색상 / 버튼 테마         디자인/COLOR_SYSTEM_RULES.md
+폴더명 정리              규칙/FOLDER_NAMING_RULES.md
 서버 / DB 흐름           backend/BACKEND_RULES.md, backend/SERVICE_DAO.md
 백엔드 보안              backend/API_SECURITY.md
 DTO / JSON / DB 모델      모델/MODEL_GUIDE.md, 모델/DATA_MODEL.md
@@ -108,6 +112,8 @@ Git / SourceTree         규칙/GIT_SOURCE_TREE.md
 - 수업 소스, 과제 풀이, README, 정리 문서는 커밋합니다.
 - SourceTree에서 전체 선택하기 전에 불필요한 파일이 포함되어 있는지 확인합니다.
 - GitHub에 push하기 전 커밋 메시지와 변경 파일 목록을 확인합니다.
+- 정적 UI 결과물은 `First`, `second` 같은 임시 이름보다 실제 콘셉트명으로 정리합니다.
+- 특정 브랜드 느낌을 참고한 화면은 원본을 그대로 가져오지 않고 새 브랜드와 새 문구로 변형합니다.
 
 ## 로그 작성 기준
 

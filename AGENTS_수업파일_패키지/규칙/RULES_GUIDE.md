@@ -8,6 +8,7 @@
 공통규칙.md
 안전규칙.md
 GIT_SOURCE_TREE.md
+FOLDER_NAMING_RULES.md
 검토체크리스트.md
 ```
 
@@ -17,4 +18,3 @@ GIT_SOURCE_TREE.md
 2. 저장소 루트 `AGENTS.md`
 3. 이 폴더의 공통 규칙
 4. 작업 분야별 세부 문서
-

@@ -13,6 +13,7 @@
 - 기존 HTML 구조와 CSS 네이밍을 우선 따릅니다.
 - CSS 수정은 영향 범위를 확인합니다.
 - 폰트, 크기, 여백, 박스 모델은 `CSS_FOUNDATION_RULES.md` 기준을 우선합니다.
+- 정적 헤더와 여러 HTML 페이지를 함께 바꿀 때는 `STATIC_HEADER_REDESIGN_WORKFLOW.md` 순서로 확인합니다.
 - JavaScript 이벤트는 중복 바인딩되지 않게 합니다.
 - Ajax/fetch 요청은 URL, method, request body, response를 구분합니다.
 - 화면 검증은 브라우저 Console과 실제 클릭 동작을 기준으로 합니다.
@@ -24,6 +25,7 @@
 - 새 프로젝트나 폰트 기준이 없으면 `CSS_FOUNDATION_RULES.md`의 한국어 기본 스택을 사용합니다.
 - 폰트 크기, 여백, 카드 크기, 버튼 높이는 임의 숫자보다 정해진 scale을 사용합니다.
 - 모바일과 데스크톱에서 텍스트가 버튼, 카드, 입력창 밖으로 넘치지 않는지 확인합니다.
+- 브랜드 참고 리디자인은 `디자인/REFERENCE_BRAND_TRANSFORM_RULES.md` 기준으로 복제와 변형을 구분합니다.
 
 ## JSP 화면
 

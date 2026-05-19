@@ -29,6 +29,10 @@ Git / SourceTree         규칙/GIT_SOURCE_TREE.md
 Java2 / Eclipse          code/JAVA_ECLIPSE.md
 WEB_CLOUD / JSP/Servlet  code/JAVA_WEB.md, backend/BACKEND_GUIDE.md
 Frontend 화면            frontend/FRONTEND_GUIDE.md, 디자인/DESIGN_GUIDE.md
+Header / Navigation      frontend/HEADER_COMPONENT_RULES.md, frontend/STATIC_HEADER_REDESIGN_WORKFLOW.md, 디자인/MOTION_INTERACTION_RULES.md
+Reference Style Redesign 디자인/REFERENCE_BRAND_TRANSFORM_RULES.md
+Color / Button Theme     디자인/COLOR_SYSTEM_RULES.md
+Folder Naming            규칙/FOLDER_NAMING_RULES.md
 Backend / DAO / DB       backend/BACKEND_RULES.md, backend/SERVICE_DAO.md
 DTO / DB / JSON 모델      모델/MODEL_GUIDE.md, 모델/DATA_MODEL.md
 문서 / README            문서/DOCUMENT_GUIDE.md, 문서/문서_작성규칙.md
@@ -56,6 +60,8 @@ DTO / DB / JSON 모델      모델/MODEL_GUIDE.md, 모델/DATA_MODEL.md
 - 기존 구조와 코드 스타일을 우선합니다.
 - 큰 변경보다 작고 되돌리기 쉬운 변경을 우선합니다.
 - 사용자가 만든 변경을 임의로 되돌리지 않습니다.
+- 특정 브랜드 느낌을 참고할 때는 원본 로고, 이미지, 코드, 고유 문구를 그대로 복사하지 않고 새 콘셉트로 변형합니다.
+- `First`, `second`, `test` 같은 임시 폴더명은 결과물 콘셉트가 정해지면 실제 이름으로 바꿉니다.
 - 코드 수정 후에는 변경 파일, 변경 이유, 검증 여부를 짧게 보고합니다.
 
 ## 5. Git 기준
