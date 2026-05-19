@@ -1,7 +1,33 @@
 # AGENTS.md
 
 이 문서는 `AcornClassFile` 저장소에서 AI 코딩 에이전트가 작업할 때 따르는 공통 지침입니다.
-세부 기술 규칙은 필요한 경우 `docs/*.md`에서만 확인합니다.
+세부 기술 규칙은 기능별 폴더의 `.md` 파일에서 확인합니다.
+
+## 0. 기능별 문서 구조
+
+새 작업은 아래 폴더 기준으로 먼저 확인합니다. 기존 `docs/` 폴더는 이전 문서와 호환용으로 유지합니다.
+
+```text
+문서/       README, 수업자료, 문서 작성 기준
+code/       Java, Java Web, Android, JavaScript, SQL 코드 기준
+규칙/       공통 규칙, 안전 규칙, Git/SourceTree 기준
+디자인/     UI 디자인과 UX 점검 기준
+모델/       DTO, VO, DB, JSON, 도메인 모델 기준
+frontend/   HTML, CSS, JavaScript, JSP 화면 기준
+backend/    Servlet, Service, DAO, DB 연동 기준
+logs/       개발로그, 디버깅로그
+docs/       기존 세부 문서 보관
+```
+
+작업별 우선 확인 문서:
+
+- 문서 수정: `문서/README.md`
+- Java2, Eclipse: `code/JAVA_ECLIPSE.md`
+- WEB_CLOUD, JSP, Servlet: `code/JAVA_WEB.md`, `backend/README.md`
+- 프론트엔드 화면: `frontend/README.md`, `디자인/README.md`
+- DTO, DB, JSON 구조: `모델/README.md`
+- Git, SourceTree: `규칙/GIT_SOURCE_TREE.md`
+- 에러 해결: `logs/디버깅로그.md`, `규칙/검토체크리스트.md`
 
 ## 1. 사용자 기준
 
@@ -31,14 +57,16 @@
 
 ## 4. 세부 문서 사용 기준
 
-- Java, Java2, Eclipse workspace 작업은 `docs/JAVA_ECLIPSE.md`를 확인합니다.
-- Java 웹, JSP, Servlet, Tomcat, WEB_CLOUD 작업은 `docs/JAVA_WEB.md`를 확인합니다.
-- Kotlin, Android Studio, Gradle, Android 앱 작업은 `docs/ANDROID.md`를 확인합니다.
-- JavaScript, 프론트엔드, Node.js, VSCode 작업은 `docs/JAVASCRIPT.md`를 확인합니다.
-- GitHub, SourceTree, 커밋, push 작업은 `docs/GIT_WORKFLOW.md`를 확인합니다.
-- 에러 분석, 로그 해석, 디버깅 작업은 `docs/DEBUGGING.md`를 확인합니다.
-- 새 언어, 새 프로그램, 새 도구를 추가할 때는 `docs/TOOLS_AND_PROGRAMS.md` 형식을 따릅니다.
-- AGENTS 문서 자체를 점검할 때는 `docs/AGENTS_REVIEW_CHECKLIST.md`를 확인합니다.
+- Java, Java2, Eclipse workspace 작업은 `code/JAVA_ECLIPSE.md`를 확인합니다.
+- Java 웹, JSP, Servlet, Tomcat, WEB_CLOUD 작업은 `code/JAVA_WEB.md`와 `backend/README.md`를 확인합니다.
+- Kotlin, Android Studio, Gradle, Android 앱 작업은 `code/ANDROID_KOTLIN.md`를 확인합니다.
+- JavaScript, 프론트엔드, Node.js, VSCode 작업은 `code/JAVASCRIPT.md`와 `frontend/README.md`를 확인합니다.
+- SQL, DB, DAO 매핑 작업은 `code/SQL_DATABASE.md`와 `모델/DATA_MODEL.md`를 확인합니다.
+- GitHub, SourceTree, 커밋, push 작업은 `규칙/GIT_SOURCE_TREE.md`를 확인합니다.
+- 에러 분석, 로그 해석, 디버깅 작업은 `logs/디버깅로그.md`와 `규칙/검토체크리스트.md`를 확인합니다.
+- 디자인과 화면 흐름 작업은 `디자인/README.md`를 확인합니다.
+- 새 언어, 새 프로그램, 새 도구를 추가할 때는 `문서/문서_작성규칙.md` 형식을 따릅니다.
+- AGENTS 문서 자체를 점검할 때는 `규칙/검토체크리스트.md`를 확인합니다.
 
 ## 5. Git 공통 원칙
 

@@ -41,20 +41,30 @@ AI 코딩 도구에 적용할 작업 지침은 아래 폴더에 정리되어 있
 AGENTS_수업파일_패키지/
   AGENTS.md
   README_사용방법.md
+  문서/
+  code/
+  규칙/
+  디자인/
+  모델/
+  frontend/
+  backend/
+  logs/
   docs/
 ```
 
-포함된 세부 문서:
+주요 세부 문서:
 
 ```text
-docs/JAVA_ECLIPSE.md
-docs/JAVA_WEB.md
-docs/ANDROID.md
-docs/JAVASCRIPT.md
-docs/GIT_WORKFLOW.md
-docs/DEBUGGING.md
-docs/TOOLS_AND_PROGRAMS.md
-docs/AGENTS_REVIEW_CHECKLIST.md
+code/JAVA_ECLIPSE.md
+code/JAVA_WEB.md
+code/JAVASCRIPT.md
+backend/README.md
+frontend/README.md
+디자인/README.md
+모델/README.md
+규칙/GIT_SOURCE_TREE.md
+logs/개발로그.md
+logs/디버깅로그.md
 ```
 
 필요하면 해당 폴더의 `AGENTS.md` 내용을 프로젝트 루트의 작업 지침으로 사용할 수 있습니다.
