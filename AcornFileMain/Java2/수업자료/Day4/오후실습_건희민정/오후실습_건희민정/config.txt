@@ -1,0 +1,3 @@
+food1=day4prac.오후실습_건희민정.Pizza
+food2=day4prac.오후실습_건희민정.Chicken
+food3=day4prac.오후실습_건희민정.Burger
