@@ -1,0 +1,50 @@
+package day5prac.애너테이션;
+
+import java.lang.reflect.Field;
+import java.util.Arrays;
+
+public class 사원메인 {
+	public static void main(String[] args) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+		사원 a = new 사원("김건희", "Monday");
+		검증하기(a);
+		
+//		사원 b = new 사원("고지연", "Tuesday");
+//		검증하기(b);
+	}
+
+	private static void 검증하기(사원 a) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+		// TODO Auto-generated method stub
+
+		Class clazz = a.getClass();
+		Field nameField = clazz.getDeclaredField("name");
+		Field 쉬는요일Field = clazz.getDeclaredField("쉬는요일");
+
+		// 필드의 실제값 얻어오기
+		String value = (String) 쉬는요일Field.get(a);
+		System.out.println(value);
+		
+		WeekDaysAvail annotation = 쉬는요일Field.getAnnotation(WeekDaysAvail.class);
+		if(annotation != null) {
+			//에너테이션 값 가져오기
+			String[] 에너테이션값 = annotation.value();
+			Arrays.stream(에너테이션값).forEach(item->System.out.println(item));
+			
+			
+			//에너테이션 값 중에 실수있는 요일 있는 확인하기 
+			boolean f = false;
+			for(String day : 에너테이션값) {
+				if(value.equals(day)) {
+					f = true;
+					break;
+				}
+			}
+			
+			if(f) {
+				System.out.println("쉴수있다");
+			} else {
+				System.out.println("쉴 수 없다");
+			}
+			
+		}
+	}
+}

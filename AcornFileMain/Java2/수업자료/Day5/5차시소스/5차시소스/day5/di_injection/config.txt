@@ -1,1 +1,0 @@
-Bettery=day5.di_injection.LGBettery

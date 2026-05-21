@@ -1,1 +1,0 @@
-MatchCalculator=day5.이름.이름궁합계산기.MatchCountCalc
