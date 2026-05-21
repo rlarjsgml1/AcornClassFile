@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>Java2 Day04 핵심 정리</title>
+  <style>
+    @page { size: A4; margin: 15mm 14mm; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #1f2937; font-family: "Malgun Gothic", Arial, sans-serif; font-size: 13px; line-height: 1.62; }
+    h1, h2, h3 { margin: 0; line-height: 1.35; color: #111827; }
+    h1 { font-size: 29px; }
+    h2 { margin-top: 28px; padding-bottom: 7px; border-bottom: 2px solid #2563eb; font-size: 21px; page-break-after: avoid; }
+    h3 { margin-top: 18px; color: #1d4ed8; font-size: 16px; page-break-after: avoid; }
+    p { margin: 8px 0; }
+    ul, ol { margin: 7px 0 10px 20px; padding: 0; }
+    li { margin: 3px 0; }
+    table { width: 100%; margin: 10px 0 15px; border-collapse: collapse; page-break-inside: avoid; }
+    th, td { padding: 8px 9px; border: 1px solid #d1d5db; vertical-align: top; text-align: left; }
+    th { background: #eff6ff; color: #1e3a8a; font-weight: 800; }
+    code { font-family: Consolas, "Courier New", monospace; font-size: 12px; }
+    pre { margin: 9px 0 14px; padding: 11px 12px; border: 1px solid #d1d5db; border-left: 4px solid #2563eb; border-radius: 6px; background: #f8fafc; font-family: Consolas, "Courier New", monospace; font-size: 11.5px; line-height: 1.48; white-space: pre-wrap; word-break: break-word; page-break-inside: avoid; }
+    strong { color: #b91c1c; font-weight: 800; }
+    .cover { margin-bottom: 22px; padding: 22px 24px; border: 2px solid #1d4ed8; border-radius: 8px; background: #f8fbff; }
+    .subtitle { margin-top: 8px; color: #374151; font-size: 15px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 15px; }
+    .grid div, .note, .important { page-break-inside: avoid; }
+    .grid div { padding: 9px 10px; border: 1px solid #bfdbfe; border-radius: 6px; background: #fff; }
+    .note { margin: 10px 0 14px; padding: 10px 12px; border-left: 4px solid #0f766e; background: #f0fdfa; }
+    .important { margin: 10px 0 14px; padding: 10px 12px; border-left: 4px solid #dc2626; background: #fff7ed; }
+  </style>
+</head>
+<body>
+  <section class="cover">
+    <h1>Java2 Day04 핵심 정리</h1>
+    <p class="subtitle">리플렉션과 변경에 유리한 코드 작성 방식을 쉬운 말과 코드로 정리</p>
+    <div class="grid">
+      <div><strong>Class 클래스</strong><br>실행 중 클래스 정보를 담는 객체입니다.</div>
+      <div><strong>Reflection</strong><br>실행 중 클래스, 필드, 메서드를 읽고 사용할 수 있는 기술입니다.</div>
+      <div><strong>동적 객체 생성</strong><br>문자열 클래스명으로 객체를 만드는 방식입니다.</div>
+      <div><strong>느슨한 결합</strong><br>구체 클래스가 바뀌어도 기존 코드 수정이 적은 구조입니다.</div>
+    </div>
+  </section>
+
+  <h2>1. Day04에서 배우는 Java 문법</h2>
+  <p>
+    Day04는 실행 중에 클래스 정보를 다루는 <strong>리플렉션(reflection)</strong>과
+    코드를 더 바꾸기 쉽게 만드는 <strong>느슨한 결합</strong>을 배웁니다.
+    Day01의 인터페이스 개념이 Day04에서 설정 파일, 리플렉션, 의존성 주입과 연결됩니다.
+  </p>
+
+  <table>
+    <tr><th>개념</th><th>쉬운 뜻</th><th>대표 코드</th></tr>
+    <tr><td>Class 객체</td><td>클래스 정보를 담는 객체</td><td><code>Class.forName("패키지.클래스")</code></td></tr>
+    <tr><td>Reflection</td><td>실행 중 클래스 정보를 보고 사용하는 기술</td><td><code>getDeclaredMethods()</code></td></tr>
+    <tr><td>Method invoke</td><td>메서드를 이름으로 찾아 실행</td><td><code>method.invoke(obj)</code></td></tr>
+    <tr><td>Properties</td><td>외부 설정 파일을 key-value로 읽음</td><td><code>p.getProperty("animal")</code></td></tr>
+    <tr><td>느슨한 결합</td><td>구체 클래스가 아니라 인터페이스에 의존</td><td><code>Calculator calculator;</code></td></tr>
+  </table>
+
+  <div class="important">
+    <strong>핵심:</strong> Day04의 목표는 “코드에 클래스 이름을 직접 박아 넣지 않고도 실행 시점에 필요한 객체를 선택하는 구조”를 이해하는 것입니다.
+  </div>
+
+  <h2>2. 리플렉션이란?</h2>
+  <p>
+    리플렉션은 실행 중에 클래스 정보를 거울처럼 들여다보는 기술입니다.
+    클래스 이름, 필드, 메서드, 생성자 정보를 읽을 수 있고, 객체를 만들거나 메서드를 호출할 수도 있습니다.
+  </p>
+
+  <pre><code>Class clazz = Class.forName("day4.reflect.Member");</code></pre>
+
+  <p>
+    위 코드는 문자열로 적힌 클래스 이름을 이용해서 <code>Member</code> 클래스 정보를 가져옵니다.
+    여기서 중요한 점은 <strong>컴파일할 때가 아니라 실행 중에 클래스 정보를 읽는다는 것</strong>입니다.
+  </p>
+
+  <h2>3. 클래스 정보를 얻는 방법</h2>
+  <table>
+    <tr><th>방법</th><th>코드</th><th>특징</th></tr>
+    <tr><td>클래스명.class</td><td><code>Class clazz = Member.class;</code></td><td>컴파일 시점에 클래스를 알고 있음</td></tr>
+    <tr><td>객체.getClass()</td><td><code>Class clazz = member.getClass();</code></td><td>이미 만들어진 객체에서 얻음</td></tr>
+    <tr><td>Class.forName()</td><td><code>Class clazz = Class.forName("day4.reflect.Member");</code></td><td>문자열 클래스명으로 실행 중 로딩</td></tr>
+  </table>
+
+  <h2>4. 예제 클래스 Member</h2>
+  <pre><code>public class Member {
+    String id;
+    String pw;
+
+    public Member() {
+        this("기본아이디", "기본비번");
+    }
+
+    public Member(String id, String pw) {
+        this.id = id;
+        this.pw = pw;
+    }
+
+    public void printInfo() {
+        System.out.println("id=" + id);
+        System.out.println("pw=" + pw);
+    }
+
+    public void printSquare(int su) {
+        System.out.println(su * su);
+    }
+}</code></pre>
+
+  <p>
+    이 클래스는 리플렉션 실습용입니다.
+    필드 정보, 메서드 정보, 객체 생성, 메서드 호출을 모두 연습할 수 있습니다.
+  </p>
+
+  <h2>5. 필드와 메서드 정보 얻기</h2>
+  <pre><code>Class clazz = Class.forName("day4.reflect.Member");
+
+Field[] fields = clazz.getDeclaredFields();
+for (Field field : fields) {
+    System.out.println(field);
+}
+
+Method[] methods = clazz.getDeclaredMethods();
+for (Method method : methods) {
+    System.out.println(method.getName());
+}</code></pre>
+
+  <table>
+    <tr><th>메서드</th><th>뜻</th></tr>
+    <tr><td><code>getDeclaredFields()</code></td><td>클래스에 선언된 필드 목록을 가져옴</td></tr>
+    <tr><td><code>getDeclaredMethods()</code></td><td>클래스에 선언된 메서드 목록을 가져옴</td></tr>
+    <tr><td><code>getDeclaredMethod("이름", 타입...)</code></td><td>특정 메서드 하나를 가져옴</td></tr>
+  </table>
+
+  <h2>6. 리플렉션으로 객체 만들기</h2>
+  <pre><code>Class clazz = Member.class;
+Member member = (Member) clazz.newInstance();
+member.printSquare(3);</code></pre>
+
+  <p>
+    <code>newInstance()</code>는 기본 생성자를 사용해서 객체를 만듭니다.
+    최근 Java에서는 <code>getDeclaredConstructor().newInstance()</code> 사용을 더 권장하지만,
+    수업 예제에서는 리플렉션 개념 이해를 위해 <code>newInstance()</code>를 사용합니다.
+  </p>
+
+  <pre><code>Class clazz = Class.forName("day4.reflect.Member");
+Object obj = clazz.getDeclaredConstructor().newInstance();</code></pre>
+
+  <div class="note">
+    <strong>일반 객체 생성:</strong> <code>new Member()</code><br>
+    <strong>리플렉션 객체 생성:</strong> 클래스 정보를 얻은 뒤 실행 중 객체 생성
+  </div>
+
+  <h2>7. 리플렉션으로 메서드 호출하기</h2>
+  <pre><code>Member m = new Member();
+Class clazz = Class.forName("day4.reflect.Member");
+
+Method method = clazz.getDeclaredMethod("printInfo");
+method.invoke(m);
+
+Method method2 = clazz.getDeclaredMethod("printSquare", int.class);
+method2.invoke(m, 3);</code></pre>
+
+  <p>
+    <code>invoke</code>는 메서드를 실행합니다.
+    첫 번째 인수에는 메서드를 실행할 객체가 들어가고,
+    두 번째 이후 인수에는 메서드에 전달할 값이 들어갑니다.
+  </p>
+
+  <div class="important">
+    <strong>주의:</strong> 리플렉션은 강력하지만 오타나 타입 오류가 실행 중에 터질 수 있습니다.
+    그래서 일반 코드보다 더 신중하게 써야 합니다.
+  </div>
+
+  <h2>8. 변경에 유리한 코드</h2>
+  <p>
+    변경에 유리한 코드는 특정 클래스에 강하게 묶이지 않는 코드입니다.
+    예를 들어 <code>new Dog()</code>를 코드 곳곳에 직접 쓰면 Cat으로 바꿀 때 여러 곳을 수정해야 합니다.
+    대신 설정 파일과 리플렉션을 사용하면 외부 파일만 바꿔도 구현체를 바꿀 수 있습니다.
+  </p>
+
+  <pre><code>public class Animal {
+    public void bark() {
+        System.out.println("동물이 짖는다");
+    }
+}
+
+public class Dog extends Animal {
+    @Override
+    public void bark() {
+        System.out.println("멍멍");
+    }
+}
+
+public class Cat extends Animal {
+    @Override
+    public void bark() {
+        System.out.println("야옹");
+    }
+}</code></pre>
+
+  <pre><code>// config.txt
+animal=day4.변경에유리한코드.Dog</code></pre>
+
+  <pre><code>Properties p = new Properties();
+p.load(new FileReader("src/day4/변경에유리한코드/config.txt"));
+
+String className = p.getProperty("animal");
+Class clazz = Class.forName(className);
+Animal animal = (Animal) clazz.newInstance();
+
+animal.bark();</code></pre>
+
+  <p>
+    이제 <code>Dog</code> 대신 <code>Cat</code>을 쓰고 싶으면 Java 코드를 고치는 대신
+    설정 파일의 클래스명만 바꾸면 됩니다.
+  </p>
+
+  <h2>9. 느슨한 결합: 계산기 예제</h2>
+  <p>
+    계산기 예제는 Day04의 핵심 구조를 잘 보여줍니다.
+    프로그램이 특정 계산기 클래스에 직접 의존하지 않고, <code>Calculator</code> 인터페이스에 의존합니다.
+  </p>
+
+  <pre><code>public interface Calculator {
+    int add(int su1, int su2);
+}</code></pre>
+
+  <pre><code>public class C implements Calculator {
+    @Override
+    public int add(int su1, int su2) {
+        System.out.println("C add");
+        return su1 + su2;
+    }
+}
+
+public class D implements Calculator {
+    @Override
+    public int add(int su1, int su2) {
+        System.out.println("D add");
+        return su1 + su2;
+    }
+}</code></pre>
+
+  <pre><code>public class Program {
+    Calculator calculator;
+
+    public void setCalculator(Calculator calculator) {
+        this.calculator = calculator;
+    }
+
+    public void run() {
+        int total = calculator.add(10, 20);
+        System.out.println(total);
+    }
+}</code></pre>
+
+  <p>
+    프로그램은 <code>C</code>인지 <code>D</code>인지 몰라도 됩니다.
+    <code>Calculator</code> 인터페이스의 <code>add</code>만 호출하면 됩니다.
+  </p>
+
+  <table>
+    <tr><th>구조</th><th>문제점/장점</th></tr>
+    <tr><td><code>new C()</code>를 프로그램 안에 직접 작성</td><td>C에서 D로 바꾸려면 Java 코드 수정 필요</td></tr>
+    <tr><td><code>Calculator</code> 인터페이스에 의존</td><td>C, D, SMCalculator 등 구현체 교체가 쉬움</td></tr>
+    <tr><td>설정 파일 + 리플렉션</td><td>코드 수정 없이 외부 파일로 구현체 선택 가능</td></tr>
+  </table>
+
+  <h2>10. Properties 파일 읽기</h2>
+  <pre><code>Properties properties = new Properties();
+properties.load(new FileReader("src/day4/계산기_느슨한결합/config.txt"));
+
+String calculatorClass = properties.getProperty("calculator");</code></pre>
+
+  <p>
+    <code>Properties</code>는 <code>key=value</code> 형식의 설정 파일을 읽는 데 사용합니다.
+    설정 값을 코드 밖으로 빼면 프로그램 변경에 더 유리합니다.
+  </p>
+
+  <h2>11. 2인 1조 실습 방향</h2>
+  <ul>
+    <li>원하는 클래스를 만들고 <code>Class.forName</code>으로 클래스 정보를 가져오기</li>
+    <li><code>getDeclaredFields</code>, <code>getDeclaredMethods</code>로 필드와 메서드 정보 출력하기</li>
+    <li><code>getDeclaredMethod</code>와 <code>invoke</code>로 메서드 호출하기</li>
+    <li>인터페이스를 만들고, 구현 클래스 여러 개를 만들기</li>
+    <li>설정 파일에 사용할 구현 클래스 이름을 적고, 리플렉션으로 객체 생성하기</li>
+    <li>요리사 프로그램이라면 Store는 Cook 인터페이스만 알고, 실제 요리사는 설정 파일로 바꾸기</li>
+  </ul>
+
+  <h2>12. 마지막 핵심</h2>
+  <table>
+    <tr><th>주제</th><th>반드시 기억할 말</th></tr>
+    <tr><td>리플렉션</td><td><strong>실행 중 클래스 정보를 읽고 객체 생성, 메서드 호출까지 할 수 있는 기술</strong>이다.</td></tr>
+    <tr><td>Class.forName</td><td>문자열 클래스명으로 클래스 정보를 로딩한다.</td></tr>
+    <tr><td>Method.invoke</td><td>메서드 정보를 이용해 특정 객체의 메서드를 실행한다.</td></tr>
+    <tr><td>Properties</td><td>외부 설정 파일을 읽어서 프로그램 동작을 바꿀 수 있게 한다.</td></tr>
+    <tr><td>느슨한 결합</td><td>구체 클래스가 아니라 인터페이스와 설정에 의존해서 변경 포인트를 줄인다.</td></tr>
+  </table>
+</body>
+</html>

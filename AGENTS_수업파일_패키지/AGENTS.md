@@ -62,12 +62,13 @@ DTO / DB / JSON 모델      모델/MODEL_GUIDE.md, 모델/DATA_MODEL.md
 - 사용자가 만든 변경을 임의로 되돌리지 않습니다.
 - 특정 브랜드 느낌을 참고할 때는 원본 로고, 이미지, 코드, 고유 문구를 그대로 복사하지 않고 새 콘셉트로 변형합니다.
 - `First`, `second`, `test` 같은 임시 폴더명은 결과물 콘셉트가 정해지면 실제 이름으로 바꿉니다.
+- HTML을 PDF로 변환할 때 Chrome 임시 프로필 폴더(`C:\AcornFile\.chrome-pdf-profile`)가 생길 수 있습니다. PDF 생성이 끝나면 결과 PDF를 확인한 뒤 해당 임시 폴더를 삭제합니다.
 - 코드 수정 후에는 변경 파일, 변경 이유, 검증 여부를 짧게 보고합니다.
 
 ## 5. Git 기준
 
 - Git 작업 전에는 변경 파일 목록을 확인합니다.
-- `.metadata/`, `bin/`, `*.class`, `*.lock`, `*.log`, `.codex-build/`는 커밋 대상에서 제외합니다.
+- `.metadata/`, `bin/`, `*.class`, `*.lock`, `*.log`, `.codex-build/`, `.chrome-pdf-profile/`는 커밋 대상에서 제외합니다.
 - SourceTree에서 `Stage All`을 누르기 전 변경 파일 목록을 확인합니다.
 - `push`, `reset`, `force push`, `merge`, `rebase`는 사용자 승인 없이 실행하지 않습니다.
 - 커밋 메시지는 짧아도 변경 목적이 드러나야 합니다.

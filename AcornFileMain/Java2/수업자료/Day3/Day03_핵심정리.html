@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>Java2 Day03 핵심 정리</title>
+  <style>
+    @page { size: A4; margin: 15mm 14mm; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #1f2937; font-family: "Malgun Gothic", Arial, sans-serif; font-size: 13px; line-height: 1.62; }
+    h1, h2, h3 { margin: 0; line-height: 1.35; color: #111827; }
+    h1 { font-size: 29px; }
+    h2 { margin-top: 28px; padding-bottom: 7px; border-bottom: 2px solid #2563eb; font-size: 21px; page-break-after: avoid; }
+    h3 { margin-top: 18px; color: #1d4ed8; font-size: 16px; page-break-after: avoid; }
+    p { margin: 8px 0; }
+    ul, ol { margin: 7px 0 10px 20px; padding: 0; }
+    li { margin: 3px 0; }
+    table { width: 100%; margin: 10px 0 15px; border-collapse: collapse; page-break-inside: avoid; }
+    th, td { padding: 8px 9px; border: 1px solid #d1d5db; vertical-align: top; text-align: left; }
+    th { background: #eff6ff; color: #1e3a8a; font-weight: 800; }
+    code { font-family: Consolas, "Courier New", monospace; font-size: 12px; }
+    pre { margin: 9px 0 14px; padding: 11px 12px; border: 1px solid #d1d5db; border-left: 4px solid #2563eb; border-radius: 6px; background: #f8fafc; font-family: Consolas, "Courier New", monospace; font-size: 11.5px; line-height: 1.48; white-space: pre-wrap; word-break: break-word; page-break-inside: avoid; }
+    strong { color: #b91c1c; font-weight: 800; }
+    .cover { margin-bottom: 22px; padding: 22px 24px; border: 2px solid #1d4ed8; border-radius: 8px; background: #f8fbff; }
+    .subtitle { margin-top: 8px; color: #374151; font-size: 15px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 15px; }
+    .grid div, .note, .important { page-break-inside: avoid; }
+    .grid div { padding: 9px 10px; border: 1px solid #bfdbfe; border-radius: 6px; background: #fff; }
+    .note { margin: 10px 0 14px; padding: 10px 12px; border-left: 4px solid #0f766e; background: #f0fdfa; }
+    .important { margin: 10px 0 14px; padding: 10px 12px; border-left: 4px solid #dc2626; background: #fff7ed; }
+  </style>
+</head>
+<body>
+  <section class="cover">
+    <h1>Java2 Day03 핵심 정리</h1>
+    <p class="subtitle">Collection, Iterator, List/Set/Map, Stream의 핵심을 쉬운 말과 코드로 정리</p>
+    <div class="grid">
+      <div><strong>Collection</strong><br>여러 데이터를 담는 자료구조 묶음입니다.</div>
+      <div><strong>Iterator</strong><br>컬렉션을 같은 방식으로 하나씩 꺼내는 도구입니다.</div>
+      <div><strong>List / Set / Map</strong><br>데이터 저장 목적에 따라 선택하는 대표 자료구조입니다.</div>
+      <div><strong>Stream</strong><br>데이터를 필터, 변환, 정렬, 집계하는 흐름입니다.</div>
+    </div>
+  </section>
+
+  <h2>1. Day03에서 배우는 Java 문법</h2>
+  <p>
+    Day03은 여러 데이터를 다루는 방법을 배웁니다.
+    데이터가 하나면 변수 하나로 충분하지만, 데이터가 여러 개면 <strong>Collection</strong>이 필요합니다.
+    그리고 그 데이터를 편하게 가공하려면 <strong>Stream</strong>을 사용합니다.
+  </p>
+
+  <table>
+    <tr><th>개념</th><th>쉬운 뜻</th><th>대표 코드</th></tr>
+    <tr><td>List</td><td>순서가 있고 중복을 허용하는 목록</td><td><code>ArrayList</code>, <code>LinkedList</code></td></tr>
+    <tr><td>Set</td><td>중복을 허용하지 않는 집합</td><td><code>HashSet</code>, <code>TreeSet</code></td></tr>
+    <tr><td>Map</td><td>key와 value를 한 쌍으로 저장</td><td><code>HashMap</code></td></tr>
+    <tr><td>Iterator</td><td>컬렉션 요소를 하나씩 꺼내는 표준 방법</td><td><code>hasNext()</code>, <code>next()</code></td></tr>
+    <tr><td>Stream</td><td>데이터 처리 파이프라인</td><td><code>filter</code>, <code>map</code>, <code>sorted</code>, <code>collect</code></td></tr>
+  </table>
+
+  <div class="important">
+    <strong>자료구조 선택 기준:</strong> 순서와 중복이 중요하면 List, 중복 제거가 중요하면 Set,
+    key로 빠르게 찾고 싶으면 Map을 선택합니다.
+  </div>
+
+  <h2>2. Collection 전체 그림</h2>
+  <p>
+    Collection은 여러 데이터를 저장하는 자료구조의 큰 묶음입니다.
+    <code>List</code>와 <code>Set</code>은 Collection 계열이고,
+    <code>Map</code>은 key-value 구조라 별도 계열로 생각하면 쉽습니다.
+  </p>
+
+  <h3>2-1. List</h3>
+  <pre><code>List&lt;String&gt; list = new ArrayList&lt;&gt;();
+list.add("one");
+list.add("two");
+list.add("two");
+
+list.forEach(item -&gt; System.out.println(item));</code></pre>
+
+  <p>
+    List는 입력한 순서를 유지하고 중복도 허용합니다.
+    학생 목록, 게시글 목록, 주문 목록처럼 “순서가 있는 데이터”에 잘 맞습니다.
+  </p>
+
+  <h3>2-2. Set</h3>
+  <pre><code>Set&lt;String&gt; set = new HashSet&lt;&gt;();
+set.add("hi");
+set.add("hi2");
+set.add("hi2");
+
+set.forEach(item -&gt; System.out.println(item));</code></pre>
+
+  <p>
+    Set은 중복을 허용하지 않습니다.
+    위 코드에서 <code>"hi2"</code>를 두 번 넣어도 실제로는 한 번만 저장됩니다.
+  </p>
+
+  <h3>2-3. Map</h3>
+  <pre><code>Map&lt;String, String&gt; map = new HashMap&lt;&gt;();
+map.put("key1", "내용1");
+map.put("key2", "내용2");
+
+String value = map.get("key1");
+System.out.println(value);</code></pre>
+
+  <p>
+    Map은 key로 value를 찾는 구조입니다.
+    회원 아이디로 회원 정보를 찾거나, 상품 코드로 상품명을 찾을 때 좋습니다.
+  </p>
+
+  <pre><code>for (Map.Entry&lt;String, String&gt; entry : map.entrySet()) {
+    String key = entry.getKey();
+    String value = entry.getValue();
+    System.out.println(key + " = " + value);
+}</code></pre>
+
+  <h2>3. Iterator</h2>
+  <p>
+    Iterator는 컬렉션의 내부 구조를 몰라도 요소를 하나씩 꺼낼 수 있게 해 주는 표준 인터페이스입니다.
+    List든 Set이든 같은 방식으로 순회할 수 있습니다.
+  </p>
+
+  <pre><code>ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+list.add("1");
+list.add("2");
+list.add("3");
+
+Iterator&lt;String&gt; it = list.iterator();
+while (it.hasNext()) {
+    String item = it.next();
+    System.out.println(item);
+}</code></pre>
+
+  <table>
+    <tr><th>메서드</th><th>뜻</th></tr>
+    <tr><td><code>hasNext()</code></td><td>다음 요소가 남아 있으면 true</td></tr>
+    <tr><td><code>next()</code></td><td>다음 요소를 꺼냄</td></tr>
+  </table>
+
+  <div class="note">
+    Java 5 이후에는 <code>for-each</code>문과 <code>forEach</code> 메서드를 많이 쓰지만,
+    내부적으로 “하나씩 꺼낸다”는 생각은 Iterator와 연결됩니다.
+  </div>
+
+  <h2>4. HashSet에서 객체 중복 판단</h2>
+  <p>
+    문자열은 같은 문자열이면 중복으로 잘 판단됩니다.
+    하지만 직접 만든 객체는 Java가 “무엇이 같다는 뜻인지” 모릅니다.
+    그래서 <strong>equals와 hashCode를 함께 오버라이드</strong>해야 합니다.
+  </p>
+
+  <pre><code>class User {
+    String id;
+    String pw;
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        User other = (User) obj;
+        return Objects.equals(id, other.id)
+            &amp;&amp; Objects.equals(pw, other.pw);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, pw);
+    }
+}</code></pre>
+
+  <p>
+    <code>equals</code>는 “두 객체가 같은가”를 판단하고,
+    <code>hashCode</code>는 해시 기반 자료구조에서 객체를 찾는 데 쓰이는 정수값입니다.
+  </p>
+
+  <div class="important">
+    <strong>Set에 직접 만든 객체를 넣을 때:</strong> 중복 제거가 제대로 되려면
+    <code>equals()</code>와 <code>hashCode()</code>를 같이 재정의해야 합니다.
+  </div>
+
+  <h2>5. Stream이란?</h2>
+  <p>
+    Stream은 배열, List, Set 같은 여러 데이터 소스를 <strong>같은 방식으로 처리</strong>하게 해 주는 기능입니다.
+    데이터 원본을 직접 바꾸는 것이 아니라, 데이터를 흘려보내면서 필터링하고 변환하고 결과를 만듭니다.
+  </p>
+
+  <pre><code>String[] arr = {"one", "two", "three"};
+Stream&lt;String&gt; stream1 = Arrays.stream(arr);
+
+ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+Stream&lt;String&gt; stream2 = list.stream();</code></pre>
+
+  <table>
+    <tr><th>Stream 특징</th><th>설명</th></tr>
+    <tr><td>데이터 소스를 변경하지 않음</td><td>원본 리스트나 배열 자체를 직접 수정하지 않음</td></tr>
+    <tr><td>일회용</td><td>한 번 최종 연산을 하면 다시 사용할 수 없음</td></tr>
+    <tr><td>내부 반복</td><td>반복문을 직접 쓰지 않고 Stream 내부가 반복 처리</td></tr>
+    <tr><td>중간 연산과 최종 연산</td><td>중간 연산은 연결, 최종 연산은 결과 생성</td></tr>
+  </table>
+
+  <h2>6. 중간 연산과 최종 연산</h2>
+  <p>
+    Stream은 보통 <strong>중간 연산</strong>을 여러 개 연결하고,
+    마지막에 <strong>최종 연산</strong>으로 결과를 만듭니다.
+  </p>
+
+  <pre><code>int[] arr = {1, 2, 3, 4, 5};
+
+int sum = Arrays.stream(arr)
+    .filter(n -&gt; n % 2 == 1)
+    .sum();</code></pre>
+
+  <p>
+    이 코드는 배열에서 홀수만 걸러서 합계를 구합니다.
+    <code>filter</code>는 중간 연산이고, <code>sum</code>은 최종 연산입니다.
+  </p>
+
+  <table>
+    <tr><th>종류</th><th>예</th><th>뜻</th></tr>
+    <tr><td>중간 연산</td><td><code>filter</code></td><td>조건에 맞는 값만 통과</td></tr>
+    <tr><td>중간 연산</td><td><code>map</code></td><td>값을 다른 값으로 변환</td></tr>
+    <tr><td>중간 연산</td><td><code>sorted</code></td><td>정렬</td></tr>
+    <tr><td>중간 연산</td><td><code>distinct</code></td><td>중복 제거</td></tr>
+    <tr><td>최종 연산</td><td><code>forEach</code></td><td>하나씩 출력/처리</td></tr>
+    <tr><td>최종 연산</td><td><code>count</code></td><td>개수 구하기</td></tr>
+    <tr><td>최종 연산</td><td><code>collect</code></td><td>List, Map 등으로 모으기</td></tr>
+    <tr><td>최종 연산</td><td><code>reduce</code></td><td>여러 값을 하나의 값으로 줄이기</td></tr>
+  </table>
+
+  <h3>6-1. filter + forEach</h3>
+  <pre><code>list.stream()
+    .filter(str -&gt; str.equals("hello"))
+    .forEach(str -&gt; System.out.println(str));</code></pre>
+
+  <h3>6-2. count</h3>
+  <pre><code>long count = list.stream()
+    .filter(str -&gt; str.equals("hello"))
+    .count();</code></pre>
+
+  <h3>6-3. collect</h3>
+  <pre><code>Map&lt;String, Integer&gt; map = customers.stream()
+    .collect(Collectors.toMap(
+        customer -&gt; customer.getName(),
+        customer -&gt; customer.getAge()
+    ));</code></pre>
+
+  <h3>6-4. reduce</h3>
+  <pre><code>List&lt;Integer&gt; numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+int sum = numbers.stream()
+    .reduce(0, (a, b) -&gt; a + b);</code></pre>
+
+  <p>
+    <code>reduce</code>는 여러 요소를 하나의 결과로 줄입니다.
+    여기서는 1, 2, 3, 4, 5를 하나의 합계 15로 줄입니다.
+  </p>
+
+  <h2>7. Stream 문제 풀이 방향</h2>
+  <table>
+    <tr><th>문제 유형</th><th>사용할 연산</th><th>예</th></tr>
+    <tr><td>짝수만 출력</td><td><code>filter</code> + <code>forEach</code></td><td><code>n -&gt; n % 2 == 0</code></td></tr>
+    <tr><td>문자열 길이 출력</td><td><code>map</code> 또는 <code>mapToInt</code></td><td><code>s -&gt; s.length()</code></td></tr>
+    <tr><td>대문자 변환</td><td><code>map</code></td><td><code>s -&gt; s.toUpperCase()</code></td></tr>
+    <tr><td>합계/평균</td><td><code>mapToInt</code>, <code>sum</code>, <code>average</code></td><td>숫자 스트림</td></tr>
+    <tr><td>정렬</td><td><code>sorted</code></td><td>오름차순/내림차순</td></tr>
+    <tr><td>중복 제거</td><td><code>distinct</code></td><td>중복 문자열 제거</td></tr>
+    <tr><td>객체 조건 검색</td><td><code>filter</code> + <code>map</code></td><td>80점 이상 학생 이름</td></tr>
+  </table>
+
+  <pre><code>List&lt;Integer&gt; scores = Arrays.asList(45, 80, 90, 55, 100);
+
+scores.stream()
+    .filter(score -&gt; score &gt;= 60)
+    .forEach(System.out::println);</code></pre>
+
+  <h2>8. 마지막 핵심</h2>
+  <table>
+    <tr><th>주제</th><th>반드시 기억할 말</th></tr>
+    <tr><td>List</td><td>순서가 있고 중복을 허용한다.</td></tr>
+    <tr><td>Set</td><td>중복을 허용하지 않는다. 객체 중복 판단에는 equals/hashCode가 중요하다.</td></tr>
+    <tr><td>Map</td><td>key로 value를 찾는 구조다.</td></tr>
+    <tr><td>Iterator</td><td>컬렉션을 같은 방식으로 순회하기 위한 도구다.</td></tr>
+    <tr><td>Stream</td><td><strong>데이터를 필터링, 변환, 정렬, 집계하는 처리 흐름</strong>이다.</td></tr>
+  </table>
+</body>
+</html>

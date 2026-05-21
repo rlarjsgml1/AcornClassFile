@@ -1,0 +1,806 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>Java2 Day05 핵심 정리</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 15mm 14mm;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: #1f2937;
+      font-family: "Malgun Gothic", "Apple SD Gothic Neo", Arial, sans-serif;
+      font-size: 13px;
+      line-height: 1.65;
+      background: #ffffff;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.35;
+      color: #111827;
+    }
+
+    h1 {
+      font-size: 30px;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin-top: 30px;
+      padding: 8px 0 7px;
+      border-bottom: 2px solid #2563eb;
+      font-size: 21px;
+      page-break-after: avoid;
+    }
+
+    h3 {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #1d4ed8;
+      page-break-after: avoid;
+    }
+
+    p {
+      margin: 8px 0;
+    }
+
+    ul, ol {
+      margin: 7px 0 10px 20px;
+      padding: 0;
+    }
+
+    li {
+      margin: 3px 0;
+    }
+
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 12px;
+    }
+
+    pre {
+      margin: 9px 0 14px;
+      padding: 11px 12px;
+      border: 1px solid #d1d5db;
+      border-left: 4px solid #2563eb;
+      border-radius: 6px;
+      background: #f8fafc;
+      color: #111827;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 11.5px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-word;
+      page-break-inside: avoid;
+    }
+
+    table {
+      width: 100%;
+      margin: 10px 0 16px;
+      border-collapse: collapse;
+      page-break-inside: avoid;
+    }
+
+    th, td {
+      padding: 8px 9px;
+      border: 1px solid #d1d5db;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: #eff6ff;
+      color: #1e3a8a;
+      font-weight: 700;
+    }
+
+    strong {
+      color: #b91c1c;
+      font-weight: 800;
+    }
+
+    .cover {
+      margin-bottom: 24px;
+      padding: 22px 24px;
+      border: 2px solid #1d4ed8;
+      border-radius: 8px;
+      background: #f8fbff;
+    }
+
+    .subtitle {
+      margin-top: 8px;
+      color: #374151;
+      font-size: 15px;
+    }
+
+    .goal {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .goal div, .note, .important, .example {
+      page-break-inside: avoid;
+    }
+
+    .goal div {
+      padding: 9px 10px;
+      border: 1px solid #bfdbfe;
+      border-radius: 6px;
+      background: #ffffff;
+    }
+
+    .note {
+      margin: 10px 0 14px;
+      padding: 10px 12px;
+      border-left: 4px solid #0f766e;
+      background: #f0fdfa;
+    }
+
+    .important {
+      margin: 10px 0 14px;
+      padding: 10px 12px;
+      border-left: 4px solid #dc2626;
+      background: #fff7ed;
+    }
+
+    .example {
+      margin: 10px 0 14px;
+      padding: 10px 12px;
+      border-left: 4px solid #7c3aed;
+      background: #faf5ff;
+    }
+
+    .small {
+      color: #4b5563;
+      font-size: 12px;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+  </style>
+</head>
+<body>
+  <section class="cover">
+    <h1>Java2 Day05 핵심 정리</h1>
+    <p class="subtitle">애너테이션, enum, 재귀호출, DI를 처음 배우는 사람도 따라갈 수 있게 정리한 자료</p>
+    <div class="goal">
+      <div><strong>애너테이션</strong><br>코드에 설명표를 붙이고, 실행 중에 그 정보를 읽어 검증한다.</div>
+      <div><strong>enum</strong><br>정해진 값만 사용하게 해서 오타와 잘못된 값을 막는다.</div>
+      <div><strong>재귀호출</strong><br>메서드가 자기 자신을 다시 호출해서 문제를 작게 나누어 해결한다.</div>
+      <div><strong>DI</strong><br>필요한 객체를 직접 만들지 않고 외부에서 넣어 받아 변경에 강한 구조를 만든다.</div>
+    </div>
+  </section>
+
+  <h2>1. Java 언어 기본부터 보기</h2>
+  <p>
+    Java는 프로그램을 <strong>클래스(class)</strong> 단위로 작성하는 객체지향 언어입니다.
+    클래스 안에는 값이나 상태를 저장하는 <strong>필드(field)</strong>, 일을 처리하는 <strong>메서드(method)</strong>,
+    객체를 만들 때 실행되는 <strong>생성자(constructor)</strong>가 들어갑니다.
+  </p>
+
+  <table>
+    <tr>
+      <th>용어</th>
+      <th>뜻</th>
+      <th>간단한 예</th>
+    </tr>
+    <tr>
+      <td>클래스</td>
+      <td>객체를 만들기 위한 설계도</td>
+      <td><code>class Phone { ... }</code></td>
+    </tr>
+    <tr>
+      <td>객체</td>
+      <td>클래스로 실제 생성한 것</td>
+      <td><code>new Phone()</code></td>
+    </tr>
+    <tr>
+      <td>필드</td>
+      <td>객체가 가지고 있는 데이터</td>
+      <td><code>String name;</code></td>
+    </tr>
+    <tr>
+      <td>메서드</td>
+      <td>객체가 할 수 있는 동작</td>
+      <td><code>void powerOn()</code></td>
+    </tr>
+    <tr>
+      <td>인터페이스</td>
+      <td>반드시 구현해야 할 기능의 약속</td>
+      <td><code>interface Bettery</code></td>
+    </tr>
+  </table>
+
+  <div class="important">
+    <strong>Day05에서 중요한 관점</strong>은 “코드를 그냥 실행하는 것”에서 한 단계 더 나아가,
+    코드에 정보를 붙이고, 타입을 제한하고, 반복 구조를 다르게 생각하고, 객체 사이의 관계를 느슨하게 만드는 것입니다.
+  </div>
+
+  <h2>2. 애너테이션 Annotation</h2>
+  <p>
+    애너테이션은 코드에 붙이는 <strong>표식</strong>입니다. Java에서는 <code>@Override</code>,
+    <code>@Deprecated</code>, <code>@SuppressWarnings</code> 같은 애너테이션을 이미 제공합니다.
+    Day05에서는 직접 애너테이션을 만들고, 리플렉션으로 읽어서 검증하는 방법을 배웁니다.
+  </p>
+
+  <h3>2-1. 애너테이션 유지 범위</h3>
+  <p>
+    유지 범위는 애너테이션 정보가 어디까지 남아 있는지를 정합니다.
+    <strong>리플렉션으로 실행 중에 읽고 싶다면 반드시 RUNTIME</strong>을 사용해야 합니다.
+  </p>
+
+  <table>
+    <tr>
+      <th>RetentionPolicy</th>
+      <th>뜻</th>
+      <th>언제 쓰나</th>
+    </tr>
+    <tr>
+      <td><code>SOURCE</code></td>
+      <td>소스 코드에만 존재하고 컴파일 후 사라짐</td>
+      <td>컴파일러 확인용</td>
+    </tr>
+    <tr>
+      <td><code>CLASS</code></td>
+      <td>class 파일까지 남지만 실행 중 리플렉션으로는 보통 읽지 않음</td>
+      <td>바이트코드 도구용</td>
+    </tr>
+    <tr>
+      <td><code>RUNTIME</code></td>
+      <td>실행 중에도 남아 리플렉션으로 읽을 수 있음</td>
+      <td>검증, 설정, 프레임워크 처리</td>
+    </tr>
+  </table>
+
+  <pre><code>import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Count {
+    int value() default 1;
+}</code></pre>
+
+  <p>
+    위 코드는 <code>@Count</code>라는 애너테이션을 직접 만든 예입니다.
+    <code>value()</code>는 애너테이션에 넣을 값을 의미합니다.
+    이름이 <code>value</code>일 때는 <code>@Count(value = 3)</code> 대신 <code>@Count(3)</code>처럼 줄여 쓸 수 있습니다.
+  </p>
+
+  <h3>2-2. 애너테이션을 필드에 붙이기</h3>
+  <pre><code>public class FruitStore {
+    @Count(3)
+    private int apples;
+
+    @Count(5)
+    private int bananas;
+
+    @Count(10)
+    private int tomato;
+
+    public FruitStore(int apples, int bananas, int tomato) {
+        this.apples = apples;
+        this.bananas = bananas;
+        this.tomato = tomato;
+    }
+}</code></pre>
+
+  <p>
+    여기서 <code>@Count(3)</code>은 “apples는 3개여야 한다”는 의미로 사용됩니다.
+    애너테이션 자체는 값을 검사하지 않습니다. <strong>검사하는 코드는 따로 작성해야 합니다.</strong>
+  </p>
+
+  <h3>2-3. 리플렉션으로 애너테이션 읽기</h3>
+  <pre><code>import java.lang.reflect.Field;
+
+public class ValidationUtils {
+    public static void validate(Object obj) throws IllegalAccessException {
+        Class&lt;?&gt; clazz = obj.getClass();
+        Field[] fields = clazz.getDeclaredFields();
+
+        for (Field field : fields) {
+            Count count = field.getAnnotation(Count.class);
+
+            if (count != null) {
+                field.setAccessible(true);
+                int realValue = (int) field.get(obj);
+                int expectedValue = count.value();
+
+                if (realValue != expectedValue) {
+                    throw new IllegalArgumentException(
+                        field.getName() + " 항목은 " + expectedValue + " 값이어야 합니다."
+                    );
+                }
+            }
+        }
+    }
+}</code></pre>
+
+  <ol>
+    <li><code>obj.getClass()</code>로 객체의 클래스 정보를 가져옵니다.</li>
+    <li><code>getDeclaredFields()</code>로 클래스 안의 필드 목록을 가져옵니다.</li>
+    <li><code>field.getAnnotation(Count.class)</code>로 해당 필드에 붙은 <code>@Count</code>를 찾습니다.</li>
+    <li><code>field.setAccessible(true)</code>로 private 필드도 읽을 수 있게 합니다.</li>
+    <li>실제 값과 애너테이션에 적힌 기대 값을 비교합니다.</li>
+  </ol>
+
+  <div class="important">
+    <strong>핵심:</strong> 애너테이션은 “규칙을 적는 곳”이고, 리플렉션 검증 코드는 “규칙을 실제로 확인하는 곳”입니다.
+  </div>
+
+  <h3>2-4. @Target으로 붙일 위치 제한하기</h3>
+  <pre><code>import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface MaxLength {
+    int value() default 10;
+}</code></pre>
+
+  <p>
+    <code>@Target(ElementType.FIELD)</code>는 이 애너테이션을 필드에만 붙일 수 있다는 뜻입니다.
+    메서드에 붙이고 싶으면 <code>ElementType.METHOD</code>, 클래스에 붙이고 싶으면 <code>ElementType.TYPE</code>을 사용합니다.
+  </p>
+
+  <h2>3. enum 열거형</h2>
+  <p>
+    enum은 사용할 수 있는 값을 <strong>정해진 선택지로 제한</strong>하는 문법입니다.
+    문자열을 직접 쓰면 <code>"LIGHT"</code>를 <code>"LIGTH"</code>처럼 잘못 써도 컴파일 단계에서 잡기 어렵습니다.
+    enum을 쓰면 정해진 값 외에는 넣을 수 없어서 안전합니다.
+  </p>
+
+  <pre><code>public enum Fruit {
+    APPLE, BANANA
+}</code></pre>
+
+  <pre><code>public class Program {
+    private Fruit fruit;
+
+    public void setFruit(Fruit fruit) {
+        this.fruit = fruit;
+    }
+
+    public void printFruit() {
+        System.out.println(fruit);
+    }
+
+    public static void main(String[] args) {
+        Program p = new Program();
+        p.setFruit(Fruit.BANANA);
+        p.printFruit();
+    }
+}</code></pre>
+
+  <div class="note">
+    enum 값은 관례적으로 <strong>대문자</strong>로 작성합니다.
+    예: <code>APPLE</code>, <code>BANANA</code>, <code>MONDAY</code>, <code>DARK</code>
+  </div>
+
+  <h3>3-1. 문자열과 enum 비교</h3>
+  <pre><code>// 문자열 방식: 오타가 들어갈 수 있음
+String mode = "LIGHT";
+mode = "lite"; // 컴파일 에러가 아님
+
+// enum 방식: 정해진 값만 가능
+Mode mode2 = Mode.LIGHT;
+// mode2 = "lite"; // 컴파일 에러</code></pre>
+
+  <pre><code>public enum Mode {
+    DARK,
+    LIGHT
+}</code></pre>
+
+  <p>
+    enum을 사용하면 잘못된 값이 들어가는 일을 컴파일 단계에서 막을 수 있습니다.
+    이것이 enum의 가장 큰 장점입니다.
+  </p>
+
+  <h3>3-2. enum에 한글 이름 붙이기</h3>
+  <pre><code>public enum WeekDay {
+    MON("월"), TUE("화"), WED("수"), THU("목"), FRI("금");
+
+    private String name;
+
+    WeekDay(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}</code></pre>
+
+  <p>
+    enum도 클래스처럼 필드와 생성자, 메서드를 가질 수 있습니다.
+    위 코드는 <code>WeekDay.MON</code>이라는 enum 값에 화면 출력용 이름 <code>"월"</code>을 연결한 예입니다.
+  </p>
+
+  <h3>3-3. enum을 switch에서 사용하기</h3>
+  <pre><code>enum DiceFace {
+    ONE, TWO, THREE, FOUR, FIVE, SIX
+}
+
+DiceFace diceFace = DiceFace.THREE;
+
+switch (diceFace) {
+    case ONE:
+        System.out.println("한 개");
+        break;
+    case TWO:
+        System.out.println("두 개");
+        break;
+    case THREE:
+        System.out.println("세 개");
+        break;
+    default:
+        System.out.println("그 외");
+}</code></pre>
+
+  <p>
+    enum은 <code>switch</code>와 잘 어울립니다.
+    선택지가 정해져 있으므로 분기 처리가 명확해집니다.
+  </p>
+
+  <h2>4. 재귀호출 Recursive Call</h2>
+  <p>
+    재귀호출은 메서드가 <strong>자기 자신을 다시 호출</strong>하는 방식입니다.
+    반복문으로 풀 수 있는 문제 중 일부는 재귀로도 풀 수 있습니다.
+  </p>
+
+  <div class="important">
+    <strong>재귀의 필수 조건:</strong> 반드시 종료 조건이 있어야 합니다.
+    종료 조건이 없으면 메서드가 끝없이 자기 자신을 호출하다가 오류가 발생합니다.
+  </div>
+
+  <h3>4-1. 1부터 n까지 합 구하기</h3>
+  <pre><code>public static int getTotalR(int n) {
+    if (n == 1) {
+        return 1;
+    }
+
+    return n + getTotalR(n - 1);
+}</code></pre>
+
+  <p>
+    <code>getTotalR(5)</code>는 다음처럼 계산됩니다.
+  </p>
+
+  <pre><code>getTotalR(5)
+= 5 + getTotalR(4)
+= 5 + 4 + getTotalR(3)
+= 5 + 4 + 3 + getTotalR(2)
+= 5 + 4 + 3 + 2 + getTotalR(1)
+= 5 + 4 + 3 + 2 + 1
+= 15</code></pre>
+
+  <p>
+    여기서 <code>if (n == 1)</code>이 종료 조건입니다.
+    이 조건이 없으면 <code>n</code>이 계속 작아지면서 끝나지 않습니다.
+  </p>
+
+  <h3>4-2. 별 출력 재귀 예제</h3>
+  <pre><code>public static void printStars(int n) {
+    if (n == 0) {
+        return;
+    }
+
+    printStars(n - 1);
+    System.out.println("*");
+}</code></pre>
+
+  <p>
+    <code>printStars(5)</code>를 호출하면 별이 5번 출력됩니다.
+    먼저 <code>printStars(4)</code>, <code>printStars(3)</code>처럼 계속 내려갔다가,
+    <code>n == 0</code>에서 멈춘 뒤 다시 돌아오면서 별을 출력합니다.
+  </p>
+
+  <h3>4-3. 배열 최대값 찾기</h3>
+  <pre><code>private static int findMax(int[] arr, int start, int end) {
+    if (start == end) {
+        return arr[start];
+    }
+
+    int mid = (start + end) / 2;
+    int max1 = findMax(arr, start, mid);
+    int max2 = findMax(arr, mid + 1, end);
+
+    return max1 &gt; max2 ? max1 : max2;
+}</code></pre>
+
+  <p>
+    이 코드는 배열을 반으로 나누고, 왼쪽 최대값과 오른쪽 최대값을 각각 재귀로 찾은 다음 둘 중 큰 값을 반환합니다.
+    문제를 작게 나누어 해결하는 전형적인 재귀 방식입니다.
+  </p>
+
+  <h2>5. DI Dependency Injection</h2>
+  <p>
+    DI는 <strong>의존성 주입</strong>이라는 뜻입니다.
+    어떤 클래스가 필요한 객체를 직접 만들지 않고, 외부에서 넣어 받는 방식입니다.
+  </p>
+
+  <h3>5-1. 의존성이란?</h3>
+  <p>
+    <code>Phone</code>이 전원을 켜려면 배터리가 필요합니다.
+    즉, <code>Phone</code>은 <code>Bettery</code>에 의존합니다.
+  </p>
+
+  <pre><code>public interface Bettery {
+    int getEnergy();
+}</code></pre>
+
+  <pre><code>public class LGBettery implements Bettery {
+    @Override
+    public int getEnergy() {
+        System.out.println("LG 밧데리 에너지 가져오기");
+        return 1000;
+    }
+}</code></pre>
+
+  <pre><code>public class SMBettery implements Bettery {
+    @Override
+    public int getEnergy() {
+        System.out.println("SM 밧데리 에너지 가져오기");
+        return 2000;
+    }
+}</code></pre>
+
+  <p>
+    <code>LGBettery</code>와 <code>SMBettery</code>는 모두 <code>Bettery</code> 인터페이스를 구현합니다.
+    그래서 <code>Phone</code>은 구체적인 배터리 이름을 몰라도 <code>Bettery</code> 타입으로 사용할 수 있습니다.
+  </p>
+
+  <h3>5-2. setter 주입과 생성자 주입</h3>
+  <pre><code>public class Phone {
+    private Bettery bettery;
+
+    // setter 주입
+    public void setBettery(Bettery bettery) {
+        this.bettery = bettery;
+    }
+
+    // 생성자 주입
+    public Phone(Bettery bettery) {
+        this.bettery = bettery;
+    }
+
+    public Phone() {
+    }
+
+    public void powerOn() {
+        bettery.getEnergy();
+        System.out.println("파워가 켜집니다");
+    }
+}</code></pre>
+
+  <pre><code>// setter 주입
+Phone phone1 = new Phone();
+phone1.setBettery(new LGBettery());
+phone1.powerOn();
+
+// 생성자 주입
+Phone phone2 = new Phone(new SMBettery());
+phone2.powerOn();</code></pre>
+
+  <table>
+    <tr>
+      <th>방식</th>
+      <th>뜻</th>
+      <th>특징</th>
+    </tr>
+    <tr>
+      <td>setter 주입</td>
+      <td>객체를 만든 뒤 setter로 필요한 객체를 넣음</td>
+      <td>중간에 바꿀 수 있음</td>
+    </tr>
+    <tr>
+      <td>생성자 주입</td>
+      <td>객체를 만들 때 생성자로 필요한 객체를 넣음</td>
+      <td>처음부터 필요한 값이 반드시 들어감</td>
+    </tr>
+  </table>
+
+  <div class="important">
+    <strong>DI의 핵심:</strong> <code>Phone</code>이 <code>new LGBettery()</code>를 직접 하지 않게 만드는 것입니다.
+    그러면 배터리 구현체가 바뀌어도 <code>Phone</code> 코드를 덜 수정하게 됩니다.
+  </div>
+
+  <h3>5-3. 설정 파일로 구현체 바꾸기</h3>
+  <pre><code>// config.txt
+Bettery=day5.di_injection.LGBettery</code></pre>
+
+  <pre><code>Properties p = new Properties();
+p.load(new FileReader("src/day5/di_injection/config.txt"));
+
+String className = p.getProperty("Bettery");
+Class clazz = Class.forName(className);
+Bettery bettery = (Bettery) clazz.newInstance();
+
+Phone phone = new Phone();
+phone.setBettery(bettery);
+phone.powerOn();</code></pre>
+
+  <p>
+    설정 파일의 클래스명만 바꾸면 Java 코드를 직접 수정하지 않고도 다른 배터리 구현체를 사용할 수 있습니다.
+    이것이 변경에 유리한 구조입니다.
+  </p>
+
+  <h2>6. 오후 개인 실습 풀이 방향</h2>
+
+  <h3>6-1. 별 5개를 재귀 메서드로 출력</h3>
+  <pre><code>public class StarPractice {
+    public static void printStar(int n) {
+        if (n == 0) {
+            return;
+        }
+
+        System.out.println("*");
+        printStar(n - 1);
+    }
+
+    public static void main(String[] args) {
+        printStar(5);
+    }
+}</code></pre>
+
+  <p>
+    <code>n</code>은 남은 출력 횟수입니다.
+    별을 하나 출력하고 <code>n - 1</code>을 넘기면, 결국 <code>n == 0</code>이 되어 종료됩니다.
+  </p>
+
+  <h3>6-2. BookGenre enum과 Book 클래스</h3>
+  <pre><code>public enum BookGenre {
+    NOVEL("소설"),
+    HISTORY("역사"),
+    SCIENCE("과학"),
+    SELF_DEVELOPMENT("자기계발");
+
+    private final String name;
+
+    BookGenre(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}</code></pre>
+
+  <pre><code>public class Book {
+    private String title;
+    private String author;
+    private BookGenre genre;
+
+    public Book(String title, String author, BookGenre genre) {
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+    }
+
+    public void printInfo() {
+        System.out.println("제목: " + title);
+        System.out.println("저자: " + author);
+        System.out.println("장르: " + genre.getName());
+    }
+
+    public static void main(String[] args) {
+        Book book = new Book("자바의 정석", "남궁성", BookGenre.SCIENCE);
+        book.printInfo();
+    }
+}</code></pre>
+
+  <p>
+    장르를 문자열로 쓰지 않고 <code>BookGenre</code> enum으로 받으면,
+    장르에 정해진 값만 넣을 수 있습니다.
+  </p>
+
+  <h3>6-3. 사용자 애너테이션 2개 만들기</h3>
+  <pre><code>@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.FIELD)
+public @interface Required {
+}</code></pre>
+
+  <pre><code>@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.FIELD)
+public @interface MinLength {
+    int value();
+}</code></pre>
+
+  <p>
+    <code>@Required</code>는 값이 반드시 있어야 한다는 표시이고,
+    <code>@MinLength</code>는 문자열의 최소 길이를 표시하는 애너테이션입니다.
+    둘 다 실행 중에 읽어야 하므로 <strong>RetentionPolicy.RUNTIME</strong>을 사용합니다.
+  </p>
+
+  <h3>6-4. Drink와 @MaxSugar 검증</h3>
+  <pre><code>@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.FIELD)
+public @interface MaxSugar {
+    int value();
+}</code></pre>
+
+  <pre><code>public class Drink {
+    private String name;
+
+    @MaxSugar(30)
+    private int sugar;
+
+    public Drink(String name, int sugar) {
+        this.name = name;
+        this.sugar = sugar;
+    }
+}</code></pre>
+
+  <pre><code>import java.lang.reflect.Field;
+
+public class DrinkValidator {
+    public static void validate(Object obj) throws IllegalAccessException {
+        Field[] fields = obj.getClass().getDeclaredFields();
+
+        for (Field field : fields) {
+            MaxSugar maxSugar = field.getAnnotation(MaxSugar.class);
+
+            if (maxSugar != null) {
+                field.setAccessible(true);
+                int realSugar = (int) field.get(obj);
+                int limit = maxSugar.value();
+
+                if (realSugar &gt; limit) {
+                    throw new IllegalArgumentException("당분 과다");
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) throws IllegalAccessException {
+        Drink drink = new Drink("초코라떼", 45);
+        validate(drink);
+    }
+}</code></pre>
+
+  <p>
+    <code>@MaxSugar(30)</code>은 sugar 필드의 최대 허용값이 30이라는 뜻입니다.
+    검증 코드에서 실제 sugar 값이 30보다 크면 <strong>당분 과다</strong>로 실패시킵니다.
+  </p>
+
+  <h2>7. 마지막 핵심 정리</h2>
+  <table>
+    <tr>
+      <th>주제</th>
+      <th>반드시 기억할 말</th>
+    </tr>
+    <tr>
+      <td>애너테이션</td>
+      <td><strong>코드에 붙이는 정보</strong>이며, 실행 중 읽으려면 <code>RUNTIME</code>이 필요하다.</td>
+    </tr>
+    <tr>
+      <td>리플렉션</td>
+      <td>실행 중 클래스, 필드, 메서드 정보를 읽고 private 값도 접근할 수 있다.</td>
+    </tr>
+    <tr>
+      <td>enum</td>
+      <td><strong>정해진 값만 쓰게 하는 타입</strong>이다. 오타와 잘못된 값을 막는다.</td>
+    </tr>
+    <tr>
+      <td>재귀호출</td>
+      <td>자기 자신을 호출한다. <strong>종료 조건이 없으면 안 된다.</strong></td>
+    </tr>
+    <tr>
+      <td>DI</td>
+      <td>필요한 객체를 외부에서 넣어 받는다. 구현체 변경에 유리하다.</td>
+    </tr>
+  </table>
+</body>
+</html>

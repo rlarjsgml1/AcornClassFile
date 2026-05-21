@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>Java2 Day02 핵심 정리</title>
+  <style>
+    @page { size: A4; margin: 15mm 14mm; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #1f2937; font-family: "Malgun Gothic", Arial, sans-serif; font-size: 13px; line-height: 1.62; }
+    h1, h2, h3 { margin: 0; line-height: 1.35; color: #111827; }
+    h1 { font-size: 29px; }
+    h2 { margin-top: 28px; padding-bottom: 7px; border-bottom: 2px solid #2563eb; font-size: 21px; page-break-after: avoid; }
+    h3 { margin-top: 18px; color: #1d4ed8; font-size: 16px; page-break-after: avoid; }
+    p { margin: 8px 0; }
+    ul, ol { margin: 7px 0 10px 20px; padding: 0; }
+    li { margin: 3px 0; }
+    table { width: 100%; margin: 10px 0 15px; border-collapse: collapse; page-break-inside: avoid; }
+    th, td { padding: 8px 9px; border: 1px solid #d1d5db; vertical-align: top; text-align: left; }
+    th { background: #eff6ff; color: #1e3a8a; font-weight: 800; }
+    code { font-family: Consolas, "Courier New", monospace; font-size: 12px; }
+    pre { margin: 9px 0 14px; padding: 11px 12px; border: 1px solid #d1d5db; border-left: 4px solid #2563eb; border-radius: 6px; background: #f8fafc; font-family: Consolas, "Courier New", monospace; font-size: 11.5px; line-height: 1.48; white-space: pre-wrap; word-break: break-word; page-break-inside: avoid; }
+    strong { color: #b91c1c; font-weight: 800; }
+    .cover { margin-bottom: 22px; padding: 22px 24px; border: 2px solid #1d4ed8; border-radius: 8px; background: #f8fbff; }
+    .subtitle { margin-top: 8px; color: #374151; font-size: 15px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 15px; }
+    .grid div, .note, .important { page-break-inside: avoid; }
+    .grid div { padding: 9px 10px; border: 1px solid #bfdbfe; border-radius: 6px; background: #fff; }
+    .note { margin: 10px 0 14px; padding: 10px 12px; border-left: 4px solid #0f766e; background: #f0fdfa; }
+    .important { margin: 10px 0 14px; padding: 10px 12px; border-left: 4px solid #dc2626; background: #fff7ed; }
+  </style>
+</head>
+<body>
+  <section class="cover">
+    <h1>Java2 Day02 핵심 정리</h1>
+    <p class="subtitle">람다식, 함수형 인터페이스, forEach, Comparator.comparing, 표준 함수형 인터페이스 정리</p>
+    <div class="grid">
+      <div><strong>람다식</strong><br>메서드 구현을 짧은 식으로 표현하는 문법입니다.</div>
+      <div><strong>함수형 인터페이스</strong><br>추상 메서드가 하나뿐인 인터페이스입니다.</div>
+      <div><strong>forEach</strong><br>리스트의 각 요소마다 같은 동작을 실행합니다.</div>
+      <div><strong>표준 함수형 인터페이스</strong><br>Runnable, Consumer, Supplier, Predicate, Function을 배웁니다.</div>
+    </div>
+  </section>
+
+  <h2>1. Day02에서 배우는 Java 문법</h2>
+  <p>
+    Day02의 중심은 <strong>람다식</strong>입니다.
+    람다식은 메서드를 더 짧게 쓰는 문법처럼 보이지만, Java에서는 메서드가 혼자 존재할 수 없기 때문에
+    실제로는 <strong>함수형 인터페이스의 추상 메서드를 구현하는 코드</strong>입니다.
+  </p>
+
+  <table>
+    <tr><th>개념</th><th>뜻</th><th>예</th></tr>
+    <tr><td>함수형 인터페이스</td><td>구현해야 할 추상 메서드가 하나뿐인 인터페이스</td><td><code>Runnable</code>, <code>Consumer&lt;T&gt;</code></td></tr>
+    <tr><td>람다식</td><td>함수형 인터페이스 구현을 짧게 적는 문법</td><td><code>() -&gt; System.out.println("hi")</code></td></tr>
+    <tr><td>익명 클래스</td><td>이름 없이 즉석에서 만드는 구현 클래스</td><td><code>new Runnable() { ... }</code></td></tr>
+    <tr><td>forEach</td><td>각 요소마다 Consumer를 실행</td><td><code>list.forEach(x -&gt; ...)</code></td></tr>
+    <tr><td>Comparator.comparing</td><td>정렬 기준을 람다식으로 쉽게 작성</td><td><code>Comparator.comparing(s -&gt; s.getName())</code></td></tr>
+  </table>
+
+  <div class="important">
+    <strong>핵심:</strong> 람다식은 아무 곳에서나 쓰는 문법이 아닙니다.
+    <strong>추상 메서드가 하나뿐인 인터페이스</strong>가 있어야 사용할 수 있습니다.
+  </div>
+
+  <h2>2. 함수형 인터페이스 직접 만들기</h2>
+  <p>
+    수업 예제에서는 <code>HelloInterface</code>를 만들고, 같은 기능을 세 가지 방식으로 구현합니다.
+  </p>
+
+  <pre><code>@FunctionalInterface
+public interface HelloInterface {
+    void print();
+}</code></pre>
+
+  <p>
+    <code>@FunctionalInterface</code>는 이 인터페이스가 함수형 인터페이스인지 컴파일러가 검사하게 해 줍니다.
+    추상 메서드가 두 개 이상이면 오류가 납니다.
+  </p>
+
+  <h3>2-1. 이름 있는 클래스로 구현</h3>
+  <pre><code>class HelloImp implements HelloInterface {
+    @Override
+    public void print() {
+        System.out.println("hello");
+    }
+}
+
+HelloInterface h = new HelloImp();
+h.print();</code></pre>
+
+  <p>
+    가장 기본적인 방식입니다. 클래스 이름이 있고, 여러 번 재사용할 수 있습니다.
+  </p>
+
+  <h3>2-2. 익명 클래스로 구현</h3>
+  <pre><code>HelloInterface h = new HelloInterface() {
+    @Override
+    public void print() {
+        System.out.println("익명 클래스로 구현");
+    }
+};
+
+h.print();</code></pre>
+
+  <p>
+    한 번만 사용할 구현이라면 굳이 새 파일이나 새 클래스 이름을 만들지 않아도 됩니다.
+    이때 쓰는 방식이 익명 클래스입니다.
+  </p>
+
+  <h3>2-3. 람다식으로 구현</h3>
+  <pre><code>HelloInterface h = () -&gt; System.out.println("람다식으로 구현");
+h.print();</code></pre>
+
+  <p>
+    람다식은 익명 클래스보다 훨씬 짧습니다.
+    단, <code>HelloInterface</code>처럼 구현할 추상 메서드가 하나뿐이어야 합니다.
+  </p>
+
+  <h2>3. 람다식 문법 줄이기</h2>
+  <table>
+    <tr><th>기존 메서드</th><th>람다식</th><th>설명</th></tr>
+    <tr><td><code>int max(int a, int b) { return a &gt; b ? a : b; }</code></td><td><code>(a, b) -&gt; a &gt; b ? a : b</code></td><td>한 줄 반환이면 <code>return</code> 생략</td></tr>
+    <tr><td><code>void print(String name) { System.out.println(name); }</code></td><td><code>name -&gt; System.out.println(name)</code></td><td>매개변수 1개면 괄호 생략 가능</td></tr>
+    <tr><td><code>int square(int x) { return x * x; }</code></td><td><code>x -&gt; x * x</code></td><td>타입은 대부분 추론</td></tr>
+    <tr><td><code>int getRandom() { return (int)(Math.random() * 6); }</code></td><td><code>() -&gt; (int)(Math.random() * 6)</code></td><td>매개변수가 없으면 <code>()</code> 필요</td></tr>
+  </table>
+
+  <div class="note">
+    람다식에서 <code>-&gt;</code>는 “왼쪽 입력을 받아서 오른쪽 코드를 실행한다” 정도로 이해하면 됩니다.
+  </div>
+
+  <h2>4. forEach와 Consumer</h2>
+  <p>
+    <code>forEach</code>는 리스트 안의 요소를 하나씩 꺼내서 같은 동작을 실행합니다.
+    내부적으로는 <code>Consumer&lt;T&gt;</code>를 받습니다.
+  </p>
+
+  <pre><code>ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+list.add("장주원");
+list.add("이미현");
+list.add("김두식");
+
+list.forEach(name -&gt; System.out.println(name));</code></pre>
+
+  <p>
+    <code>name</code>은 리스트에서 하나씩 꺼낸 값입니다.
+    위 코드는 기존 <code>for</code>문보다 짧고 읽기 쉽습니다.
+  </p>
+
+  <pre><code>Consumer&lt;String&gt; c = str -&gt; System.out.println("출력: " + str);
+c.accept("람다식");</code></pre>
+
+  <p>
+    <code>Consumer</code>는 입력은 받지만 반환값은 없습니다.
+    “소비한다”는 이름처럼 값을 받아 출력하거나 저장하거나 처리할 때 씁니다.
+  </p>
+
+  <h2>5. Comparator.comparing으로 객체 정렬</h2>
+  <pre><code>public class Moving {
+    String name;
+    String alias;
+    int power;
+
+    public int getPower() {
+        return power;
+    }
+
+    public String getAlias() {
+        return alias;
+    }
+}</code></pre>
+
+  <pre><code>Collections.sort(list, (o1, o2) -&gt; o1.getPower() - o2.getPower());
+Collections.sort(list, Comparator.comparing(m -&gt; m.getAlias()));</code></pre>
+
+  <p>
+    첫 줄은 직접 비교하는 람다식입니다.
+    두 번째 줄은 <code>Comparator.comparing</code>을 사용해서 “별칭으로 정렬하라”고 더 읽기 쉽게 표현한 코드입니다.
+  </p>
+
+  <div class="important">
+    <strong>정렬 기준만 알려주면 된다:</strong> 객체 정렬에서 중요한 것은 객체 전체가 아니라
+    이름, 별칭, 파워처럼 비교할 기준값입니다.
+  </div>
+
+  <h2>6. 표준 함수형 인터페이스 5개</h2>
+  <p>
+    람다식을 쓰려고 매번 인터페이스를 새로 만들 필요는 없습니다.
+    Java가 자주 쓰는 함수형 인터페이스를 이미 제공합니다.
+  </p>
+
+  <table>
+    <tr><th>인터페이스</th><th>메서드</th><th>입력</th><th>반환</th><th>쉬운 설명</th></tr>
+    <tr><td><code>Runnable</code></td><td><code>run()</code></td><td>없음</td><td>없음</td><td>그냥 실행할 코드</td></tr>
+    <tr><td><code>Consumer&lt;T&gt;</code></td><td><code>accept(T t)</code></td><td>1개</td><td>없음</td><td>받은 값을 소비</td></tr>
+    <tr><td><code>Supplier&lt;T&gt;</code></td><td><code>get()</code></td><td>없음</td><td>1개</td><td>값을 공급</td></tr>
+    <tr><td><code>Predicate&lt;T&gt;</code></td><td><code>test(T t)</code></td><td>1개</td><td>boolean</td><td>조건 검사</td></tr>
+    <tr><td><code>Function&lt;T,R&gt;</code></td><td><code>apply(T t)</code></td><td>1개</td><td>1개</td><td>입력을 다른 결과로 변환</td></tr>
+  </table>
+
+  <h3>6-1. Runnable</h3>
+  <pre><code>Runnable r = () -&gt; System.out.println("실행할 코드");
+r.run();</code></pre>
+
+  <h3>6-2. Supplier</h3>
+  <pre><code>Supplier&lt;Integer&gt; random = () -&gt; (int)(Math.random() * 5);
+int value = random.get();</code></pre>
+
+  <h3>6-3. Predicate</h3>
+  <pre><code>Predicate&lt;Integer&gt; even = n -&gt; n % 2 == 0;
+boolean result = even.test(10);</code></pre>
+
+  <h3>6-4. Function</h3>
+  <pre><code>Function&lt;Integer, Integer&gt; doubleValue = n -&gt; n * 2;
+int result = doubleValue.apply(10);</code></pre>
+
+  <h2>7. 오전/오후 실습 방향</h2>
+  <ul>
+    <li>함수형 인터페이스를 직접 만들고 이름 있는 클래스, 익명 클래스, 람다식으로 각각 구현해 보기</li>
+    <li><code>Moving</code> 객체를 파워순으로 정렬해 보기</li>
+    <li><code>ArrayList&lt;String&gt;</code>을 <code>forEach</code>로 출력해 보기</li>
+    <li><code>Runnable</code>, <code>Consumer</code>, <code>Supplier</code>, <code>Predicate</code>, <code>Function</code>을 각각 람다식으로 구현해 보기</li>
+  </ul>
+
+  <h2>8. 마지막 핵심</h2>
+  <table>
+    <tr><th>주제</th><th>반드시 기억할 말</th></tr>
+    <tr><td>람다식</td><td><strong>함수형 인터페이스의 추상 메서드를 짧게 구현하는 문법</strong>이다.</td></tr>
+    <tr><td>함수형 인터페이스</td><td>추상 메서드가 하나뿐인 인터페이스다.</td></tr>
+    <tr><td>익명 클래스</td><td>이름 없이 즉석에서 만드는 구현 클래스다.</td></tr>
+    <tr><td>forEach</td><td>각 요소마다 같은 작업을 실행한다.</td></tr>
+    <tr><td>표준 함수형 인터페이스</td><td>입력과 반환 형태에 따라 골라 쓰면 된다.</td></tr>
+  </table>
+</body>
+</html>
