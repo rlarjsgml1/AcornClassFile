@@ -34,6 +34,10 @@
   <section class="cover">
     <h1>Java2 Day01 핵심 정리</h1>
     <p class="subtitle">인터페이스 활용, 객체 정렬, 제네릭, 와일드카드를 처음 배우는 사람도 이해할 수 있게 정리</p>
+    <p><strong>주제:</strong> 인터페이스, 객체 정렬, 제네릭, 와일드카드</p>
+    <p><strong>대상 독자:</strong> Java 기본 문법을 배운 뒤 Java2 수업을 복습하는 초보자</p>
+    <p><strong>작성 기준 자료:</strong> Day1 TXT, Day1 원본 PDF, java2prj day1 소스 코드</p>
+    <p><strong>생성일:</strong> 2026-05-21</p>
     <div class="grid">
       <div><strong>인터페이스</strong><br>클래스가 반드시 지켜야 할 기능 약속입니다.</div>
       <div><strong>객체 정렬</strong><br>객체를 어떤 기준으로 앞뒤 비교할지 정하는 작업입니다.</div>
@@ -41,6 +45,35 @@
       <div><strong>와일드카드</strong><br>메서드 매개변수에서 받을 수 있는 제네릭 타입 범위를 넓히는 문법입니다.</div>
     </div>
   </section>
+
+  <h2>0. 목차와 학습 로드맵</h2>
+  <table>
+    <tr><th>단원</th><th>학습 내용</th></tr>
+    <tr><td>1</td><td>Java2 Day01 전체 개요</td></tr>
+    <tr><td>2</td><td>인터페이스로 라이브러리 만들기</td></tr>
+    <tr><td>3</td><td>Comparable과 Comparator로 객체 정렬하기</td></tr>
+    <tr><td>4</td><td>인터페이스 default/static 메서드</td></tr>
+    <tr><td>5~7</td><td>제네릭 클래스, 제네릭 메서드, 와일드카드</td></tr>
+    <tr><td>8</td><td>실습 정리</td></tr>
+    <tr><td>9</td><td>연습 문제와 정답 해설</td></tr>
+  </table>
+  <ol>
+    <li>먼저 인터페이스가 왜 필요한지 이해합니다.</li>
+    <li>객체 정렬에서 비교 기준을 어디에 두는지 확인합니다.</li>
+    <li>제네릭을 “타입을 나중에 정하는 문법”으로 이해합니다.</li>
+    <li>와일드카드는 메서드 매개변수를 유연하게 만드는 문법으로 정리합니다.</li>
+    <li>마지막에 연습 문제로 개념을 확인합니다.</li>
+  </ol>
+  <table>
+    <tr><th>원본 자료</th><th>확인 내용</th><th>반영 방식</th></tr>
+    <tr><td>자바2_1차시.txt</td><td>전체 내용 확인</td><td>학습 목표와 실습 항목 반영</td></tr>
+    <tr><td>Day1 원본 PDF 7개</td><td>파일 존재, PDF 헤더, 페이지 구조 확인</td><td>PDF 주제와 TXT/소스 코드 기준으로 개념 재구성</td></tr>
+    <tr><td>workspace/java2prj/src/day1</td><td>133개 파일 구조와 대표 예제 확인</td><td>인터페이스, 정렬, 제네릭, 와일드카드 코드 예제로 반영</td></tr>
+  </table>
+  <div class="important">
+    <strong>확인 제한:</strong> 로컬 환경에 PDF 텍스트 추출 도구가 없어 원본 PDF의 세부 본문 텍스트는 완전 추출하지 못했습니다.
+    이 자료는 TXT 전체 내용과 실제 소스 코드 확인 내용을 중심으로 재구성했습니다.
+  </div>
 
   <h2>1. Day01에서 배우는 Java 문법</h2>
   <p>
@@ -258,7 +291,31 @@ Object obj = animals2.get(0);</code></pre>
     <li>오늘의 요리사: <code>Cook</code> 상속과 한식/중식/일식 인터페이스 구현으로 그룹을 나누고 랜덤 선택하기</li>
   </ul>
 
-  <h2>9. 마지막 핵심</h2>
+  <h2>9. 연습 문제와 정답 해설</h2>
+  <h3>문제</h3>
+  <ol>
+    <li>인터페이스를 매개변수로 받는 라이브러리 코드의 장점은 무엇인가?</li>
+    <li><code>Comparable</code>과 <code>Comparator</code>의 차이를 설명하시오.</li>
+    <li><code>Box&lt;T&gt;</code>에서 <code>T</code>는 무엇을 의미하는가?</li>
+    <li><code>? extends Animal</code>과 <code>? super Animal</code>의 차이를 설명하시오.</li>
+  </ol>
+  <h3>정답 및 해설</h3>
+  <table>
+    <tr><th>번호</th><th>정답 해설</th></tr>
+    <tr><td>1</td><td>구체 클래스 이름을 몰라도 약속된 메서드를 호출할 수 있어 코드가 유연해집니다.</td></tr>
+    <tr><td>2</td><td><code>Comparable</code>은 객체 내부의 기본 정렬 기준이고, <code>Comparator</code>는 정렬할 때 외부에서 주는 기준입니다.</td></tr>
+    <tr><td>3</td><td><code>T</code>는 나중에 사용자가 정하는 타입 자리입니다. 예: <code>Box&lt;String&gt;</code>, <code>Box&lt;Integer&gt;</code>.</td></tr>
+    <tr><td>4</td><td><code>extends</code>는 읽기에 유리하고, <code>super</code>는 쓰기에 유리합니다.</td></tr>
+  </table>
+
+  <h2>10. 원본 출처와 확인 불가 항목</h2>
+  <table>
+    <tr><th>항목</th><th>이유</th><th>필요한 추가 자료</th></tr>
+    <tr><td>Day1 원본 PDF 세부 본문 전체 추출</td><td>PDF 텍스트 추출 도구 없음</td><td>텍스트 추출본 또는 OCR 결과</td></tr>
+    <tr><td>코드 실행 결과</td><td>이번 자료 제작에서는 실행 검증하지 않음</td><td>Eclipse 또는 javac 실행 환경 확인</td></tr>
+  </table>
+
+  <h2>11. 마지막 핵심</h2>
   <table>
     <tr><th>주제</th><th>반드시 기억할 말</th></tr>
     <tr><td>인터페이스</td><td><strong>구현 클래스가 지켜야 할 약속</strong>이다.</td></tr>

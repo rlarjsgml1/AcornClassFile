@@ -33,6 +33,10 @@
   <section class="cover">
     <h1>Java2 Day04 핵심 정리</h1>
     <p class="subtitle">리플렉션과 변경에 유리한 코드 작성 방식을 쉬운 말과 코드로 정리</p>
+    <p><strong>주제:</strong> 리플렉션과 변경에 유리한 코드</p>
+    <p><strong>대상 독자:</strong> 인터페이스와 객체 생성 이후 리플렉션을 처음 배우는 Java 초보자</p>
+    <p><strong>작성 기준 자료:</strong> Day4 TXT, Day4 원본 PDF, java2prjDay4 day4 소스 코드</p>
+    <p><strong>생성일:</strong> 2026-05-21</p>
     <div class="grid">
       <div><strong>Class 클래스</strong><br>실행 중 클래스 정보를 담는 객체입니다.</div>
       <div><strong>Reflection</strong><br>실행 중 클래스, 필드, 메서드를 읽고 사용할 수 있는 기술입니다.</div>
@@ -40,6 +44,34 @@
       <div><strong>느슨한 결합</strong><br>구체 클래스가 바뀌어도 기존 코드 수정이 적은 구조입니다.</div>
     </div>
   </section>
+
+  <h2>0. 목차와 학습 로드맵</h2>
+  <table>
+    <tr><th>단원</th><th>학습 내용</th></tr>
+    <tr><td>1</td><td>Day04 전체 개요</td></tr>
+    <tr><td>2~7</td><td>리플렉션, Class 객체, 필드/메서드 정보, 동적 객체 생성</td></tr>
+    <tr><td>8~10</td><td>변경에 유리한 코드, 느슨한 결합, Properties 설정</td></tr>
+    <tr><td>11</td><td>2인 1조 실습 방향</td></tr>
+    <tr><td>12~14</td><td>연습 문제, 확인 불가 항목, 최종 요약</td></tr>
+  </table>
+  <ol>
+    <li>먼저 <code>Class</code> 객체가 “클래스 정보”를 담는다는 점을 이해합니다.</li>
+    <li>필드와 메서드 정보를 실행 중에 읽는 흐름을 봅니다.</li>
+    <li><code>invoke</code>로 메서드를 호출하는 구조를 확인합니다.</li>
+    <li>설정 파일과 리플렉션을 이용해 구현체를 바꾸는 방법을 이해합니다.</li>
+    <li>느슨한 결합이 왜 변경에 유리한지 정리합니다.</li>
+  </ol>
+  <table>
+    <tr><th>원본 자료</th><th>확인 내용</th><th>반영 방식</th></tr>
+    <tr><td>4일차.txt</td><td>전체 내용 확인</td><td>리플렉션, 변경에 유리한 코드 학습 목표 반영</td></tr>
+    <tr><td>스트림문제.txt</td><td>전체 내용 확인</td><td>Day4 보조 실습으로 확인</td></tr>
+    <tr><td>Day4 원본 PDF 2개</td><td>파일 존재, PDF 헤더, 페이지 구조 확인</td><td>리플렉션과 변경에 유리한 코드 주제 반영</td></tr>
+    <tr><td>workspace/java2prjDay4/src/day4</td><td>48개 파일 구조와 대표 예제 확인</td><td>Member, Animal, Calculator, Properties 코드 예제로 반영</td></tr>
+  </table>
+  <div class="important">
+    <strong>확인 제한:</strong> PDF 본문 세부 텍스트는 완전 추출하지 못했습니다.
+    TXT 전체 내용과 실제 소스 코드 확인 내용을 중심으로 재구성했습니다.
+  </div>
 
   <h2>1. Day04에서 배우는 Java 문법</h2>
   <p>
@@ -287,7 +319,31 @@ String calculatorClass = properties.getProperty("calculator");</code></pre>
     <li>요리사 프로그램이라면 Store는 Cook 인터페이스만 알고, 실제 요리사는 설정 파일로 바꾸기</li>
   </ul>
 
-  <h2>12. 마지막 핵심</h2>
+  <h2>12. 연습 문제와 정답 해설</h2>
+  <h3>문제</h3>
+  <ol>
+    <li><code>Class.forName()</code>은 무엇을 하는가?</li>
+    <li>리플렉션으로 메서드를 실행할 때 사용하는 메서드는 무엇인가?</li>
+    <li>설정 파일과 리플렉션을 함께 쓰면 어떤 장점이 있는가?</li>
+    <li>느슨한 결합에서 프로그램은 구체 클래스와 인터페이스 중 무엇에 의존해야 하는가?</li>
+  </ol>
+  <h3>정답 및 해설</h3>
+  <table>
+    <tr><th>번호</th><th>정답 해설</th></tr>
+    <tr><td>1</td><td>문자열로 받은 클래스 이름을 이용해 실행 중 클래스 정보를 로딩합니다.</td></tr>
+    <tr><td>2</td><td><code>Method.invoke()</code>를 사용합니다.</td></tr>
+    <tr><td>3</td><td>Java 코드를 직접 수정하지 않고 설정 파일의 클래스명 변경으로 구현체를 교체할 수 있습니다.</td></tr>
+    <tr><td>4</td><td>구체 클래스가 아니라 인터페이스에 의존해야 변경에 유리합니다.</td></tr>
+  </table>
+
+  <h2>13. 원본 출처와 확인 불가 항목</h2>
+  <table>
+    <tr><th>항목</th><th>이유</th><th>필요한 추가 자료</th></tr>
+    <tr><td>Day4 원본 PDF 세부 본문 전체 추출</td><td>PDF 텍스트 추출 도구 없음</td><td>텍스트 추출본 또는 OCR 결과</td></tr>
+    <tr><td>코드 실행 결과</td><td>이번 자료 제작에서는 실행 검증하지 않음</td><td>Eclipse 또는 javac 실행 환경 확인</td></tr>
+  </table>
+
+  <h2>14. 마지막 핵심</h2>
   <table>
     <tr><th>주제</th><th>반드시 기억할 말</th></tr>
     <tr><td>리플렉션</td><td><strong>실행 중 클래스 정보를 읽고 객체 생성, 메서드 호출까지 할 수 있는 기술</strong>이다.</td></tr>

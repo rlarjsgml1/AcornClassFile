@@ -33,6 +33,10 @@
   <section class="cover">
     <h1>Java2 Day03 핵심 정리</h1>
     <p class="subtitle">Collection, Iterator, List/Set/Map, Stream의 핵심을 쉬운 말과 코드로 정리</p>
+    <p><strong>주제:</strong> 컬렉션과 스트림</p>
+    <p><strong>대상 독자:</strong> 여러 데이터를 저장하고 처리하는 방법을 배우는 Java 초보자</p>
+    <p><strong>작성 기준 자료:</strong> Day3 TXT, Day3 원본 PDF, java2prjDay3 day3 소스 코드</p>
+    <p><strong>생성일:</strong> 2026-05-21</p>
     <div class="grid">
       <div><strong>Collection</strong><br>여러 데이터를 담는 자료구조 묶음입니다.</div>
       <div><strong>Iterator</strong><br>컬렉션을 같은 방식으로 하나씩 꺼내는 도구입니다.</div>
@@ -40,6 +44,34 @@
       <div><strong>Stream</strong><br>데이터를 필터, 변환, 정렬, 집계하는 흐름입니다.</div>
     </div>
   </section>
+
+  <h2>0. 목차와 학습 로드맵</h2>
+  <table>
+    <tr><th>단원</th><th>학습 내용</th></tr>
+    <tr><td>1</td><td>Day03 전체 개요</td></tr>
+    <tr><td>2</td><td>Collection 전체 그림</td></tr>
+    <tr><td>3</td><td>Iterator</td></tr>
+    <tr><td>4</td><td>HashSet 객체 중복 판단</td></tr>
+    <tr><td>5~6</td><td>Stream, 중간 연산, 최종 연산</td></tr>
+    <tr><td>7~9</td><td>Stream 문제 풀이, 연습 문제, 최종 요약</td></tr>
+  </table>
+  <ol>
+    <li>먼저 List, Set, Map을 언제 쓰는지 구분합니다.</li>
+    <li>Iterator가 컬렉션을 공통 방식으로 순회하게 해 준다는 점을 이해합니다.</li>
+    <li>Set에서 객체 중복 판단에는 equals/hashCode가 필요하다는 점을 확인합니다.</li>
+    <li>Stream의 중간 연산과 최종 연산을 구분합니다.</li>
+    <li>Stream 문제를 filter, map, sorted, collect, reduce로 분류해 풉니다.</li>
+  </ol>
+  <table>
+    <tr><th>원본 자료</th><th>확인 내용</th><th>반영 방식</th></tr>
+    <tr><td>3일차.txt</td><td>전체 내용 확인</td><td>컬렉션, Iterator, Stream 학습 목표 반영</td></tr>
+    <tr><td>Day3 원본 PDF 4개</td><td>파일 존재, PDF 헤더, 페이지 구조 확인</td><td>Hash, LinkedList, Tree, Java2 PDF 주제 반영</td></tr>
+    <tr><td>workspace/java2prjDay3/src/day3</td><td>123개 파일 구조와 대표 예제 확인</td><td>List/Set/Map, Iterator, Stream 코드 예제로 반영</td></tr>
+  </table>
+  <div class="important">
+    <strong>확인 제한:</strong> PDF 본문 세부 텍스트는 완전 추출하지 못했습니다.
+    TXT 전체 내용과 실제 소스 코드 확인 내용을 중심으로 재구성했습니다.
+  </div>
 
   <h2>1. Day03에서 배우는 Java 문법</h2>
   <p>
@@ -273,7 +305,31 @@ scores.stream()
     .filter(score -&gt; score &gt;= 60)
     .forEach(System.out::println);</code></pre>
 
-  <h2>8. 마지막 핵심</h2>
+  <h2>8. 연습 문제와 정답 해설</h2>
+  <h3>문제</h3>
+  <ol>
+    <li>순서가 있고 중복을 허용하는 컬렉션은 무엇인가?</li>
+    <li>Set에 직접 만든 객체를 넣을 때 중복 제거를 위해 재정의해야 하는 메서드는 무엇인가?</li>
+    <li>Stream의 중간 연산과 최종 연산의 차이는 무엇인가?</li>
+    <li><code>filter</code>와 <code>map</code>의 차이는 무엇인가?</li>
+  </ol>
+  <h3>정답 및 해설</h3>
+  <table>
+    <tr><th>번호</th><th>정답 해설</th></tr>
+    <tr><td>1</td><td><code>List</code>입니다. 대표 구현체는 <code>ArrayList</code>, <code>LinkedList</code>입니다.</td></tr>
+    <tr><td>2</td><td><code>equals()</code>와 <code>hashCode()</code>를 함께 재정의해야 합니다.</td></tr>
+    <tr><td>3</td><td>중간 연산은 Stream을 계속 반환해 연결할 수 있고, 최종 연산은 결과를 만들고 Stream을 끝냅니다.</td></tr>
+    <tr><td>4</td><td><code>filter</code>는 조건에 맞는 값만 통과시키고, <code>map</code>은 값을 다른 값으로 변환합니다.</td></tr>
+  </table>
+
+  <h2>9. 원본 출처와 확인 불가 항목</h2>
+  <table>
+    <tr><th>항목</th><th>이유</th><th>필요한 추가 자료</th></tr>
+    <tr><td>Day3 원본 PDF 세부 본문 전체 추출</td><td>PDF 텍스트 추출 도구 없음</td><td>텍스트 추출본 또는 OCR 결과</td></tr>
+    <tr><td>코드 실행 결과</td><td>이번 자료 제작에서는 실행 검증하지 않음</td><td>Eclipse 또는 javac 실행 환경 확인</td></tr>
+  </table>
+
+  <h2>10. 마지막 핵심</h2>
   <table>
     <tr><th>주제</th><th>반드시 기억할 말</th></tr>
     <tr><td>List</td><td>순서가 있고 중복을 허용한다.</td></tr>

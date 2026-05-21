@@ -1,3 +1,4 @@
+
 # AGENTS.md
 
 이 문서는 `C:\AcornFile` 저장소에서 AI 코딩 에이전트가 작업할 때 따르는 공통 지침입니다.
@@ -36,6 +37,7 @@ Folder Naming            규칙/FOLDER_NAMING_RULES.md
 Backend / DAO / DB       backend/BACKEND_RULES.md, backend/SERVICE_DAO.md
 DTO / DB / JSON 모델      모델/MODEL_GUIDE.md, 모델/DATA_MODEL.md
 문서 / README            문서/DOCUMENT_GUIDE.md, 문서/문서_작성규칙.md
+학습자료 / PDF 제작       문서/학습자료_제작_AGENT.md, 문서/수업자료_관리.md
 디버깅                   logs/디버깅로그.md, docs/DEBUGGING.md
 최종 코드 점검           code/CODE_REVIEW_99_CHECKLIST.md
 최종 백엔드 점검         backend/BACKEND_REVIEW_99_CHECKLIST.md
@@ -71,7 +73,22 @@ DTO / DB / JSON 모델      모델/MODEL_GUIDE.md, 모델/DATA_MODEL.md
 - `.metadata/`, `bin/`, `*.class`, `*.lock`, `*.log`, `.codex-build/`, `.chrome-pdf-profile/`는 커밋 대상에서 제외합니다.
 - SourceTree에서 `Stage All`을 누르기 전 변경 파일 목록을 확인합니다.
 - `push`, `reset`, `force push`, `merge`, `rebase`는 사용자 승인 없이 실행하지 않습니다.
-- 커밋 메시지는 짧아도 변경 목적이 드러나야 합니다.
+- 커밋 메시지는 실무에서 많이 쓰는 Conventional Commits 형식을 우선합니다.
+- 기본 형식은 `type: 변경 목적`입니다. 예: `docs: 학습자료 제작 규칙 추가`
+- 자주 쓰는 type은 `docs`, `feat`, `fix`, `refactor`, `test`, `chore`입니다.
+- 제목은 한 줄로 짧게 쓰되, 무엇을 왜 바꿨는지 드러나야 합니다.
+- 변경 내용이 여러 개면 커밋 본문에 bullet로 요약합니다.
+- 커밋 본문에는 변경 파일 나열보다 변경 의도와 영향, 검증 여부를 우선 적습니다.
+- 예시:
+
+```text
+docs: 학습자료 제작 규칙 추가 및 Java2 핵심정리 PDF 재생성
+
+- 학습자료 제작 전용 에이전트 지침 추가
+- PDF 생성 후 임시 Chrome 프로필 삭제 규칙 추가
+- Java2 Day1~Day5 핵심정리 PDF 재생성
+- 각 PDF에 목차, 학습 로드맵, 확인 불가 항목, 연습 문제 추가
+```
 
 ## 6. 사용자 확인이 필요한 작업
 
