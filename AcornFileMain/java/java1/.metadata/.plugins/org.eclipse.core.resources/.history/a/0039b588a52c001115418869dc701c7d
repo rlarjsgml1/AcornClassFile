@@ -1,0 +1,23 @@
+package day21.prac.비동기;
+
+import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
+public class Thread만들어보기카운트 {
+	public static void main(String[] args) {
+		  String input = JOptionPane.showInputDialog("오레오 몇 박스 원해?");
+	        int 오레오 = Integer.parseInt(input);
+
+	        Thread OrO = new Thread(() -> {
+	            for (int i = 1; i <= 오레오; i++) {
+	                System.out.println("오레오: " + i + "박스");
+	                try {
+	                    Thread.sleep(900);
+	                } catch (Exception e) {}
+	            }
+	        });
+
+	        OrO.start();
+	    }
+	}

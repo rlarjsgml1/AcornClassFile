@@ -1,0 +1,22 @@
+package day21.prac.비동기;
+
+//class 안에 클래스르 만들 수 있다
+//메서드안에서 클래스를 만들 수 있다(지역내부 클래스)
+
+
+
+public class Ex01 {
+	public static void main(String[] args) {
+		// 김건희 춤추기 100번
+		for (int i = 1; i <= 100; i++) {
+			System.out.println("김건희가 춤을 춘다 ^__ ****");
+		}
+
+		// 고지연 춤추기 100번
+		for (int i = 1; i <= 100; i++) {
+			System.out.println("고지연가 춤을 춘다 ^__ ****");
+		}
+		System.out.println("main 종료");
+	}
+
+}

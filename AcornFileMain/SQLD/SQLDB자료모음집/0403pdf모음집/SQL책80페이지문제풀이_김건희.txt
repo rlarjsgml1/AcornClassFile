@@ -1,0 +1,12 @@
+--80페이지 풀이
+--퀴즈1)EMP테이블에서 아래와 같이 20번 부서에 소속된 직원들의 이름과 2~3번째 글자만 '-'으로 변경해서 출력하세요
+SELECT ENAME, REPLACE(ENAME,SUBSTR(ENAME,2,2), '--') FROM EMP WHERE deptno = 20;
+
+--퀴즈2)STUDENT 테이블에서 아래와 같이 1전공(DEPTNO1)이 101번인 학생들의 이름과 주민등록번호를 출력하되 주민등록번호의 뒤 7자리는 '-'과'/'로 표시되게 출력하세요.
+SELECT NAME,JUMIN,REPLACE(JUMIN,SUBSTR(JUMIN,8,7),'-/-/-/-') AS REPLACE FROM STUDENT WHERE deptno1 = 101;
+
+--퀴즈3)STUDNET 테이블에서 아래 그림과 같이 1전공이 102번인 학생들의 이름과 전화번호, 전화번호에서 국번 부분만 '*'처리하여 출력하세요 단, 모든 국번은 3자리로 간주합니다.
+SELECT NAME, TEL, REPLACE(TEL, SUBSTR(TEL,INSTR(TEL,')')+1, 3),'***') AS REPLACE FROM STUDENT WHERE deptno1 = '102';
+
+--퀴즈4)STUDENT 테이블에서 아래와 같이 DEPTNO1이 101번인 학과 학생들의 이름과 전화번호와 전화번호에서 지역번호와 국번을 제외한 나머지 번호를 *로 표시해서 출력하세요
+SELECT NAME, TEL, REPLACE(TEL,SUBSTR(TEL,INSTR(TEL,'-')+1,4),'****') AS REPLACE FROM STUDENT WHERE deptno1 = '101';

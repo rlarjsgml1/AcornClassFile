@@ -1,0 +1,8 @@
+package day21.prac.sleep;
+
+public class Counter extends Thread{
+	@Override
+	public void run() {
+		
+	}
+}

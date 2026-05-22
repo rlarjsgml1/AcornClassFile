@@ -1,0 +1,12 @@
+package day21.prac.인터럽트;
+
+public class Smile2 extends Thread {
+	@Override
+	public void run() {
+		while (!isInterrupted()) { // false, true
+
+			System.out.println("^__&");
+		}
+		System.out.println("웃음끝");
+	}
+}

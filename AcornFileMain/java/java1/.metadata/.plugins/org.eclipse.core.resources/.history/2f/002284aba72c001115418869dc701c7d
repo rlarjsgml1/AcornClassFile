@@ -1,0 +1,10 @@
+package day21.prac.sleep;
+
+public class Ex02 {
+	public static void main(String[] args) {
+		Counter counter = new Counter();
+		counter.start();
+		
+		System.out.println("카운터");
+	}
+}

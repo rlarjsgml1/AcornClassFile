@@ -1,0 +1,21 @@
+package day21.prac.chatt;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class Client1 {
+	Socket socket;
+	DataInputStream is;
+	DataOutputStream os;
+	Scanner sc = new Scanner(System.in);
+	
+	public Client1() {
+		socket = new Socket("localhost", 6500);
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+}

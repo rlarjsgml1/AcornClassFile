@@ -1,0 +1,60 @@
+-- 재료 DML
+ALL
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('마늘');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('양파');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('대파');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('감자');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('고구마');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('당근');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('양배추');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('상추');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('깻잎');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('오이');
+
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('사과');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('배');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('바나나');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('귤');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('토마토');
+
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('돼지고기');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('소고기');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('닭고기');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('베이컨');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('햄');
+
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('고등어');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('꽁치');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('오징어');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('새우');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('홍합');
+
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('소금');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('설탕');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('간장');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('고추장');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('된장');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('식초');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('케첩');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('마요네즈');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('참기름');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('고춧가루');
+
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('우유');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('치즈');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('버터');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('계란');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('요거트');
+
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('쌀');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('밀가루');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('라면');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('스파게티면');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('식빵');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('두부');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('김치');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('김');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('떡');
+INSERT INTO FOOD_ITEM (food_item_name) VALUES ('만두');
+COMMIT;
+

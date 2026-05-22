@@ -1,0 +1,29 @@
+package day21.prac.chatt;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class Server1 {
+	//서버소켓
+	//소켓 : 클라이언트와 통신할 소켓
+	//보조스트림 in
+	//보조스트림 out
+	//스캐너
+	
+	Server1 severSocket;
+	Socket socket;
+	DataInputStream is;
+	DataOutputStream os;
+	Scanner sc = new Scanner(System.in);
+	
+	public Server1() {
+		// TODO Auto-generated constructor stub
+		severSocket = new Server1(6500);
+	}	
+	
+	public static void main(String[] args) {
+		
+	}
+}

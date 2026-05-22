@@ -1,0 +1,46 @@
+package day21.prac.공유자원;
+
+public class Ex01 {
+	static int su= 0; //두 개의 스레드가 su 라는 변수의 값을 증가 시키기 0
+	static void 증가하기() {
+		for(int i = 1; i<=100; i++) {
+			try {
+				Thread.sleep(20);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			su += 1;
+		}
+	}
+	public static void main(String[] args) {
+		//두개의 스레드가 su라는 변수의 값을 증가 시키기
+		Thread a = new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				증가하기();
+			}
+		});
+		
+		Thread b = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				증가하기();	
+			}
+		});
+		
+		a.start();
+		b.start();
+		
+		try {
+			a.join();
+			b.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("종료");
+		System.out.println(su);
+	}
+}

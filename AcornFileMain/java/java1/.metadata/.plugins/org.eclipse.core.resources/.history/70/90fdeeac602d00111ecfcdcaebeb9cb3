@@ -1,0 +1,29 @@
+package day21.prac.오후실습_이현겸김건희;
+
+public class Main {
+    public static void main(String[] args) {
+
+        담배 cigarette = new 담배();
+        담배피기 manager = new 담배피기(cigarette);
+
+        Thread smoker1 = manager.createSmoker("김건희");
+        Thread smoker2 = manager.createSmoker("이현겸");
+        Thread teacher = manager.createTeacher();
+
+        smoker1.start();
+        smoker2.start();
+        teacher.start();
+
+        System.out.println("=============== 선생님 몰래 담배 피우기 시작! ===============");
+        while (!manager.isGameOver()) {
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        System.out.println();
+        System.out.println(manager.getWinnerMessage());
+    }
+}

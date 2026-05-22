@@ -1,0 +1,15 @@
+package day21.prac.비동기;
+
+import java.util.Scanner;
+
+public class Thread만들어보기 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int 오레오 = sc.nextInt();
+		Thread OrO = new Thread(() ->{
+			for(int i = 1; i<= 오레오; i++) {
+				System.out.println("오레오:" + i + "박스");
+			}
+		});
+	}
+}

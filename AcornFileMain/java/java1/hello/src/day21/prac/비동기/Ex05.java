@@ -1,0 +1,40 @@
+package day21.prac.비동기;
+
+//스레드만들기 두번째 방법 Runnable interface(인터페이스) 사용하기
+//익명클래스
+
+public class Ex05 {
+	public static void main(String[] args) {
+		// 김건희 춤추기 100번 => 별도의 흐름
+		/*
+		for (int i = 1; i <= 100; i++) {
+			System.out.println("김건희가 춤을 춘다 ^__ ****");
+		}
+		*/
+		
+		Thread 김건희 = new Thread(()->{
+			for (int i = 1; i <= 100; i++) {
+				System.out.println("김건희가 춤을 춘다 ^__ ****");
+			}
+		});
+
+		김건희.start();
+		// 고지연 춤추기 100번 => 별도의 흐름
+		/*
+		for (int i = 1; i <= 100; i++) {
+			System.out.println("고지연가 춤을 춘다 ^__ ****");
+		}
+		*/
+		
+		Thread 고지연 = new Thread(()->{
+			for (int i = 1; i <= 100; i++) {
+				System.out.println("고지연가 춤을 춘다 ^__ ****");
+			}
+		});
+
+		고지연.start();
+		
+		System.out.println("main 종료");
+	}
+
+}

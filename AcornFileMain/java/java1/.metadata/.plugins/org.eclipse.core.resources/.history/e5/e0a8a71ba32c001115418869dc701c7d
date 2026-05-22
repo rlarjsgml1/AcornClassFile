@@ -1,0 +1,21 @@
+package day21.prac.비동기;
+
+import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
+public class Thread만들어보기 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String input = JOptionPane.showInputDialog("아무 값이나 입력하세요."); 
+		System.out.println("입력하신 값은 " + input + "입니다.");
+		//System.out.println("오레오 몇박스 원해? 말해봐 ");
+		int 오레오 = sc.nextInt();
+		Thread OrO = new Thread(() ->{
+			for(int i = 1; i<= 오레오; i++) {
+				System.out.println("오레오:" + i + "박스");
+			}
+		});
+		OrO.start();
+	}
+}

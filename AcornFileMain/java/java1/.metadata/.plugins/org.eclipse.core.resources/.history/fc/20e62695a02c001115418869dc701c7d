@@ -1,0 +1,53 @@
+package day21.prac.비동기;
+
+//스레드만들기 두번째 방법 Runnable interface(인터페이스) 사용하기
+
+
+public class Ex03 {
+	public static void main(String[] args) {
+		// 김건희 춤추기 100번 => 별도의 흐름
+		/*
+		for (int i = 1; i <= 100; i++) {
+			System.out.println("김건희가 춤을 춘다 ^__ ****");
+		}
+		*/
+		Thread 김건희 = new Thread();
+		김건희.start();
+		
+		//interface(인터페이스)를 구현하는 방법
+		//1.이름있는 클래스로 만들기
+		//2.익명클래스
+		//3.functional interface => 람다식(경험 자바2에서 시작)
+		
+		class A implements Runnable{
+			@Override
+			public void run() {
+				for (int i = 1; i <= 100; i++) {
+					System.out.println("김건희가 춤을 춘다 ^__ ****");
+				}
+			}
+		}
+		Thread 김건희 = new Thread(new A());
+		김건희.start();
+
+		// 고지연 춤추기 100번 => 별도의 흐름
+		/*
+		for (int i = 1; i <= 100; i++) {
+			System.out.println("고지연가 춤을 춘다 ^__ ****");
+		}
+		*/
+		class B implements Runnable{
+			@Override
+			public void run() {
+				for (int i = 1; i <= 100; i++) {
+					System.out.println("고지연가 춤을 춘다 ^__ ****");
+				}
+			}
+		}
+		
+		Thread 고지연 = new Thread( new B());
+		고지연.start();
+		System.out.println("main 종료");
+	}
+
+}

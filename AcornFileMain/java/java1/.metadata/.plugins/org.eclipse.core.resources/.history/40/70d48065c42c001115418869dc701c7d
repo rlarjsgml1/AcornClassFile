@@ -1,0 +1,27 @@
+package day21.prac.인터럽트;
+
+public class Smile2 extends Thread {
+	
+	/*
+	 =>스마일 2 스레드가 자고 있을 때 인터럽트가 들어온 것 !!
+	   이때는 인터럽트 설정 정보를 초기화 시킴
+	 */
+	
+	@Override
+	public void run() {
+		//while(isInterrupted()==false)
+		while (!isInterrupted()) { // false, true
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace(); //인터럽트 정보를 초기화시킴, flase로 만들어줌!!
+				System.out.println("자다가 깸");
+				break;
+			}
+
+			System.out.println("^__&");
+		}
+		System.out.println("웃음끝");
+	}
+}

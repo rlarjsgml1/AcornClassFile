@@ -1,0 +1,185 @@
+package day21.prac.오후실습;
+
+import java.util.Random;
+
+public class 담배피기 {
+
+    private final 담배 cigarettePack;
+    private final Random random = new Random();
+
+    private volatile boolean gameOver = false;
+    private volatile boolean teacherWin = false;
+    private volatile boolean smokerWin = false;
+    private volatile String winnerMessage = "";
+
+    // 현재 흡연 중인 사람
+    private volatile Thread currentSmoker = null;
+    private volatile String currentSmokerName = "";
+
+    // 피우는 중인지 여부
+    private volatile boolean smokingNow = false;
+
+    // 적발 여부
+    private volatile boolean caught = false;
+
+    public 담배피기(담배 cigarettePack) {
+        this.cigarettePack = cigarettePack;
+    }
+
+    public boolean isGameOver() {
+        return gameOver;
+    }
+
+    public String getWinnerMessage() {
+        return winnerMessage;
+    }
+
+    // 동시에 한 명만 피우게 하기
+    public synchronized void smoke(String smokerName) {
+    	
+        if (gameOver) return;
+
+        if (!cigarettePack.hasCigarette()) {
+            smokerWin = true;
+            gameOver = true;
+            winnerMessage = "담배 10개를 모두 소진해서 흡연자 승리!";
+            return;
+        }
+
+        if (smokingNow) {
+            return;
+        }
+
+        if (!cigarettePack.useOne()) {
+            smokerWin = true;
+            gameOver = true;
+            winnerMessage = "담배 10개를 모두 소진해서 흡연자 승리!";
+            return;
+        }
+
+        currentSmoker = Thread.currentThread();
+        currentSmokerName = smokerName;
+        smokingNow = true;
+        caught = false;
+
+        System.out.println("[" + smokerName + "] 담배 피우러 감... 남은 담배: " + cigarettePack.getCount());
+
+        long start = System.currentTimeMillis();
+
+        // 1초 동안 sleep 없이 흡연 상태 유지
+        while (System.currentTimeMillis() - start < 1000) {
+            if (Thread.currentThread().isInterrupted()) {
+                caught = true;
+                teacherWin = true;
+                gameOver = true;
+                winnerMessage = "선생님 승리! [" + smokerName + "] 흡연 중 적발!";
+                System.out.println("████████████████████████████████████████████████████████████████████████");
+                System.out.println("████████████████████████       이 자식들!!!!!!!!    ███████████████████████");
+                System.out.println("████████████████████████████████████████████████████████████████████████");
+                System.out.println("██████                  ██████                  ██████       ███████████");
+                System.out.println("████                 ▓▓██████▓▓▓       ▓▓▓██████▓▓▓           █████████");
+                System.out.println("████              ▓▓▓▓▓▓▓▓▓████▓▓   ▓▓▓▓██████▓▓▓▓             █████████");
+                System.out.println("████            ▓▓▓▓▓         ██                  ▓▓▓▓         █████████");
+                System.out.println("████          ▓▓▓▓        ████         ████  ██    ▓▓▓▓        █████████");
+                System.out.println("████         ▓▓▓        ███ ███       █████████      ▓▓▓       █████████");
+                System.out.println("████        ▓▓▓       █████████       ████ █████      ▓▓▓      █████████");
+                System.out.println("████       ▓▓▓       █████ ███           ███████        ▓▓▓    █████████");
+                System.out.println("████       ▓▓         █████                ███          ▓▓▓    █████████");
+                System.out.println("████      ▓▓▓          ███ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄████           ▓▓▓    █████████");
+                System.out.println("████      ▓▓             ██▓▓▓▓▓▓▓▓▓▓▓▓▓▓███             ▓▓    █████████");
+                System.out.println("████      ▓▓            █▓██▓▓▓▓▓▓▓▓▓▓▓▓▓██▓█            ▓▓    █████████");
+                System.out.println("████      ▓▓            █▓▓█  ▓▓▓▓▓▓▓▓▓  █▓▓█            ▓▓    █████████");
+                System.out.println("████      ▓▓            █▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█            ▓▓    █████████");
+                System.out.println("████      ▓▓▓            ▀█▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█▀            ▓▓▓    █████████");
+                System.out.println("████       ▓▓▓                ▀▀▀▀▀▀▀▀▀                ▓▓▓     █████████");
+                System.out.println("████       ▓▓▓          █████████████████████          ▓▓▓     █████████");
+                System.out.println("████        ▓▓▓       ███  █  █  █  █  █  ███        ▓▓▓       █████████");
+                System.out.println("████         ▓▓▓      ███ █ █ █ █ █ █ █ █ ███       ▓▓▓        █████████");
+                System.out.println("████          ▓▓▓▓      ███████████████████        ▓▓▓▓        █████████");
+                System.out.println("████            ▓▓▓▓                               ▓▓▓▓        █████████");
+                System.out.println("████              ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓            █████████");
+                System.out.println("████                    ☠  선생님 승리... 적발 ☠                  █████████");
+                System.out.println("████                  \"어딜 도망가려고 했니...?\"                   █████████");
+                System.out.println("██████                                                        █████████");
+                System.out.println("████████████████████████████████████████████████████████████████████████");
+                break;
+            }
+
+        }
+
+        if (!caught && !gameOver) {
+            System.out.println("[" + smokerName + "] 무사히 1개 피움 완료");
+        }
+
+        smokingNow = false;
+        currentSmoker = null;
+        currentSmokerName = "";
+
+        if (!cigarettePack.hasCigarette() && !gameOver) {
+            smokerWin = true;
+            gameOver = true;
+            winnerMessage = "담배 20개를 모두 소진해서 흡연자 승리!";
+            System.out.println("                    █████████████████████          ███");
+            System.out.println("                ████                     ████     ██████");
+            System.out.println("             ███                             ███  ███ ");
+            System.out.println("           ███       ●                 ●        ████ ");
+            System.out.println("          ███                                    ██████");
+            System.out.println("         ███                                     █████");
+            System.out.println("         ███               \\         //         ██ ██");
+            System.out.println("         ███                \\______▓▓▓▓▓▓▓▓▓▓🟥█   ███");
+            System.out.println("         ███                              	       ███");
+            System.out.println("          ███                                     ███");
+            System.out.println("           ███         ＼(★ω★)／ 승리!           ███");
+            System.out.println("             ███                             ███");
+            System.out.println("                ████                     ████");
+            System.out.println("                    █████████████████████");
+        }
+    }
+
+    // 선생님이 순찰하면서 현재 흡연자 인터럽트
+    public void patrol() {
+        if (gameOver) return;
+
+        if (smokingNow && currentSmoker != null) {
+            System.out.println("[선생님] 순찰 중! " + currentSmokerName + " 발견 시도!");
+            currentSmoker.interrupt();
+        } else {
+            System.out.println("[선생님] 순찰 중... 아무도 안 피우는 것 같음");
+        }
+    }
+
+    public Thread createSmoker(String name) {
+        return new Thread(() -> {
+            while (!gameOver) {
+                try {
+                    int wait = 1000 + random.nextInt(15000);
+                    Thread.sleep(wait);
+                } catch (InterruptedException e) {
+                    // 이 구간은 피우는 중이 아니라 대기 중이므로 미적발 취급
+                    System.out.println("[" + name + "] 대기 중 인터럽트 -> 미적발");
+                }
+
+                if (gameOver) break;
+
+                smoke(name);
+            }
+        }, name);
+    }
+
+    public Thread createTeacher() {
+        return new Thread(() -> {
+            while (!gameOver) {
+                try {
+                    int wait = 1000 + random.nextInt(10000);
+                    Thread.sleep(wait);
+                } catch (InterruptedException e) {
+                    System.out.println("[선생님] 대기 중 인터럽트");
+                }
+
+                if (gameOver) break;
+
+                patrol();
+            }
+        }, "선생님");
+    }
+}

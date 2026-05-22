@@ -1,0 +1,14 @@
+package day21.prac.라면;
+
+public class Main {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		라면 raman = new 라면();
+		
+		Thread t1 = new Thread(new 라면끓이기(raman), "김재민");
+		Thread t2 = new Thread(new 라면끓이기(raman), "엄진희");
+		
+		t1.start();
+		t2.start();
+	}
+}

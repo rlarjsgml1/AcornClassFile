@@ -1,0 +1,47 @@
+package day21.prac.비동기;
+
+//void run(){ } 이거는 구현 된거임
+//class A { void run() { })
+//class A ( abstract void run();} 이거는 구현이 안됨 이거는 자동으로 추상 class
+
+public class Ex02 {
+	public static void main(String[] args) {
+		/*
+		 * // 김건희 춤추기 100번 => 별도의 흐름으로 만들기(Thread 만들기), Thread를 상속받아서 만들기, run메서드 오버라이드 하기
+		  for (int i = 1; i <= 100; i++) {
+		  System.out.println("김건희가 춤을 춘다 ^__ ****"); 
+		  }
+		 */
+		class A extends Thread {
+			@Override
+			public void run() {
+				for (int i = 1; i <= 100; i++) {
+					System.out.println("김건희가 춤을 춘다 ^__ ****");
+				}
+			}
+		}
+		A a = new A();
+		a.start(); //스레드를 실행해 주세요 !! run을 직접호출하지 않는다
+
+		// 고지연 춤추기 100번 => 별도의 흐름으로 만들기( Thread 만들기)
+		/*
+		for (int i = 1; i <= 100; i++) {
+			System.out.println("고지연가 춤을 춘다 ^__ ****");
+		}
+		*/
+		class B extends Thread{
+			@Override
+			public void run() {
+				for (int i = 1; i <= 100; i++) {
+					System.out.println("고지연가 춤을 춘다 ^__ ****");
+				}
+			}
+		}
+		B b = new B();
+		b.start();
+		
+		System.out.println("main 프로그램 종료");
+		
+	}
+
+}

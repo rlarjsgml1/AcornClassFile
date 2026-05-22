@@ -1,0 +1,599 @@
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('마늘', '쌀', '대파', '간장')
+WHERE r.food_recipe_name = '마늘볶음밥';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('마늘', '식빵', '버터')
+WHERE r.food_recipe_name = '마늘빵';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('양파', '버터', '우유')
+WHERE r.food_recipe_name = '양파스프';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('양파', '밀가루', '계란')
+WHERE r.food_recipe_name = '양파전';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('대파', '밀가루', '계란')
+WHERE r.food_recipe_name = '대파전';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('대파', '계란', '소금')
+WHERE r.food_recipe_name = '대파계란국';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('감자', '밀가루', '소금')
+WHERE r.food_recipe_name = '감자전';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('감자', '간장', '설탕')
+WHERE r.food_recipe_name = '감자조림';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('고구마', '설탕', '버터')
+WHERE r.food_recipe_name = '고구마맛탕';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('고구마', '우유', '버터')
+WHERE r.food_recipe_name = '고구마스프';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('당근', '식초', '설탕')
+WHERE r.food_recipe_name = '당근라페';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('당근', '간장', '참기름')
+WHERE r.food_recipe_name = '당근볶음';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('양배추', '버터', '소금')
+WHERE r.food_recipe_name = '양배추스테이크';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('양배추', '마요네즈', '식초')
+WHERE r.food_recipe_name = '양배추샐러드';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('상추', '고춧가루', '참기름')
+WHERE r.food_recipe_name = '상추겉절이';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('상추', '고추장', '된장', '쌀')
+WHERE r.food_recipe_name = '상추쌈';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('깻잎', '밀가루', '계란')
+WHERE r.food_recipe_name = '깻잎전';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('깻잎', '고춧가루', '마늘')
+WHERE r.food_recipe_name = '깻잎김치';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('오이', '식초', '고춧가루')
+WHERE r.food_recipe_name = '오이무침';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('오이', '식초', '소금')
+WHERE r.food_recipe_name = '오이냉국';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('사과', '밀가루', '버터')
+WHERE r.food_recipe_name = '사과파이';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('사과', '요거트', '치즈')
+WHERE r.food_recipe_name = '사과샐러드';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('배', '요거트', '치즈')
+WHERE r.food_recipe_name = '배샐러드';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('배', '고춧가루', '식초')
+WHERE r.food_recipe_name = '배무침';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('바나나', '밀가루', '계란')
+WHERE r.food_recipe_name = '바나나팬케이크';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('바나나', '우유', '요거트')
+WHERE r.food_recipe_name = '바나나스무디';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('귤', '상추', '요거트')
+WHERE r.food_recipe_name = '귤샐러드';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('귤', '설탕')
+WHERE r.food_recipe_name = '귤청';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('토마토', '스파게티면', '마늘')
+WHERE r.food_recipe_name = '토마토파스타';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('토마토', '계란', '양파')
+WHERE r.food_recipe_name = '토마토계란볶음';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('돼지고기', '고추장', '양파')
+WHERE r.food_recipe_name = '돼지고기제육볶음';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('돼지고기', '대파', '마늘')
+WHERE r.food_recipe_name = '돼지고기수육';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('소고기', '간장', '마늘', '양파')
+WHERE r.food_recipe_name = '소고기불고기';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('소고기', '감자', '대파')
+WHERE r.food_recipe_name = '소고기무국';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('닭고기', '감자', '당근', '양파', '고춧가루')
+WHERE r.food_recipe_name = '닭고기카레';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('닭고기', '간장', '마늘')
+WHERE r.food_recipe_name = '닭고기볶음';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('베이컨', '스파게티면', '양파')
+WHERE r.food_recipe_name = '베이컨파스타';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('베이컨', '대파', '치즈')
+WHERE r.food_recipe_name = '베이컨말이';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('햄', '식빵', '계란', '마요네즈')
+WHERE r.food_recipe_name = '햄샌드위치';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('햄', '김치', '쌀', '양파')
+WHERE r.food_recipe_name = '햄김치볶음밥';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('고등어', '소금', '간장')
+WHERE r.food_recipe_name = '고등어구이';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('고등어', '감자', '간장', '마늘')
+WHERE r.food_recipe_name = '고등어조림';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('꽁치', '소금')
+WHERE r.food_recipe_name = '꽁치구이';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('꽁치', '김치', '두부', '대파')
+WHERE r.food_recipe_name = '꽁치김치찌개';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('오징어', '고추장', '양파')
+WHERE r.food_recipe_name = '오징어볶음';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('오징어', '밀가루', '계란')
+WHERE r.food_recipe_name = '오징어튀김';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('새우', '쌀', '계란', '양파')
+WHERE r.food_recipe_name = '새우볶음밥';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('새우', '밀가루', '계란')
+WHERE r.food_recipe_name = '새우튀김';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('홍합', '대파', '마늘')
+WHERE r.food_recipe_name = '홍합탕';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('홍합', '스파게티면', '마늘')
+WHERE r.food_recipe_name = '홍합파스타';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('소금', '밀가루', '버터')
+WHERE r.food_recipe_name = '소금빵';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('소금', '두부')
+WHERE r.food_recipe_name = '소금구이두부';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('설탕', '식빵', '버터')
+WHERE r.food_recipe_name = '설탕토스트';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('설탕', '밀가루', '버터', '계란')
+WHERE r.food_recipe_name = '설탕쿠키';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('간장', '계란', '쌀')
+WHERE r.food_recipe_name = '간장계란밥';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('간장', '두부', '마늘')
+WHERE r.food_recipe_name = '간장두부조림';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('고추장', '쌀', '참기름', '계란')
+WHERE r.food_recipe_name = '고추장비빔밥';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('고추장', '두부', '양파')
+WHERE r.food_recipe_name = '고추장어묵볶음';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('된장', '두부', '대파', '양파')
+WHERE r.food_recipe_name = '된장찌개';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('된장', '양배추', '마늘')
+WHERE r.food_recipe_name = '된장무침';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('식초', '오이', '설탕')
+WHERE r.food_recipe_name = '식초오이피클';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('식초', '감자', '고춧가루')
+WHERE r.food_recipe_name = '식초무침';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('케첩', '쌀', '계란', '양파')
+WHERE r.food_recipe_name = '케첩오므라이스';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('케첩', '스파게티면', '양파')
+WHERE r.food_recipe_name = '케첩파스타';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('마요네즈', '식빵', '계란', '햄')
+WHERE r.food_recipe_name = '마요네즈샌드위치';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('마요네즈', '스파게티면', '양파')
+WHERE r.food_recipe_name = '마요네즈파스타';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('참기름', '쌀', '상추', '고추장')
+WHERE r.food_recipe_name = '참기름비빔밥';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('참기름', '상추', '깻잎')
+WHERE r.food_recipe_name = '참기름나물무침';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('고춧가루', '상추', '마늘')
+WHERE r.food_recipe_name = '고춧가루무침';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('고춧가루', '두부', '간장')
+WHERE r.food_recipe_name = '고춧가루두부조림';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('우유', '설탕', '계란')
+WHERE r.food_recipe_name = '우유푸딩';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('우유', '버터', '양파')
+WHERE r.food_recipe_name = '우유수프';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('치즈', '밀가루', '토마토')
+WHERE r.food_recipe_name = '치즈피자';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('치즈', '계란', '우유')
+WHERE r.food_recipe_name = '치즈오믈렛';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('버터', '밀가루', '설탕', '계란')
+WHERE r.food_recipe_name = '버터쿠키';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('버터', '감자', '소금')
+WHERE r.food_recipe_name = '버터감자구이';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('계란', '대파', '소금')
+WHERE r.food_recipe_name = '계란말이';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('계란', '우유', '소금')
+WHERE r.food_recipe_name = '계란찜';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('요거트', '바나나', '사과')
+WHERE r.food_recipe_name = '요거트파르페';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('요거트', '상추', '토마토')
+WHERE r.food_recipe_name = '요거트샐러드';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('쌀', '우유')
+WHERE r.food_recipe_name = '쌀밥';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('쌀', '밀가루')
+WHERE r.food_recipe_name = '쌀전병';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('밀가루', '대파', '계란')
+WHERE r.food_recipe_name = '밀가루전';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('밀가루', '감자', '대파')
+WHERE r.food_recipe_name = '밀가루수제비';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('라면', '김치', '대파')
+WHERE r.food_recipe_name = '라면전골';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('라면', '치즈', '계란')
+WHERE r.food_recipe_name = '치즈라면';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('스파게티면', '마늘', '참기름')
+WHERE r.food_recipe_name = '스파게티면알리오올리오';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('스파게티면', '토마토', '양파')
+WHERE r.food_recipe_name = '스파게티면토마토파스타';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('식빵', '치즈', '토마토')
+WHERE r.food_recipe_name = '식빵피자';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('식빵', '버터', '설탕')
+WHERE r.food_recipe_name = '식빵토스트';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('두부', '간장', '마늘')
+WHERE r.food_recipe_name = '두부조림';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('두부', '김치', '대파')
+WHERE r.food_recipe_name = '두부김치';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('김치', '돼지고기', '두부', '대파')
+WHERE r.food_recipe_name = '김치찌개';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('김치', '밀가루', '계란')
+WHERE r.food_recipe_name = '김치전';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('김', '쌀', '계란', '햄')
+WHERE r.food_recipe_name = '김밥';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('김', '간장', '참기름')
+WHERE r.food_recipe_name = '김무침';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('떡', '고추장', '양파', '대파')
+WHERE r.food_recipe_name = '떡볶이';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('떡', '계란', '대파')
+WHERE r.food_recipe_name = '떡국';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('만두', '간장', '식초')
+WHERE r.food_recipe_name = '군만두';
+
+INSERT INTO FOOD_RECIPE_INGREDIENT (food_recipe_id, food_item_id)
+SELECT r.food_recipe_id, i.food_item_id
+FROM FOOD_RECIPE r
+JOIN FOOD_ITEM i ON i.food_item_name IN ('만두', '김치', '두부', '대파')
+WHERE r.food_recipe_name = '만두전골';

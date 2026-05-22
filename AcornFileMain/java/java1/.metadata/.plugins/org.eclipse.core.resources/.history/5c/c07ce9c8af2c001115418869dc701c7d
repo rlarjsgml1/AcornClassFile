@@ -1,0 +1,41 @@
+package day21.prac.비동기;
+
+import javax.swing.JOptionPane;
+
+public class Thread만들어보기카운트 {
+	public static void main(String[] args) {
+		String input = JOptionPane.showInputDialog("오레오 몇 박스 주문할래?");
+		int 오레오 = Integer.parseInt(input);
+
+		Thread factory = new Thread(() -> {
+			for (int i = 1; i <= 오레오; i++) {
+				System.out.println("건희 공장 가동 중...");
+				System.out.println("오레오 " + i + "박스 생산 완료!");
+				try {
+					Thread.sleep(2000);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+
+		factory.start();
+
+		for (int i = 10; i >= 1; i--) {
+			System.out.println("배송 준비까지 남은 시간: " + i);
+			try {
+				Thread.sleep(3000);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		try {
+			factory.join();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		System.out.println("주문한 오레오 " + 오레오 + "박스 전부 준비 완료!");
+	}
+}

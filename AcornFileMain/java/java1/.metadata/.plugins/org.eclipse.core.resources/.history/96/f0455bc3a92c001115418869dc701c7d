@@ -1,0 +1,8 @@
+package day21.prac.join;
+
+public class ThreadB extends Thread{
+	private int sum;
+	public int getSum() {
+		return sum;
+	}
+}

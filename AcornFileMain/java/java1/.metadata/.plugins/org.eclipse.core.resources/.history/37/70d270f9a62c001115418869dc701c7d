@@ -1,0 +1,8 @@
+package day21.prac.sleep;
+
+public class Ex01 {
+	public static void main(String[] args) {
+		System.out.println("3초후 공개");
+		System.out.println("추가추가 공개합니다 ^^");
+	}
+}

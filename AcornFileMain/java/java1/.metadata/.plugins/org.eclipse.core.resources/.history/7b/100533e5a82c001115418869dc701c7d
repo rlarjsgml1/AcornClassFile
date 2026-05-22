@@ -1,0 +1,15 @@
+package day21.prac.join;
+
+public class Ex01 {
+	public static void main(String[] args) {
+		Thread th = new Thread( new Runnable() {
+			@Override
+			public void run() {
+				for(int i = 1; 1<=100; i++) {
+					System.out.println("스레드 별도 작업 진행중");
+				}
+			}
+		});
+		System.out.println("종료");
+	}
+}

@@ -1,0 +1,893 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>DB 설계</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(128, 125, 120, 1);
+	fill: rgba(128, 125, 120, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(204, 121, 47, 1);
+	fill: rgba(204, 121, 47, 1);
+}
+.highlight-yellow {
+	color: rgba(195, 148, 67, 1);
+	fill: rgba(195, 148, 67, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(63, 126, 190, 1);
+	fill: rgba(63, 126, 190, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(179, 84, 136, 1);
+	fill: rgba(179, 84, 136, 1);
+}
+.highlight-red {
+	color: rgba(201, 85, 73, 1);
+	fill: rgba(201, 85, 73, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 111, 200, 0.09);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(128, 125, 120, 1);
+	fill: rgba(128, 125, 120, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(204, 121, 47, 1);
+	fill: rgba(204, 121, 47, 1);
+}
+.block-color-yellow {
+	color: rgba(195, 148, 67, 1);
+	fill: rgba(195, 148, 67, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(63, 126, 190, 1);
+	fill: rgba(63, 126, 190, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(179, 84, 136, 1);
+	fill: rgba(179, 84, 136, 1);
+}
+.block-color-red {
+	color: rgba(201, 85, 73, 1);
+	fill: rgba(201, 85, 73, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(232, 242, 250, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 99, 174, 0.172); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="279bbad3-c4f2-8071-9061-c430e60ef66f" class="page sans"><header><h1 class="page-title">DB 설계</h1><p class="page-description"></p></header><div class="page-body"><hr id="279bbad3-c4f2-8040-807b-c470a4aae7b8"/><h2 id="27bbbad3-c4f2-803e-b875-f501ba65c753" class="">🔗 약국 DB</h2><hr id="27bbbad3-c4f2-8095-9e81-f4e90ef08d3f"/><blockquote id="27bbbad3-c4f2-807b-864c-f57226132386" class="">📄 <strong>개요</strong><ul id="27bbbad3-c4f2-8094-83a7-d7e278bddd5b" class="bulleted-list"><li style="list-style-type:disc"><strong>약국 데이터 베이스 설계</strong></li></ul><ul id="27bbbad3-c4f2-8013-9c35-d6947a774b1b" class="bulleted-list"><li style="list-style-type:disc"><strong>환자, 약품, 처방전, 약품</strong> 정보를 기반으로 <strong>데이터 분석</strong>에 활용 가능한 정보 제공</li></ul></blockquote><hr id="27bbbad3-c4f2-8097-9e24-eb908462b147"/><blockquote id="27bbbad3-c4f2-802d-878e-f8820a81cc10" class=""><strong>📅 기간  :  2025.09.26</strong><ul id="27bbbad3-c4f2-80da-a3a1-e28dddad2cde" class="bulleted-list"><li style="list-style-type:disc"><strong>조원 : 이혜린, 전희연</strong></li></ul></blockquote><hr id="27bbbad3-c4f2-802c-a190-c290c5211f13"/><p id="27bbbad3-c4f2-8007-a22d-e76d6d7b071f" class="">
+</p><p id="27cbbad3-c4f2-808a-a35a-f860b6bba0dd" class="">
+</p><h2 id="279bbad3-c4f2-80e7-86e7-f06e25f1acce" class="block-color-yellow_background">📁 개념 ERD</h2><h3 id="27bbbad3-c4f2-808d-af68-ceb47b3b5d15" class="">📋 테이블 명세서</h3><table id="27bbbad3-c4f2-802f-b97c-cb7559f4a06f" class="simple-table"><thead class="simple-table-header"><tr id="27bbbad3-c4f2-804a-8f45-dc7a24d5b2fd"><th id="FBK=" class="block-color-yellow_background simple-table-header" style="width:195.65625px"><strong>엔티티</strong></th><th id="DMp&gt;" class="block-color-yellow_background simple-table-header" style="width:263.65625px"><strong>주요 속성</strong></th><th id="m_}S" class="block-color-yellow_background simple-table-header" style="width:240.65625px"><strong>설명</strong></th></tr></thead><tbody><tr id="27bbbad3-c4f2-8033-9522-da8dac04b0d1"><td id="FBK=" class="" style="width:195.65625px"><strong><br/>👤환자(people)</strong></td><td id="DMp&gt;" class="" style="width:263.65625px"><code><strong>환자번호</strong></code>, 이름, 생년월일, 연락처, <br/>성별, 주소</td><td id="m_}S" class="" style="width:240.65625px"><br/>환자 기본 정보 저장<br/></td></tr><tr id="27bbbad3-c4f2-8011-8e6b-dbe40f5193d0"><td id="FBK=" class="" style="width:195.65625px"><strong><br/>🏥약국(medicine_store)</strong></td><td id="DMp&gt;" class="" style="width:263.65625px"><strong><br/></strong><code><strong>약국번호</strong></code>, 약국이름, 주소, 전화번호</td><td id="m_}S" class="" style="width:240.65625px"><br/>약국 기본 정보 저장<br/></td></tr><tr id="27bbbad3-c4f2-80f1-9c9c-d98933af9b1c"><td id="FBK=" class="" style="width:195.65625px"><strong><br/>💊약품(medicine)</strong></td><td id="DMp&gt;" class="" style="width:263.65625px"><code><strong>약품번호</strong></code>, 약품명, 제조사, 약품분류, <br/>가격</td><td id="m_}S" class="" style="width:240.65625px"><br/>약품의 정보 저장, 처방에 활용<br/></td></tr><tr id="27bbbad3-c4f2-80ea-be64-ff78d99b0886"><td id="FBK=" class="" style="width:195.65625px"><strong><br/>📄처방전(recipe)</strong></td><td id="DMp&gt;" class="" style="width:263.65625px"><code><strong>처방전 고유번호</strong></code>, 발급일자, 환자번호, 약국번호, 질병명, 비고</td><td id="m_}S" class="" style="width:240.65625px"><br/>환자가 받은 처방전 기록 관리<br/></td></tr><tr id="27bbbad3-c4f2-8047-9712-dd2b6470c3bc"><td id="FBK=" class="" style="width:195.65625px"><strong><br/>📁처방전_약품(recipe_med)</strong></td><td id="DMp&gt;" class="" style="width:263.65625px"><code><strong>처방전 고유번호</strong></code><strong>, </strong><code><strong>약품번호</strong></code>, <br/>1회투여량, 복용횟수, 투약일수</td><td id="m_}S" class="" style="width:240.65625px"><br/>처방전별 약품과 복용 정보 저장<br/></td></tr></tbody></table><hr id="27cbbad3-c4f2-808c-823d-f2a88d45e332"/><h3 id="27bbbad3-c4f2-80f3-a066-c03e7ad34363" class="">🔗ERD</h3><figure id="27cbbad3-c4f2-80a8-bc5b-d591df5646cf" class="image"><a href="image.png"><img style="width:1712.984375px" src="image.png"/></a></figure><h3 id="27bbbad3-c4f2-8084-ba75-f679e1c7275c" class="">⚙️ 관계 구조</h3><blockquote id="27bbbad3-c4f2-8046-a586-c182d5809851" class=""><mark class="highlight-gray_background">✅ </mark><mark class="highlight-gray_background"><strong>환자 ← </strong></mark><mark class="highlight-red"><mark class="highlight-gray_background"><strong>처방전</strong></mark></mark><mark class="highlight-gray_background"><strong> → 약국</strong></mark><ul id="27bbbad3-c4f2-80c8-99b4-fec65e606006" class="bulleted-list"><li style="list-style-type:disc"><strong>환자</strong>가 <strong>어느 약국</strong>에서 <strong>처방전</strong>을 받았는지 <strong>연결</strong><ul id="27bbbad3-c4f2-806b-944e-dea97629df06" class="bulleted-list"><li style="list-style-type:circle"><strong>환자(1) : 처방전(N)  →</strong><mark class="highlight-default_background"><strong>  </strong></mark><mark class="highlight-yellow_background"><code><strong>1:N</strong></code></mark></li></ul><ul id="27bbbad3-c4f2-8068-b8c9-df4c9ab79e16" class="bulleted-list"><li style="list-style-type:circle"><strong>약국(1) : 처방전(N) →</strong> <mark class="highlight-yellow_background"><code><strong>1:N</strong></code></mark></li></ul></li></ul><hr id="27bbbad3-c4f2-80a6-9b84-f28dba2ab2c8"/><p id="27bbbad3-c4f2-80c6-b98e-d1fc9b4e5948" class=""><mark class="highlight-gray_background"><strong>✅ 처방전 ← </strong></mark><mark class="highlight-red"><mark class="highlight-gray_background"><strong>처방전_약품</strong></mark></mark><mark class="highlight-gray_background"><strong> → 약품</strong></mark></p><ul id="27bbbad3-c4f2-80bd-8df9-f721c97be3f0" class="bulleted-list"><li style="list-style-type:disc"><strong>처방전</strong>에 <strong>어떤 약품</strong>이 포함되는지 <strong>연결</strong></li></ul><ul id="27bbbad3-c4f2-8039-ab43-f225cf977546" class="bulleted-list"><li style="list-style-type:disc">처방전과 약품 테이블<span style="border-bottom:0.05em solid"> </span>사이의 <strong>N:N 관계 해소</strong>하기 위한 <strong>중간 테이블</strong><ul id="27bbbad3-c4f2-809a-8859-c4a447110ba5" class="bulleted-list"><li style="list-style-type:circle"><strong>처방전(1) : 처방전_약품(N)</strong> → <mark class="highlight-yellow_background"><code><strong>1:N</strong></code></mark></li></ul><ul id="27bbbad3-c4f2-8067-98cb-cd409cd0919d" class="bulleted-list"><li style="list-style-type:circle"><strong>약품(1) : 처방전_약품(N)</strong> → <mark class="highlight-yellow_background"><code><strong>1:N</strong></code></mark></li></ul></li></ul></blockquote><p id="27cbbad3-c4f2-8062-bd78-f0a4b4be0e3f" class="">
+</p><p id="27bbbad3-c4f2-8021-9e50-fc05463d0bf7" class="">
+</p><h2 id="279bbad3-c4f2-8031-93ce-c2175aae2ba6" class="block-color-yellow_background">📖 논리 ERD</h2><h3 id="27bbbad3-c4f2-804c-a864-ee99adb3294c" class="">🔗ERD</h3><figure id="27bbbad3-c4f2-805f-9177-e2ac339693e9" class="image"><a href="image%201.png"><img style="width:720px" src="image%201.png"/></a></figure><p id="279bbad3-c4f2-8073-b336-ec8b76de9b65" class="">
+</p><p id="279bbad3-c4f2-8028-975a-d8cf9fa39008" class="">
+</p><p id="279bbad3-c4f2-80f3-b43a-d6ea7caed687" class="">
+</p><h2 id="279bbad3-c4f2-809a-8461-eea4589d5ffa" class="block-color-yellow_background">📌물리 ERD</h2><figure id="27bbbad3-c4f2-803a-a21f-e87411725044" class="image"><a href="image%202.png"><img style="width:709.9857788085938px" src="image%202.png"/></a><figcaption>MySQL 버전 diagram</figcaption></figure><p id="279bbad3-c4f2-804c-8e12-e4bae0adb2e2" class="">
+</p><p id="279bbad3-c4f2-80f5-ad4f-cd85234f003e" class="">
+</p><p id="279bbad3-c4f2-80ac-9285-d3a4c7495a06" class="">
+</p><h2 id="279bbad3-c4f2-8081-9c94-d9625bf87b08" class="block-color-pink_background">⭐ 구현</h2><h3 id="27bbbad3-c4f2-80ae-b5cd-f5bb20417c40" class=""><mark class="highlight-pink_background">테이블 생성</mark> ( <code>CREATE</code> )</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="27bbbad3-c4f2-80dc-b64c-f3eb22fe8427" class="code code-wrap"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all">--1. 환자 테이블 ( 환자번호, 이름, 생년월일, 연락처, 성별, 주소 )
+CREATE TABLE PEOPLE (   
+    people_id      VARCHAR2(10) PRIMARY KEY,        
+    people_name    VARCHAR2(50) NOT NULL, 
+    birthday       DATE,
+    phone          VARCHAR2(20) UNIQUE,
+    gender         CHAR(1) CHECK (gender IN (&#x27;M&#x27;,&#x27;F&#x27;)),
+    address        VARCHAR2(100)
+);</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="27bbbad3-c4f2-80ea-afc1-e2266e118dc6" class="code code-wrap"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all">--2. 약품 테이블 ( 약품번호, 약품명, 제조사, 악품분류, 가격 )
+CREATE TABLE MEDICINE ( 
+    medicine_id      VARCHAR2(10) PRIMARY KEY,       
+    medicine_name    VARCHAR2(100) NOT NULL,
+    maker            VARCHAR2(30),
+    category         VARCHAR2(30),
+    price            NUMBER(10,2) CHECK (price &gt;= 0)
+);</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="27bbbad3-c4f2-8014-81c1-d0a03bdc6b69" class="code code-wrap"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all">--3. 약국 테이블 ( 약국번호, 약국이름, 주소, 전화번호 )
+CREATE TABLE MEDICINE_STORE (    
+    store_id        VARCHAR2(10) PRIMARY KEY,
+    store_name      VARCHAR2(15),   
+    store_addr      VARCHAR2(100),
+    store_phone     VARCHAR2(20) UNIQUE
+);</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="27bbbad3-c4f2-8001-ad37-d3d56e231bcb" class="code code-wrap"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all">--4. 처방전 테이블 ( 처방전고유번호, 환자번호, 약국번호, 발급일자, 질병명, 비고 )
+CREATE TABLE RECIPE (   
+    recipe_id        VARCHAR2(10) PRIMARY KEY,         
+    issue_date       DATE NOT NULL,
+    people_id        VARCHAR2(10) NOT NULL,
+    store_id         VARCHAR2(10) NOT NULL,
+    note             VARCHAR2(50),
+    CONSTRAINT fk_rec_people
+        FOREIGN KEY (people_id) REFERENCES PEOPLE(people_id),
+    CONSTRAINT fk_rec_store
+        FOREIGN KEY (store_id) REFERENCES MEDICINE_STORE(store_id)
+);</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="27bbbad3-c4f2-808c-8639-f64734d5bead" class="code code-wrap"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all">--5. 처방전_약품 테이블 ( 처방전고유번호, 약품번호, 1화투여량, 복용횟수, 투약일수 )
+CREATE TABLE RECIPE_MED (    
+    recipe_id         VARCHAR2(10) NOT NULL,
+    medicine_id       VARCHAR2(10) NOT NULL,
+    dosage            NUMBER CHECK (dosage &gt; 0),      
+    times_per_day     NUMBER CHECK (times_per_day &gt; 0),  
+    total_days        NUMBER CHECK (total_days &gt; 0),   
+    CONSTRAINT pk_rec_med PRIMARY KEY (recipe_id, medicine_id),
+    CONSTRAINT fk_pd_rec FOREIGN KEY (recipe_id)
+																       REFERENCES RECIPE(recipe_id),
+    CONSTRAINT fk_pd_med FOREIGN KEY (medicine_id)
+															         REFERENCES MEDICINE(medicine_id)
+);</code></pre><p id="27bbbad3-c4f2-801d-a095-f648d3ee876f" class="">
+</p><hr id="27bbbad3-c4f2-8077-ae5f-fae6d034cc0f"/><h3 id="27bbbad3-c4f2-8090-8b9e-ffd19e8988e8" class=""><mark class="highlight-pink_background">테이블 변경</mark> ( <code>ALTER</code> )</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="27bbbad3-c4f2-80bf-9e10-dda1557dcd0d" class="code code-wrap"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all">CREATE TABLE PEOPLE (   
+    people_id    VARCHAR2(10) PRIMARY KEY,       
+    people_name  VARCHAR2(50) NOT NULL,
+    birthday     DATE,                     --기본값 미지정
+    phone        VARCHAR2(20) UNIQUE,
+    gender       CHAR(1) CHECK (gender IN (&#x27;M&#x27;,&#x27;F&#x27;)),
+    address      VARCHAR2(100)
+);</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="27bbbad3-c4f2-8008-a247-d39fdd8d279d" class="code code-wrap"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all">--컬럼 변경
+ALTER TABLE PEOPLE MODIFY birthday DATE DEFAULT SYSDATE;</code></pre><figure id="27bbbad3-c4f2-80ca-866b-c71cf9f949db" class="image"><a href="image%203.png"><img style="width:576px" src="image%203.png"/></a><figcaption>기본값 적용</figcaption></figure><p id="27bbbad3-c4f2-809e-bfe1-e876836ab968" class="">
+</p><p id="27bbbad3-c4f2-8005-9c26-d7069436729d" class="">
+</p><hr id="27bbbad3-c4f2-804e-ae8a-c50fdd13caed"/><h3 id="27bbbad3-c4f2-8059-8d15-e1e8142dfb65" class=""><mark class="highlight-red">데이터 조회 ( </mark><mark class="highlight-red"><code>SELECT</code></mark><mark class="highlight-red"> )</mark></h3><h3 id="27bbbad3-c4f2-8017-a78a-e83c6481ea59" class="block-color-gray_background"><strong>환자 정보 조회</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="27bbbad3-c4f2-8064-914e-ff3fb14e2bcf" class="code code-wrap"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all">SELECT people_name &quot;환자이름&quot;, birthday &quot;생년월일&quot;,
+			TRUNC(MONTHS_BETWEEN(SYSDATE, birthday)/12) || &#x27;세&#x27; AS &quot;나이&quot;,
+			phone &quot;연락처&quot;,
+			DECODE(gender, &#x27;M&#x27;, &#x27;남&#x27;, &#x27;F&#x27;, &#x27;여&#x27;, &#x27;-&#x27;) &quot;성별&quot;,
+			address &quot;주소&quot;
+FROM PEOPLE;</code></pre><figure id="27cbbad3-c4f2-80f7-9b29-dc0d5ddc31c5" class="image"><a href="image%204.png"><img style="width:458.96484375px" src="image%204.png"/></a><figcaption>환자 정보 조회</figcaption></figure><p id="27cbbad3-c4f2-8052-a66a-fc53782d92ce" class="">
+</p><h3 id="27cbbad3-c4f2-8050-8398-df45c8458c90" class="block-color-gray_background">약국 정보 조회</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="27bbbad3-c4f2-8017-8b06-e32b1ff6702a" class="code code-wrap"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all">SELECT 
+    store_name AS 약국명,
+    store_phone AS 연락처,
+    store_addr AS 주소,
+    CASE SUBSTR(store_phone, 1, INSTR(store_phone, &#x27;-&#x27;) - 1)
+        WHEN &#x27;02&#x27;  THEN &#x27;서울&#x27;
+        WHEN &#x27;031&#x27; THEN &#x27;경기도&#x27;
+        WHEN &#x27;051&#x27; THEN &#x27;부산&#x27;
+        ELSE &#x27;기타&#x27;
+    END AS 지역_분류
+FROM MEDICINE_STORE;</code></pre><figure id="27cbbad3-c4f2-80d4-b65b-dcbd7089edcb" class="image"><a href="image%205.png"><img style="width:294.40179443359375px" src="image%205.png"/></a><figcaption>약국 정보 조회</figcaption></figure><p id="27cbbad3-c4f2-8063-ab46-cf7ad8b8d9ee" class="">
+</p><h3 id="27cbbad3-c4f2-801d-b2aa-cebb61d95dcb" class="block-color-gray_background">약품별 평균 복용일수와 최대 복용일수 조회</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="27bbbad3-c4f2-80b5-8b7a-f0b769c9cada" class="code code-wrap"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all">SELECT 
+    m.medicine_name 약품명,
+    ROUND(AVG(rm.total_days), 2) || &#x27;일&#x27; AS 평균_복용일수,
+    MAX(rm.total_days) || &#x27;일&#x27; AS 최대_복용일수
+FROM MEDICINE m
+JOIN RECIPE_MED rm ON m.medicine_id = rm.medicine_id
+GROUP BY m.medicine_name
+ORDER BY 평균_복용일수 DESC;</code></pre><figure id="27cbbad3-c4f2-80e0-a1ea-d11abeb14fa7" class="image"><a href="image%206.png"><img style="width:324.98046875px" src="image%206.png"/></a><figcaption>약품별 평균/최대 복용일수 조회</figcaption></figure><p id="27cbbad3-c4f2-808d-94e3-c23c6c7a7e0b" class="">
+</p><p id="27cbbad3-c4f2-8077-a118-d6728aae79f8" class="">
+</p><h3 id="27cbbad3-c4f2-802c-8847-fba191197911" class="block-color-gray_background">1개의 처방전별 총 금액 조회</h3><p id="27bbbad3-c4f2-80f4-b10e-f4e188efab62" class=""><strong>🔎 상세보기</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="27bbbad3-c4f2-801b-9705-e4331e727d87" class="code code-wrap"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all">--1. 3개 테이블 조인
+SELECT *
+FROM RECIPE_med  rm
+JOIN MEDICINE m
+ON rm.medicine_id = m.medicine_id
+JOIN RECIPE r
+ON rm.recipe_id = r.recipe_id;
+
+--2. 1개의 처방전 금액
+SELECT rm.recipe_id 처방전고유번호, m.price 가격
+FROM RECIPE_med  rm
+JOIN MEDICINE m
+ON rm.medicine_id = m.medicine_id
+JOIN RECIPE r
+ON rm.recipe_id = r.recipe_id;</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="27bbbad3-c4f2-8031-bead-da0fd15d182a" class="code code-wrap"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all">--3. 1개의 처방전별 총 금액 (최종)
+SELECT rm.recipe_id 처방전고유번호, 
+				TO_CHAR(SUM(m.price), &#x27;999,999&#x27;) || &#x27;원&#x27; 가격
+FROM RECIPE_med  rm
+JOIN MEDICINE m
+ON rm.medicine_id = m.medicine_id
+JOIN RECIPE r
+ON rm.recipe_id = r.recipe_id
+GROUP BY rm.recipe_id
+ORDER BY 1;</code></pre><figure id="27bbbad3-c4f2-80d6-bf9a-dfb8d7caf3b6" class="image"><a href="image%207.png"><img style="width:240px" src="image%207.png"/></a><figcaption>처방전별 총금액</figcaption></figure><p id="27bbbad3-c4f2-803f-ab85-f8c1933edc6c" class="">
+</p><h3 id="27cbbad3-c4f2-80a1-83f8-e610c73793e3" class="block-color-gray_background">약품별 매출 TOP5 조회</h3><p id="27bbbad3-c4f2-8021-ac87-fc1b7b1e0379" class=""><strong>🔎 상세보기 </strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="27bbbad3-c4f2-80cd-bf4d-d1ce0ac8c99b" class="code code-wrap"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all">--1. 조인 (처방전, 처방전_약품, 약품)
+SELECT *
+FROM RECIPE_med  rm
+JOIN MEDICINE m
+ON rm.medicine_id = m.medicine_id
+JOIN RECIPE r
+ON rm.recipe_id = r.recipe_id;
+
+--2. 원하는 컬럼 조회
+SELECT medicine_name  약품명, price 가격
+FROM RECIPE_med  rm
+JOIN MEDICINE m
+ON rm.medicine_id = m.medicine_id
+JOIN RECIPE r
+ON rm.recipe_id = r.recipe_id;
+ 
+--3. 금액별 순위 매기기 (FROM절 서브쿼리)
+SELECT     medicine_name AS 약품명,
+           SUM(price) AS 총합,
+           ROW_NUMBER() OVER (ORDER BY SUM(price) DESC) AS rn
+FROM   RECIPE_med rm
+JOIN   MEDICINE m 
+ON rm.medicine_id = m.medicine_id
+JOIN   RECIPE r   
+ON rm.recipe_id   = r.recipe_id
+GROUP  BY medicine_name;</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="27bbbad3-c4f2-80b6-a3ec-fa554353a551" class="code code-wrap"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all">--4. 약품 매출 TOP5 조회
+SELECT 약품명, 총합
+FROM (
+    SELECT medicine_name AS 약품명,
+           SUM(price) AS 총합,
+           ROW_NUMBER() OVER (ORDER BY SUM(price) DESC) AS rn
+    FROM   RECIPE_med rm
+    JOIN   MEDICINE m ON rm.medicine_id = m.medicine_id
+    JOIN   RECIPE r   ON rm.recipe_id   = r.recipe_id
+    GROUP  BY medicine_name
+)
+WHERE rn &lt;= 5
+ORDER BY 총합 DESC;</code></pre><figure id="27cbbad3-c4f2-80aa-9013-c423ef916e57" class="image"><a href="image%208.png"><img style="width:240px" src="image%208.png"/></a><figcaption>약품별 매출 상위 5개</figcaption></figure><p id="27cbbad3-c4f2-80eb-88f6-fd06c4959367" class="">
+</p><h3 id="27cbbad3-c4f2-8029-acd8-db069e07ce78" class="block-color-gray_background">지역별 약국 목록 조회</h3><p id="27bbbad3-c4f2-8098-b2e1-e54b7243da21" class=""><strong>🔎 상세보기</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="27bbbad3-c4f2-80d9-bf17-f807104405c7" class="code code-wrap"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all">--지역번호 추출 -&gt; 지역 표시 ( DECODE 활용 )
+SELECT store_name, store_phone, store_addr, 
+				SUBSTR(store_phone, 1, INSTR(store_phone, &#x27;-&#x27;)-1) 지역번호,
+        DECODE(SUBSTR(store_phone, 1, INSTR(store_phone, &#x27;-&#x27;)-1), 
+        &#x27;02&#x27;, &#x27;서울&#x27;, &#x27;031&#x27;, &#x27;경기도&#x27;, &#x27;051&#x27;, &#x27;부산&#x27;) 지역
+FROM MEDICINE_STORE;
+
+
+--FROM절 서브쿼리
+SELECT DECODE(SUBSTR(store_phone, 1, INSTR(store_phone, &#x27;-&#x27;)-1), 
+				&#x27;02&#x27;, &#x27;서울&#x27;, &#x27;031&#x27;, &#x27;경기도&#x27;, &#x27;051&#x27;, &#x27;부산&#x27;) 지역
+FROM medicine_store;
+
+
+--FROM절 서브쿼리 필요성
+SELECT DECODE(SUBSTR(store_phone, 1, INSTR(store_phone, &#x27;-&#x27;)-1), 
+								&#x27;02&#x27;, &#x27;서울&#x27;, &#x27;031&#x27;, &#x27;경기도&#x27;, &#x27;051&#x27;, &#x27;부산&#x27;) 지역
+			,store_name
+FROM MEDICINE_STORE
+WHERE DECODE(SUBSTR(store_phone, 1, INSTR(store_phone, &#x27;-&#x27;)-1), 
+			&#x27;02&#x27;, &#x27;서울&#x27;, &#x27;031&#x27;, &#x27;경기도&#x27;, &#x27;051&#x27;, &#x27;부산&#x27;) = &#x27;서울&#x27;;</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="27bbbad3-c4f2-803f-be04-f7746df2f487" class="code code-wrap"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all">--서울 지역에 위치한 약국명
+SELECT 지역, store_name 약국명
+FROM (
+    SELECT DECODE(
+             SUBSTR(store_phone, 1, INSTR(store_phone, &#x27;-&#x27;) - 1),
+             &#x27;02&#x27;,  &#x27;서울&#x27;,
+             &#x27;031&#x27;, &#x27;경기도&#x27;,
+             &#x27;051&#x27;, &#x27;부산&#x27;
+           ) AS 지역,
+           store_name
+    FROM MEDICINE_STORE
+)
+WHERE 지역 = &#x27;서울&#x27;;</code></pre><div id="27bbbad3-c4f2-8018-8b3d-ec992a8bd6e1" class="column-list"><div id="27bbbad3-c4f2-80ce-9a67-f1a88810f1f9" style="width:33.33333333333333%" class="column"><figure id="27bbbad3-c4f2-8094-9a9b-c5f6764616e8" class="image"><a href="image%209.png"><img style="width:192px" src="image%209.png"/></a><figcaption>서울 지역 약국</figcaption></figure></div><div id="27bbbad3-c4f2-8089-9d63-e1ddfd5204b5" style="width:33.33333333333333%" class="column"><figure id="27bbbad3-c4f2-8098-a310-e130f92dc93b" class="image"><a href="image%2010.png"><img style="width:195.9801025390625px" src="image%2010.png"/></a><figcaption>경기도 지역 약국</figcaption></figure></div><div id="27bbbad3-c4f2-80f7-8b3e-ec156f84479b" style="width:33.33333333333333%" class="column"><figure id="27bbbad3-c4f2-8077-a8b7-fe081baffb1d" class="image"><a href="image%2011.png"><img style="width:170.9801025390625px" src="image%2011.png"/></a><figcaption>부산 지역 약국</figcaption></figure><p id="27cbbad3-c4f2-8022-8396-fefc4e39c5e2" class="">
+</p></div></div><p id="27bbbad3-c4f2-8028-8723-ea26524a7b5f" class="">
+</p><h3 id="27cbbad3-c4f2-80a1-a951-d6fe777d4822" class="block-color-gray_background">특정 약품 처방 받은 환자 조회</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="27cbbad3-c4f2-8046-a8dd-d1cdba531848" class="code code-wrap"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all">SELECT people_name 환자명
+FROM PEOPLE p
+WHERE people_id IN (
+    SELECT r.people_id
+    FROM RECIPE r
+    JOIN RECIPE_MED rm ON r.recipe_id = rm.recipe_id
+    WHERE rm.medicine_id = &#x27;M001&#x27;
+);</code></pre><figure id="27cbbad3-c4f2-8033-9076-c27233897ef7" class="image"><a href="image%2012.png"><img style="width:144px" src="image%2012.png"/></a><figcaption>타이레놀 처방 환자명</figcaption></figure><p id="27cbbad3-c4f2-804a-a77c-c0eec1408398" class="">
+</p><p id="27cbbad3-c4f2-8069-956f-c1449cf38cb7" class="">
+</p><p id="27cbbad3-c4f2-8004-b898-ce6211db53e0" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

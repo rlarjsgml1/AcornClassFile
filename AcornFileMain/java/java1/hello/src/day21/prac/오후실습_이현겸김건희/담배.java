@@ -1,0 +1,21 @@
+package day21.prac.오후실습_이현겸김건희;
+
+public class 담배 {
+	private int count = 10;
+
+	public synchronized boolean hasCigarette() {
+		return count > 0;
+	}
+
+	public synchronized boolean useOne() {
+		if (count > 0) {
+			count--;
+			return true;
+		}
+		return false;
+	}
+
+	public synchronized int getCount() {
+		return count;
+	}
+}

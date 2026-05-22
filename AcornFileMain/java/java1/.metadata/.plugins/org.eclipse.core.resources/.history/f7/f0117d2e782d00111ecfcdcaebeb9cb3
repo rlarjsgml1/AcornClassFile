@@ -1,0 +1,82 @@
+package day21.prac.chatt;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class Server2 {
+	// 서버소켓
+	// 소켓 : 클라이언트와 통신할 소켓
+	// 보조스트림 in
+	// 보조스트림 out
+	// 스캐너
+
+	ServerSocket serverSocket;
+	Socket socket;
+	DataInputStream is;
+	DataOutputStream os;
+	Scanner sc = new Scanner(System.in);
+
+	public Server2() {
+		// TODO Auto-generated constructor stub
+		try {
+			serverSocket = new ServerSocket(6500);
+			System.out.println("기다리는 중");
+			socket = serverSocket.accept();
+			System.out.println("clinet:" + socket.getInetAddress().toString());
+			is = new DataInputStream(socket.getInputStream());
+			os = new DataOutputStream(socket.getOutputStream());
+
+			받기();
+			보내기();
+		} catch (IOException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+
+	private void 보내기() {
+		Thread th = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				try {
+					while (true) {
+						System.out.println("서버 말:");
+						String message = sc.nextLine();
+						os.writeUTF(message);
+					}
+				} catch (IOException e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+		});
+		th.start();
+	}
+
+	private void 받기() {
+		Thread th = new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				try {
+					while (true) {
+						String message = is.readUTF();
+						System.out.println(message);
+					}
+				} catch (IOException e) {
+					// TODO: handle exception
+				}
+
+			}
+		});
+	}
+
+	public static void main(String[] args) {
+		new Server2();
+	}
+}

@@ -1,0 +1,153 @@
+import gym.manager.*;
+
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+    static Scanner sc = new Scanner(System.in);
+    static GymManager gm = new GymManager();
+    public static void main(String[] args) {
+
+        System.out.println("=== 헬스장 회원 관리 시스템 ===");
+
+        while (true) {
+            System.out.println("\n1. 회원 메뉴  2. 트레이너 메뉴  3. 운동기구 안내  0. 종료");
+            System.out.print("선택 >> ");
+            int choice = Integer.parseInt(sc.nextLine());
+
+            switch (choice) {
+                case 1: memberMenu(); break;
+                case 2: trainerMenu(); break;
+                case 3: equipmentMenu(); break;
+                case 0:
+                    System.out.println("종료합니다.");
+                    return;
+                default:
+                    System.out.println("잘못된 선택입니다.");
+            }
+
+        }
+    }
+
+    static void memberMenu() {
+        System.out.println("=== 회원 메뉴 ==");
+        System.out.println("1.회원 등록 2. 결제 3. 출석 0. 뒤로");
+        System.out.print("선택 >> ");
+        try {
+            int choice = Integer.parseInt(sc.nextLine());
+            if (choice < 0 || choice > 3) {
+                System.out.println("잘못된 선택입니다.");
+                memberMenu();
+                return;
+            }
+
+            switch (choice){
+                case 1:
+                    //todo 회원입력
+                     break;
+                case 2:
+                    //todo 결제
+                    break;
+                case 3:
+                    //todo 출석
+                    break;
+                case 0:
+                    return;
+            }
+
+        } catch (NumberFormatException e) {
+            System.out.println("숫자만 입력해주세요.");
+            memberMenu();
+            return;
+        }
+
+    }
+    static void trainerMenu(){
+        String tName;
+        String mName;
+        System.out.println("=== 트레이너 메뉴 ==");
+        System.out.println("1.트레이너 등록 2.회원 추가 3.회원 조회 4.회원 식단 관리 5.출석 회원 조회 0. 뒤로");
+        System.out.print("선택 >> ");
+        try {
+            int choice = Integer.parseInt(sc.nextLine());
+            if (choice < 0 || choice > 5) {
+                System.out.println("잘못된 선택입니다.");
+                memberMenu();
+                return;
+            }
+
+            switch (choice){
+                case 1:
+                    System.out.print("이름: ");      String name  = sc.nextLine();
+                    System.out.print("번호: ");      String phone = sc.nextLine();
+                    System.out.print("나이: ");      int age      = Integer.parseInt(sc.nextLine());
+                    System.out.print("키(cm): ");    double height = Double.parseDouble(sc.nextLine());
+                    System.out.print("몸무게(kg): "); double weight = Double.parseDouble(sc.nextLine());
+                    System.out.print("월급(원): ");   int salary   = Integer.parseInt(sc.nextLine());
+
+                    //todo 트레이너 등록
+                    // Trainer t = new Trainer(name, phone, age, height, weight, salary);
+                    // t.register();
+                    // gm.addTrainer(t);
+                    break;
+                case 2:
+
+                    System.out.print("트레이너 이름: "); tName = sc.nextLine();
+                    System.out.print("회원 이름: ");      mName = sc.nextLine();
+                    //todo 회원 추가
+                    // Trainer t = gm.findTrainer(tName);
+                    // Member  m = gm.findMember(mName);
+                    // t.addManagedMember(m)
+                    break;
+                case 3:
+                    //todo 회원 조회
+                    // gm.printAllTrainers();
+                    break;
+                case 4:
+                    System.out.print("트레이너 이름: "); tName = sc.nextLine();
+                    System.out.print("회원 이름: "); mName = sc.nextLine();
+                    //todo 회원 식단 관리
+                    // Trainer t = gm.findTrainer(tName);
+                    // Member  m = gm.findMember(mName);
+                    // if (t == null || m == null) { System.out.println("이름을 확인해 주세요."); return; }
+                    // t.manageDiet(m);
+                    break;
+                case 5:
+                    System.out.print("트레이너 이름: "); tName = sc.nextLine();
+                    //todo 출석 회원 조회
+                    // Trainer t = gm.findTrainer(tName);
+                    // t.printAttendance()
+                    break;
+                case 0:
+                    return;
+            }
+
+        } catch (NumberFormatException e) {
+            System.out.println("숫자만 입력해주세요.");
+            memberMenu();
+            return;
+        }
+
+    }
+    static void equipmentMenu() {
+        String mName;
+        System.out.print("회원 이름: ");      mName = sc.nextLine();
+
+
+        System.out.println("가슴 / 등 / 어깨 / 팔 / 복근 / 하체 / 유산소");
+        System.out.print("부위 입력 >> ");
+        String bodyPart = sc.nextLine();
+        List<String> validParts = List.of("가슴", "등", "어깨", "팔", "복근", "하체", "유산소");
+
+        if (!validParts.contains(bodyPart)) {
+            System.out.println("잘못된 입력입니다.");
+            equipmentMenu();
+            return;
+        }
+
+        // todo 운동기구 안내
+        // Member  m = gm.findMember(mName);
+        // m.explainEquipment(bodyPart);
+    }
+
+}

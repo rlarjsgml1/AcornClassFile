@@ -1,0 +1,16 @@
+package day21.prac.비동기;
+
+public class Ex01 {
+	public static void main(String[] args) {
+		// 김건희 춤추기 100번
+		for (int i = 1; i <= 100; i++) {
+			System.out.println("김건희가 춤을 춘다 ^__ ****");
+		}
+
+		// 고지연 춤추기 100번
+		for (int i = 1; i <= 100; i++) {
+			System.out.println("고지연가 춤을 춘다 ^__ ****");
+		}
+	}
+
+}

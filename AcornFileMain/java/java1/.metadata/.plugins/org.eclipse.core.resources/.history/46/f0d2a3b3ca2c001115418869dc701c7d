@@ -1,0 +1,12 @@
+package day21.prac.라면;
+
+public class 라면끓이기 implements Runnable{
+	라면 raman;
+	public 라면끓이기() {
+		this.raman =raman;
+	}
+	@Override
+	public void run() {
+		
+	}
+}

@@ -1,0 +1,9 @@
+package day21.prac.인터럽트;
+
+public class Smile2 extends Thread {
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		super.run();
+	}
+}

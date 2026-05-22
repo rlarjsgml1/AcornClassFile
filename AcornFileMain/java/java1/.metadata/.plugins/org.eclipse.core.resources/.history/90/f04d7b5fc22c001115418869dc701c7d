@@ -1,0 +1,7 @@
+package day21.prac.인터럽트;
+
+public class Ex01 {
+	public static void main(String[] args) {
+		
+	}
+}

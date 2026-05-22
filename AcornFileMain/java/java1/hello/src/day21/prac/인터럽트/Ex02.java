@@ -1,0 +1,19 @@
+package day21.prac.인터럽트;
+
+public class Ex02 {
+	public static void main(String[] args) {
+		Smile2 smile2 = new Smile2();
+		smile2.start();
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		smile2.interrupt();
+		System.out.println("끝");
+	}
+	
+}

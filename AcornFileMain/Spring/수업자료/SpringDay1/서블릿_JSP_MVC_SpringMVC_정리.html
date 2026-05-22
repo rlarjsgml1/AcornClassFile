@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>서블릿 JSP MVC Spring MVC 정리</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 16mm 14mm;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: #1e2430;
+      background: #ffffff;
+      font-family: "Malgun Gothic", "Apple SD Gothic Neo", Arial, sans-serif;
+      font-size: 13px;
+      line-height: 1.65;
+      word-break: keep-all;
+    }
+
+    .page {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .title {
+      padding: 22px 0 18px;
+      border-bottom: 3px solid #2f6f9f;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      color: #1d4f73;
+      font-size: 28px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: #4b5563;
+      font-size: 14px;
+    }
+
+    h2 {
+      margin: 26px 0 10px;
+      padding-bottom: 5px;
+      color: #1d4f73;
+      border-bottom: 1px solid #b8c7d3;
+      font-size: 20px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 18px 0 7px;
+      color: #263647;
+      font-size: 16px;
+      line-height: 1.4;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 6px 0;
+    }
+
+    ul,
+    ol {
+      margin: 7px 0 12px 22px;
+      padding: 0;
+    }
+
+    li {
+      margin: 3px 0;
+    }
+
+    .note,
+    .flow,
+    .check {
+      margin: 10px 0 14px;
+      padding: 11px 13px;
+      border-left: 4px solid #2f6f9f;
+      background: #f3f8fb;
+    }
+
+    .check {
+      border-left-color: #4b7f52;
+      background: #f4faf5;
+    }
+
+    .warn {
+      margin: 10px 0 14px;
+      padding: 11px 13px;
+      border-left: 4px solid #b25d34;
+      background: #fff7f0;
+    }
+
+    table {
+      width: 100%;
+      margin: 10px 0 16px;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    th,
+    td {
+      padding: 8px 9px;
+      border: 1px solid #cfd8df;
+      vertical-align: top;
+    }
+
+    th {
+      color: #223044;
+      background: #eaf2f7;
+      font-weight: 700;
+    }
+
+    code {
+      padding: 1px 4px;
+      border-radius: 3px;
+      background: #eef2f5;
+      font-family: Consolas, "D2Coding", monospace;
+      font-size: 12px;
+    }
+
+    pre {
+      margin: 9px 0 15px;
+      padding: 10px 12px;
+      overflow-wrap: anywhere;
+      white-space: pre-wrap;
+      border: 1px solid #d7dee5;
+      border-radius: 4px;
+      background: #f7f9fb;
+      font-family: Consolas, "D2Coding", monospace;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .toc {
+      columns: 2;
+      column-gap: 28px;
+      margin-top: 12px;
+    }
+
+    .toc li {
+      break-inside: avoid;
+    }
+
+    .section-break {
+      break-before: page;
+    }
+
+    .small {
+      color: #5b6470;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="title">
+      <h1>서블릿, JSP, MVC2, Spring MVC 정리</h1>
+      <p class="subtitle">Spring Day1 읽기용 정리본 - 발표 슬라이드가 아니라 개념 복습용 자료</p>
+    </section>
+
+    <section>
+      <h2>0. 전체 흐름 먼저 보기</h2>
+      <p>
+        Java 웹 개발은 처음에는 서블릿이 요청 처리와 HTML 응답을 모두 담당했지만,
+        코드가 길어지고 화면 수정이 어려워지면서 JSP와 역할을 나누기 시작했다.
+        그 다음에는 요청을 한 곳에서 받아 분배하는 Front Controller 방식이 등장했고,
+        이 구조를 표준화한 것이 MVC2 패턴이다. Spring MVC는 MVC2 구조를 프레임워크로 제공해서
+        개발자가 반복 코드를 적게 쓰고 컨트롤러의 핵심 로직에 집중하게 해 준다.
+      </p>
+
+      <div class="flow">
+        <strong>큰 흐름</strong><br>
+        서블릿 단독 처리 -> 서블릿 + JSP -> forward/include -> Front Controller -> MVC2 -> Spring MVC
+      </div>
+
+      <ol class="toc">
+        <li>서블릿</li>
+        <li>JSP</li>
+        <li>서블릿 forward</li>
+        <li>서블릿 include</li>
+        <li>Front Controller 패턴</li>
+        <li>MVC2 패턴</li>
+        <li>Spring MVC</li>
+        <li><code>@RequestParam</code></li>
+        <li><code>@ModelAttribute</code></li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>1. 서블릿 Servlet</h2>
+      <p>
+        서블릿은 웹 서버에서 실행되는 Java 클래스다. 브라우저가 URL로 요청을 보내면,
+        톰캣 같은 WAS가 요청을 받아 서블릿의 메서드를 실행한다. 서블릿은 요청 데이터를 읽고,
+        필요한 처리를 한 뒤 응답을 만든다.
+      </p>
+
+      <h3>서블릿의 역할</h3>
+      <ul>
+        <li>클라이언트 요청을 받는다.</li>
+        <li>요청 파라미터를 읽는다. 예: <code>request.getParameter("id")</code></li>
+        <li>비즈니스 로직 또는 서비스 객체를 호출한다.</li>
+        <li>응답을 직접 만들거나 JSP로 넘긴다.</li>
+      </ul>
+
+      <h3>기본 예시</h3>
+      <pre><code>protected void doGet(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+
+    String id = request.getParameter("id");
+
+    response.setContentType("text/html; charset=UTF-8");
+    PrintWriter out = response.getWriter();
+    out.println("&lt;h1&gt;" + id + "님 환영합니다&lt;/h1&gt;");
+}</code></pre>
+
+      <div class="warn">
+        서블릿에서 HTML을 직접 출력하면 Java 코드 안에 HTML 문자열이 계속 들어간다.
+        그래서 화면이 커질수록 읽기 어렵고 수정하기도 어렵다.
+      </div>
+    </section>
+
+    <section>
+      <h2>2. JSP</h2>
+      <p>
+        JSP는 HTML 안에 Java 코드를 사용할 수 있게 만든 서버 화면 파일이다.
+        실행될 때 내부적으로 서블릿으로 변환되어 처리된다. 그래서 JSP도 결국 서버에서 실행되고,
+        실행 결과로 만들어진 HTML이 브라우저에 전달된다.
+      </p>
+
+      <h3>JSP의 역할</h3>
+      <ul>
+        <li>HTML 화면을 작성한다.</li>
+        <li>서블릿이나 컨트롤러가 request에 담아 준 데이터를 출력한다.</li>
+        <li>JSTL, EL을 사용해서 반복 출력이나 조건 출력을 처리한다.</li>
+      </ul>
+
+      <h3>JSP 예시</h3>
+      <pre><code>&lt;%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%&gt;
+
+&lt;h2&gt;회원 정보&lt;/h2&gt;
+아이디: ${id}</code></pre>
+
+      <div class="note">
+        JSP는 화면 담당으로 쓰는 것이 좋다. 계산, DB 처리, 복잡한 조건 판단은 서블릿이나 컨트롤러,
+        서비스 계층에서 처리하고 JSP는 출력에 집중하는 구조가 유지보수에 좋다.
+      </div>
+    </section>
+
+    <section class="section-break">
+      <h2>3. 서블릿 forward</h2>
+      <p>
+        <code>forward</code>는 현재 요청을 서버 내부에서 다른 자원으로 넘기는 기능이다.
+        보통 서블릿이 요청을 처리하고, 결과 데이터를 request에 담은 뒤 JSP로 넘길 때 사용한다.
+        브라우저 입장에서는 URL이 바뀌지 않는다.
+      </p>
+
+      <h3>forward 흐름</h3>
+      <div class="flow">
+        브라우저 요청 -> 서블릿 처리 -> request에 데이터 저장 -> JSP로 forward -> JSP가 화면 출력
+      </div>
+
+      <h3>forward 예시</h3>
+      <pre><code>request.setAttribute("message", "서블릿에서 만든 데이터");
+
+RequestDispatcher dispatcher =
+        request.getRequestDispatcher("/WEB-INF/views/result.jsp");
+
+dispatcher.forward(request, response);</code></pre>
+
+      <h3>forward의 특징</h3>
+      <ul>
+        <li>같은 request 객체가 유지된다.</li>
+        <li><code>request.setAttribute()</code>로 담은 값을 JSP에서 꺼낼 수 있다.</li>
+        <li>브라우저 주소창의 URL은 처음 요청한 URL 그대로다.</li>
+        <li>서블릿은 처리 담당, JSP는 화면 담당으로 역할을 나누기 좋다.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. 서블릿 include</h2>
+      <p>
+        <code>include</code>는 다른 자원의 실행 결과를 현재 응답 안에 포함하는 기능이다.
+        현재 흐름을 완전히 넘기는 forward와 달리, include는 다른 자원의 결과를 끼워 넣고 다시 현재 서블릿으로 돌아온다.
+      </p>
+
+      <h3>include 흐름</h3>
+      <div class="flow">
+        현재 서블릿 실행 -> 다른 JSP/서블릿 결과 포함 -> 다시 현재 서블릿 실행 계속 -> 응답 완료
+      </div>
+
+      <h3>include 예시</h3>
+      <pre><code>RequestDispatcher dispatcher =
+        request.getRequestDispatcher("/menu.jsp");
+
+dispatcher.include(request, response);</code></pre>
+
+      <table>
+        <thead>
+          <tr>
+            <th>구분</th>
+            <th>forward</th>
+            <th>include</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>목적</td>
+            <td>처리 결과를 다른 자원에 맡김</td>
+            <td>다른 자원의 결과를 현재 응답에 포함</td>
+          </tr>
+          <tr>
+            <td>흐름</td>
+            <td>넘긴 뒤 JSP가 최종 응답 담당</td>
+            <td>포함 후 원래 서블릿/JSP로 돌아옴</td>
+          </tr>
+          <tr>
+            <td>주 사용 예</td>
+            <td>서블릿에서 JSP로 화면 이동</td>
+            <td>공통 메뉴, 헤더, 푸터 포함</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>5. Front Controller 패턴</h2>
+      <p>
+        Front Controller는 모든 요청을 하나의 대표 컨트롤러가 먼저 받는 구조다.
+        대표 컨트롤러는 요청 URL을 보고 실제 일을 처리할 컨트롤러를 찾아 실행한다.
+        공통 처리와 요청 분배를 한 곳에서 관리할 수 있다는 장점이 있다.
+      </p>
+
+      <h3>왜 필요한가?</h3>
+      <ul>
+        <li>여러 서블릿마다 반복되는 공통 코드가 많아진다.</li>
+        <li>인코딩 처리, 로그인 확인, 예외 처리 같은 공통 작업을 한 곳에서 처리하고 싶다.</li>
+        <li>URL과 실제 처리 객체의 연결을 체계적으로 관리하고 싶다.</li>
+      </ul>
+
+      <h3>Front Controller 흐름</h3>
+      <div class="flow">
+        브라우저 요청 -> Front Controller -> 알맞은 Controller 선택 -> Model 생성 -> View 선택 -> JSP 응답
+      </div>
+
+      <h3>간단한 구조 예시</h3>
+      <pre><code>String uri = request.getRequestURI();
+
+Controller controller = null;
+
+if (uri.equals("/member/list")) {
+    controller = new MemberListController();
+} else if (uri.equals("/member/detail")) {
+    controller = new MemberDetailController();
+}
+
+String viewName = controller.execute(request, response);
+request.getRequestDispatcher(viewName).forward(request, response);</code></pre>
+
+      <div class="note">
+        Spring MVC의 <code>DispatcherServlet</code>이 바로 Front Controller 역할을 한다.
+      </div>
+    </section>
+
+    <section class="section-break">
+      <h2>6. MVC2 패턴</h2>
+      <p>
+        MVC2는 웹 애플리케이션에서 Model, View, Controller의 역할을 분리하는 구조다.
+        MVC1은 JSP가 요청 처리와 화면 출력을 많이 담당하지만, MVC2는 컨트롤러가 요청을 처리하고 JSP는 화면 출력에 집중한다.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>역할</th>
+            <th>담당</th>
+            <th>예시</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Model</td>
+            <td>데이터와 처리 결과</td>
+            <td>회원 목록, 책 정보, 계산 결과, 서비스/DAO 결과</td>
+          </tr>
+          <tr>
+            <td>View</td>
+            <td>화면 출력</td>
+            <td>JSP, HTML, JSTL, EL</td>
+          </tr>
+          <tr>
+            <td>Controller</td>
+            <td>요청 접수, 파라미터 수집, 모델 생성, 뷰 선택</td>
+            <td>Servlet, Spring Controller</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>MVC2 흐름</h3>
+      <div class="flow">
+        요청 -> Controller -> Model 준비 -> View 이름 결정 -> forward -> JSP 출력
+      </div>
+
+      <h3>MVC2의 장점</h3>
+      <ul>
+        <li>화면과 처리 로직이 분리되어 유지보수가 쉽다.</li>
+        <li>JSP에 Java 코드가 줄어든다.</li>
+        <li>컨트롤러, 서비스, DAO처럼 역할별로 코드를 나눌 수 있다.</li>
+        <li>URL 요청 처리 구조가 명확해진다.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>7. Spring MVC</h2>
+      <p>
+        Spring MVC는 MVC2와 Front Controller 구조를 Spring이 제공하는 웹 프레임워크다.
+        개발자는 직접 Front Controller를 만들지 않고, Spring이 제공하는 <code>DispatcherServlet</code>을 사용한다.
+        실제 요청 처리는 개발자가 만든 Controller 메서드가 담당한다.
+      </p>
+
+      <h3>Spring MVC 핵심 흐름</h3>
+      <div class="flow">
+        브라우저 요청 -> DispatcherServlet -> HandlerMapping -> Controller 메서드 실행 -> Model 준비 -> ViewResolver -> JSP 렌더링 -> 응답
+      </div>
+
+      <h3>Spring MVC에서 달라지는 점</h3>
+      <ul>
+        <li>서블릿을 직접 여러 개 만들지 않아도 된다.</li>
+        <li><code>@Controller</code> 클래스를 만들고 메서드 단위로 URL을 매핑할 수 있다.</li>
+        <li><code>@GetMapping</code>, <code>@PostMapping</code>으로 요청 방식을 구분할 수 있다.</li>
+        <li>파라미터 수집을 <code>@RequestParam</code>, <code>@ModelAttribute</code>로 편하게 처리한다.</li>
+        <li>컨트롤러는 문자열로 뷰 이름을 반환할 수 있다.</li>
+      </ul>
+
+      <h3>Controller 예시</h3>
+      <pre><code>@Controller
+public class HelloController {
+
+    @GetMapping("/hi")
+    public String hi(Model model) {
+        model.addAttribute("data", "Spring MVC");
+        return "view";
+    }
+}</code></pre>
+
+      <p>
+        위 코드에서 <code>return "view"</code>는 보통
+        <code>/WEB-INF/views/view.jsp</code> 같은 JSP로 연결된다.
+        이 연결은 <code>ViewResolver</code> 설정이 담당한다.
+      </p>
+    </section>
+
+    <section>
+      <h2>8. @RequestParam</h2>
+      <p>
+        <code>@RequestParam</code>은 요청 파라미터 하나하나를 컨트롤러 메서드의 매개변수로 받을 때 사용한다.
+        예를 들어 <code>/login?id=test&amp;pw=1234</code> 요청이 들어오면 id와 pw 값을 바로 받을 수 있다.
+      </p>
+
+      <h3>기존 서블릿 방식</h3>
+      <pre><code>String id = request.getParameter("id");
+String pw = request.getParameter("pw");</code></pre>
+
+      <h3>Spring MVC 방식</h3>
+      <pre><code>@GetMapping("/login")
+public String login(
+        @RequestParam("id") String id,
+        @RequestParam("pw") String pw,
+        Model model) {
+
+    model.addAttribute("id", id);
+    model.addAttribute("pw", pw);
+    return "loginResult";
+}</code></pre>
+
+      <h3>자주 쓰는 옵션</h3>
+      <pre><code>@RequestParam(value = "num", defaultValue = "1") int num
+@RequestParam(value = "keyword", required = false) String keyword</code></pre>
+
+      <table>
+        <thead>
+          <tr>
+            <th>옵션</th>
+            <th>의미</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>value</code></td>
+            <td>요청 파라미터 이름</td>
+          </tr>
+          <tr>
+            <td><code>required</code></td>
+            <td>필수 여부. 기본값은 true</td>
+          </tr>
+          <tr>
+            <td><code>defaultValue</code></td>
+            <td>값이 없을 때 사용할 기본값</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section-break">
+      <h2>9. @ModelAttribute</h2>
+      <p>
+        <code>@ModelAttribute</code>는 여러 요청 파라미터를 하나의 객체에 자동으로 담을 때 사용한다.
+        파라미터 이름과 객체의 필드 이름이 같으면 Spring이 setter 또는 생성 규칙을 이용해 값을 넣어 준다.
+      </p>
+
+      <h3>요청 예시</h3>
+      <pre><code>/user?id=test&amp;pw=1234&amp;name=홍길동</code></pre>
+
+      <h3>DTO 또는 VO 클래스</h3>
+      <pre><code>public class User {
+    private String id;
+    private String pw;
+    private String name;
+
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
+
+    public String getPw() { return pw; }
+    public void setPw(String pw) { this.pw = pw; }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+}</code></pre>
+
+      <h3>Controller 예시</h3>
+      <pre><code>@GetMapping("/user")
+public String user(@ModelAttribute User user, Model model) {
+    model.addAttribute("user", user);
+    return "userView";
+}</code></pre>
+
+      <p>
+        단순히 <code>User user</code>처럼 적어도 동작하는 경우가 있지만,
+        수업 초기에는 <code>@ModelAttribute</code>를 붙여서 의도를 분명히 보는 것이 이해하기 좋다.
+      </p>
+
+      <h3>@RequestParam과 @ModelAttribute 비교</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>구분</th>
+            <th>@RequestParam</th>
+            <th>@ModelAttribute</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>받는 대상</td>
+            <td>파라미터 하나 또는 몇 개</td>
+            <td>여러 파라미터를 객체 하나로 묶음</td>
+          </tr>
+          <tr>
+            <td>사용 예</td>
+            <td><code>id</code>, <code>pw</code>, <code>num</code></td>
+            <td><code>User</code>, <code>Book</code>, <code>Score</code></td>
+          </tr>
+          <tr>
+            <td>좋은 상황</td>
+            <td>값이 적고 단순할 때</td>
+            <td>폼 입력값이 많고 객체로 다루고 싶을 때</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>10. 전체 비교 정리</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>개념</th>
+            <th>핵심 의미</th>
+            <th>기억할 점</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>서블릿</td>
+            <td>Java로 요청을 처리하는 서버 프로그램</td>
+            <td>요청 처리 담당</td>
+          </tr>
+          <tr>
+            <td>JSP</td>
+            <td>HTML 중심의 서버 화면 파일</td>
+            <td>화면 출력 담당</td>
+          </tr>
+          <tr>
+            <td>forward</td>
+            <td>서버 내부에서 요청을 다른 자원으로 넘김</td>
+            <td>서블릿에서 JSP로 이동할 때 자주 사용</td>
+          </tr>
+          <tr>
+            <td>include</td>
+            <td>다른 자원의 결과를 현재 응답에 포함</td>
+            <td>공통 화면 조각 포함에 사용</td>
+          </tr>
+          <tr>
+            <td>Front Controller</td>
+            <td>모든 요청을 한 대표 컨트롤러가 먼저 받음</td>
+            <td>공통 처리와 요청 분배를 한 곳에서 관리</td>
+          </tr>
+          <tr>
+            <td>MVC2</td>
+            <td>Model, View, Controller 역할 분리</td>
+            <td>유지보수와 확장성이 좋아짐</td>
+          </tr>
+          <tr>
+            <td>Spring MVC</td>
+            <td>Spring이 제공하는 MVC2 웹 프레임워크</td>
+            <td>DispatcherServlet이 Front Controller 역할</td>
+          </tr>
+          <tr>
+            <td>@RequestParam</td>
+            <td>요청 파라미터를 변수로 받음</td>
+            <td>값이 적을 때 편함</td>
+          </tr>
+          <tr>
+            <td>@ModelAttribute</td>
+            <td>요청 파라미터를 객체로 묶음</td>
+            <td>폼 데이터가 많을 때 편함</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>11. 수업 실습과 연결해서 보기</h2>
+      <p>
+        수업에서 만드는 <code>/calc</code>, <code>/dan</code>, <code>/star</code>, <code>/divisor</code> 같은 요청은
+        모두 같은 구조로 생각할 수 있다.
+      </p>
+
+      <div class="flow">
+        URL 요청 -> Controller 메서드 실행 -> 파라미터 수집 -> 계산 또는 객체 생성 -> Model에 결과 저장 -> JSP에서 출력
+      </div>
+
+      <h3>예: 원하는 단 출력</h3>
+      <pre><code>@GetMapping("/dan")
+public String dan(@RequestParam("num") int num, Model model) {
+    model.addAttribute("num", num);
+    return "danView";
+}</code></pre>
+
+      <h3>예: 책 정보 받기</h3>
+      <pre><code>@GetMapping("/book")
+public String book(@ModelAttribute Book book, Model model) {
+    model.addAttribute("book", book);
+    return "bookView";
+}</code></pre>
+    </section>
+
+    <section>
+      <h2>12. 꼭 기억할 문장</h2>
+      <div class="check">
+        <ul>
+          <li>서블릿은 요청 처리 담당, JSP는 화면 출력 담당이다.</li>
+          <li>forward는 서블릿이 만든 데이터를 JSP로 넘겨 화면을 보여줄 때 많이 쓴다.</li>
+          <li>Front Controller는 모든 요청을 먼저 받는 대표 컨트롤러다.</li>
+          <li>MVC2는 Controller, Model, View의 역할을 나누는 구조다.</li>
+          <li>Spring MVC의 DispatcherServlet은 Front Controller 역할을 한다.</li>
+          <li><code>@RequestParam</code>은 낱개 값, <code>@ModelAttribute</code>는 객체로 받는 데 적합하다.</li>
+        </ul>
+      </div>
+
+      <p class="small">
+        작성 위치: C:\AcornFile\AcornFileMain\Spring\수업자료\SpringDay1
+      </p>
+    </section>
+  </main>
+</body>
+</html>

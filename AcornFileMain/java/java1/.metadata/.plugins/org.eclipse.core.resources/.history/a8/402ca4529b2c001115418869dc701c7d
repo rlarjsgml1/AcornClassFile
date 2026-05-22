@@ -1,0 +1,10 @@
+/**
+ * 
+ */
+/**
+ * 
+ */
+module hello {
+    requires com.google.gson;
+    opens day21.json to com.google.gson;
+}

@@ -1,0 +1,10 @@
+package day21.prac.인터럽트;
+
+public class Smile extends Thread{
+	@Override
+	public void run() {
+		while(true) {
+			System.out.println("^__^");
+		}
+	}
+}

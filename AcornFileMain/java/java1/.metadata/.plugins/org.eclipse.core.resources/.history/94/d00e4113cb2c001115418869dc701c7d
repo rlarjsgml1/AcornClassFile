@@ -1,0 +1,20 @@
+package day21.prac.라면;
+
+public class 라면끓이기 implements Runnable{
+	라면 raman;
+	
+	public 라면끓이기() {
+		this.raman =raman;
+	}
+	@Override
+	public void run() {
+		while(true) {
+			if(raman.count <=0) {
+				System.out.println(Thread.currentThread().getName() + "라면없음");
+				break;
+			}
+			System.out.println(Thread.currentThread().getName() + "라면 끓이는 중");
+			raman.count =raman.count -1;
+		}
+	}
+}

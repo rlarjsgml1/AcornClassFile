@@ -1,0 +1,74 @@
+package day21.prac.chatt;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.util.Scanner;
+
+public class Client2 {
+	Socket socket;
+	DataInputStream is;
+	DataOutputStream os;
+	Scanner sc = new Scanner(System.in);
+
+	public Client2() {
+		try {
+			socket = new Socket("localhost", 6500);
+			is = new DataInputStream(socket.getInputStream());
+			os = new DataOutputStream(socket.getOutputStream());
+
+			보내기();
+			받기();
+
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	// 받기
+	// 보내기 작업 멀티스레드로 구현하기
+	private void 받기() {
+		Thread th = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					String message = is.readUTF();
+					System.out.println(message);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+		th.start();
+	}
+
+	private void 보내기() {
+		Thread th = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					while (true) {
+						System.out.println("클라이언트 왈 : ");
+						String message = sc.nextLine();
+						os.writeUTF(message);
+					}
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}		
+			}
+		});
+		th.start();
+	}
+
+	public static void main(String[] args) {
+		new Client2();
+	}
+}

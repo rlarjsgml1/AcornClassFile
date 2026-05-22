@@ -1,0 +1,122 @@
+create table food_item (
+  food_item_id   number generated always as identity, -- 자동 증가 ID
+  food_item_name varchar2(100) not null,
+  constraint pk_food_item_id primary key (food_item_id),
+  constraint uq_food_item_name unique (food_item_name)
+);
+
+create table food_recipe (
+  food_recipe_id   number generated always as identity, -- 자동 증가 ID
+  food_recipe_name varchar2(150) not null,
+  constraint pk_food_recipe_id primary key (food_recipe_id)
+);
+
+create table food_recipe_ingredient (
+  recipe_id number not null,
+  item_id   number not null,
+  constraint pk_food_recipe_ingredient primary key (recipe_id, item_id),
+  constraint fk_food_item_id foreign key (food_item_id) references food_item (food_item_id),
+  constraint fk_food_recipe_id foreign key (food_recipe_id) references food_recipe (food_recipe_id)
+);
+
+create table alcohol (
+  al_id      number generated always as identity,
+  al_name    varchar(50) not null,
+  al_content number not null,
+  constraint pk_al_id primary key (al_id)
+);
+
+create table recommend (
+  recom_recipe_id number not null,
+  recom_al_id     number not null,
+  recom_food_com      varchar(50),
+  constraint pk_recipe_ing primary key (recom_recipe_id, recom_al_id),
+  constraint fk_ri_recipe foreign key (recipe_id) references food_recipe (food_recipe_id),
+  constraint fk_ri_al foreign key (al_id) references alcohol (al_id)
+);
+ 
+ insert into alcohol (al_name, al_content) values ('소주', 16);
+ insert into alcohol (al_name, al_content) values ('맥주', 7);
+ 
+ 
+ insert into recommend (recipe_id, al_id, fcom) values(1,1,'맛있으니까');
+ insert into recommend (recipe_id, al_id, fcom) values(2,2,'맛있으니까');
+ 
+ 
+ -- 음식에 대한 주종추천과 이유
+ select
+ r.food_recipe_name as 음식명,
+ a.al_name as 추천주종,
+ a.al_content as 도수,
+ c.fcom as 추천이유
+ from recommend c
+ join food_recipe r
+ on r.food_recipe_id = c.recipe_id
+ join alcohol a
+ on a.al_id = c.al_id;
+ 
+ -- 음식에 들어가는 재료
+ select
+ fr.food_recipe_name as 음식명,
+ fi.food_item_name as 재료명
+ from food_recipe_ingredient fri
+ join food_recipe fr
+ on fri.food_recipe_id = fr.food_recipe_id
+ join food_item fi
+ on fri.food_item_id = fi.food_item_id
+ where food_recipe_name = '양파스프';
+ 
+ 
+ 
+ SELECT
+  fr.food_recipe_name AS 음식명,
+  LISTAGG(fi.food_item_name, ', ') WITHIN GROUP (ORDER BY fi.food_item_name) AS 재료목록
+FROM food_recipe_ingredient fri
+JOIN food_recipe fr
+  ON fri.food_recipe_id = fr.food_recipe_id
+JOIN food_item fi
+  ON fri.food_item_id = fi.food_item_id
+WHERE fr.food_recipe_name = '양파스프'
+GROUP BY fr.food_recipe_name;
+
+
+--
+SELECT r.food_recipe_name, listagg(i.food_item_name,',') WITHIN GROUP (ORDER BY i.food_item_name) AS 재료목록
+FROM FOOD_RECIPE r
+JOIN FOOD_RECIPE_INGREDIENT fri ON r.food_recipe_id = fri.food_recipe_id
+JOIN FOOD_ITEM i ON i.food_item_id = fri.food_item_id
+where i.food_item_name IN ('두부','홍합', '마늘','대파') group by r.food_recipe_name;
+
+ 
+ SELECT
+  fr.food_recipe_name AS 음식명,
+  LISTAGG(fi.food_item_name, ', ') WITHIN GROUP (ORDER BY fi.food_item_name) AS 전체재료목록
+FROM food_recipe fr
+JOIN food_recipe_ingredient fri ON fr.food_recipe_id = fri.food_recipe_id
+JOIN food_item fi ON fri.food_item_id = fi.food_item_id
+WHERE fr.food_recipe_id IN (
+  SELECT DISTINCT fri.food_recipe_id
+  FROM food_recipe_ingredient fri
+  JOIN food_item fi ON fri.food_item_id = fi.food_item_id
+  WHERE fi.food_item_name LIKE '%두부%'
+     OR fi.food_item_name LIKE '%홍합%'
+     OR fi.food_item_name LIKE '%마늘%'
+     OR fi.food_item_name LIKE '%대파%'
+)
+GROUP BY fr.food_recipe_name;
+ 
+ select * from food_item;
+ drop table food_item cascade CONSTRAINT purge;
+ select * from food_recipe;
+ drop table food_recipe cascade CONSTRAINT purge;
+ select * from recommend;
+ drop table recommend cascade constraint purge;
+ select * from alcohol;
+ drop table alcohol cascade CONSTRAINT purge;
+ select * from food_recipe_ingredient;
+ drop table food_recipe_ingredient cascade CONSTRAINT purge;
+ 
+ 
+ 
+ 
+ 
