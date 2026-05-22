@@ -70,12 +70,14 @@ DTO / DB / JSON 모델      모델/MODEL_GUIDE.md, 모델/DATA_MODEL.md
 ## 5. Git 기준
 
 - Git 작업 전에는 변경 파일 목록을 확인합니다.
+- 혼자 쓰는 공부용 GitHub 저장소의 브랜치, 커밋, `.gitignore`, SourceTree 작업 기준은 `규칙/GIT_SOURCE_TREE.md`를 우선 확인합니다.
+- 공부 자료/PDF/README는 `docs/작업이름`, 실습 코드 보관은 `archive/작업이름`, 공부 요약은 `study/작업이름`, 오류 수정은 `fix/오류이름`, Git 설정 정리는 `chore/작업이름` 브랜치를 사용합니다.
 - `.metadata/`, `bin/`, `*.class`, `*.lock`, `*.log`, `.codex-build/`, `.chrome-pdf-profile/`는 커밋 대상에서 제외합니다.
 - SourceTree에서 `Stage All`을 누르기 전 변경 파일 목록을 확인합니다.
 - `push`, `reset`, `force push`, `merge`, `rebase`는 사용자 승인 없이 실행하지 않습니다.
 - 커밋 메시지는 실무에서 많이 쓰는 Conventional Commits 형식을 우선합니다.
 - 기본 형식은 `type: 변경 목적`입니다. 예: `docs: 학습자료 제작 규칙 추가`
-- 자주 쓰는 type은 `docs`, `feat`, `fix`, `refactor`, `test`, `chore`입니다.
+- 자주 쓰는 type은 `docs`, `archive`, `study`, `feat`, `fix`, `refactor`, `test`, `chore`입니다.
 - 제목은 한 줄로 짧게 쓰되, 무엇을 왜 바꿨는지 드러나야 합니다.
 - 변경 내용이 여러 개면 커밋 본문에 bullet로 요약합니다.
 - 커밋 본문에는 변경 파일 나열보다 변경 의도와 영향, 검증 여부를 우선 적습니다.
