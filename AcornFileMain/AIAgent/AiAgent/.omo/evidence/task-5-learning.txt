@@ -1,0 +1,8 @@
+﻿
+## 2026-05-09 Task 5 Learning README
+- Created `C:\minjeong-brain\05-학습자료\README.md` with the exact requested Korean Markdown content.
+- `Test-Path -LiteralPath "C:\minjeong-brain\05-학습자료\README.md"` returned `True`.
+- Exact content comparison returned `ExactContent=True`.
+- Required phrase checks returned `Lecture=True`, `Certificate=True`, `CodingTest=True`, `Study=True`.
+- Folder distinction checks returned `Resources=True`, `ActiveLearning=True`, `LongTermReference=True`.
+- `lsp_diagnostics` was attempted for the Markdown file, but this environment has no `.md` LSP server configured.

@@ -1,0 +1,9 @@
+﻿
+## 2026-05-09 15:41:43 Task 3 Areas README
+- Created C:\minjeong-brain\03-영역\README.md.
+- Test-Path returned True.
+- Read verification confirmed heading order: purpose, usage, instructions.
+- Content distinguishes ongoing responsibilities from deadline-based projects.
+- Ongoing examples include credits, health, finance, and job routine.
+- No extra top-level subject folders 전공, 교양, or 자격증 were created.
+- lsp_diagnostics could not run because no Markdown LSP server is configured.

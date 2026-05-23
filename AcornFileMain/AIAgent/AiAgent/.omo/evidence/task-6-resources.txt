@@ -1,0 +1,12 @@
+Task 6 resources README evidence
+Date: 2026-05-09
+File exists: True
+Content checks:
+- industry and job info: True
+- writing and interview references: True
+- tools: True
+- articles and long-form references: True
+- links reference use to 04-취업준비: True
+- long-term reference framing: True
+- archive boundary: True
+Diagnostics: Markdown LSP unavailable for .md in this environment.

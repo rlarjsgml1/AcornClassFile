@@ -1,0 +1,16 @@
+Task 7 evidence: 07-회고와성장 README
+
+Changed file:
+- C:\minjeong-brain\07-회고와성장\README.md
+
+Checks to rerun:
+- Test-Path -LiteralPath "C:\minjeong-brain\07-회고와성장\README.md"
+- README content contains 시험, 팀플, 면접, 월간 목표, 학기 말 회고.
+- No .obsidian, plugin config, templates, automation folders, Excalidraw, 환영합니다!.md, or plan files were intentionally modified.
+Verification 2026-05-09T15:42:05.0149068+09:00
+ExactContentMatch=True
+FileCount=1
+OnlyReadme=True
+NoAutomationOrPluginConfigTouchedByTask=True
+MarkdownLspConfigured=False
+

@@ -1,0 +1,1 @@
+lsp_diagnostics README.md: No LSP server configured for extension .md. No runtime errors encountered during filesystem/content verification.
