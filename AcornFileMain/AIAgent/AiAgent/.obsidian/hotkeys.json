@@ -1,0 +1,13 @@
+{
+  "global-search:open": [],
+  "terminal:find-in-terminal": [],
+  "daily-notes": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "D"
+    }
+  ]
+}
