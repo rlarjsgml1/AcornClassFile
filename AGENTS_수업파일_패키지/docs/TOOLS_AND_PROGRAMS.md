@@ -43,12 +43,12 @@
 도구: SourceTree
 목적: Git 변경 파일 확인, 커밋, push
 확인: staged files, unstaged files, current branch
-주의: push/reset/merge/rebase는 사용자 승인 후 진행
+주의: commit 전 상태 확인은 바로 진행하고, push/reset/clean/merge/rebase는 사용자 승인 후 진행
 ```
 
 ## 5. 문서 분리 기준
 
 - 모든 작업에 공통이면 `AGENTS.md`에 넣습니다.
-- 특정 언어와 프로그램에만 해당하면 `docs/*.md`에 넣습니다.
+- 특정 언어와 프로그램에만 해당하면 목적에 맞는 하위 폴더에 넣습니다. 예: 코드 작업은 `code/`, Git 규칙은 `규칙/`, 화면 규칙은 `frontend/` 또는 `디자인/`
 - 내용이 길어지면 새 문서로 분리합니다.
 - 확인 전까지 단정하지 말라는 규칙은 모든 문서에 유지합니다.

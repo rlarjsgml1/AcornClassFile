@@ -58,7 +58,8 @@ DTO / DB / JSON 모델      모델/MODEL_GUIDE.md, 모델/DATA_MODEL.md
 ## 4. 작업 원칙
 
 - 요청받은 범위 안에서만 수정합니다.
-- 기존 파일을 삭제하거나 대량 변경하기 전에는 이유를 설명하고 확인합니다.
+- 사용자가 명확히 요청한 소규모 수정, 정리, 삭제는 바로 진행합니다.
+- 되돌리기 어렵거나 영향 범위가 큰 삭제, 이동, 설정 변경 전에는 이유를 설명하고 확인합니다.
 - 기존 구조와 코드 스타일을 우선합니다.
 - 큰 변경보다 작고 되돌리기 쉬운 변경을 우선합니다.
 - 사용자가 만든 변경을 임의로 되돌리지 않습니다.
@@ -74,7 +75,7 @@ DTO / DB / JSON 모델      모델/MODEL_GUIDE.md, 모델/DATA_MODEL.md
 - 공부 자료/PDF/README는 `docs/작업이름`, 실습 코드 보관은 `archive/작업이름`, 공부 요약은 `study/작업이름`, 오류 수정은 `fix/오류이름`, Git 설정 정리는 `chore/작업이름` 브랜치를 사용합니다.
 - `.metadata/`, `bin/`, `*.class`, `*.lock`, `*.log`, `.codex-build/`, `.chrome-pdf-profile/`는 커밋 대상에서 제외합니다.
 - SourceTree에서 `Stage All`을 누르기 전 변경 파일 목록을 확인합니다.
-- `push`, `reset`, `force push`, `merge`, `rebase`는 사용자 승인 없이 실행하지 않습니다.
+- `push`, `reset`, `clean`, `force push`, `merge`, `rebase`는 사용자 승인 없이 실행하지 않습니다.
 - 커밋 메시지는 실무에서 많이 쓰는 Conventional Commits 형식을 우선합니다.
 - 기본 형식은 `type: 변경 목적`입니다. 예: `docs: 학습자료 제작 규칙 추가`
 - 자주 쓰는 type은 `docs`, `archive`, `study`, `feat`, `fix`, `refactor`, `test`, `chore`입니다.
@@ -94,13 +95,17 @@ docs: 학습자료 제작 규칙 추가 및 Java2 핵심정리 PDF 재생성
 
 ## 6. 사용자 확인이 필요한 작업
 
-- 파일 삭제
-- 대량 파일 수정 또는 이동
+사용자가 이미 명확히 요청한 소규모 파일 수정, 문서 정리, 불필요한 파일 제거는 별도 확인 없이 진행합니다.
+아래처럼 되돌리기 어렵거나 사용자 환경에 큰 영향을 주는 작업만 실행 전에 확인합니다.
+
+- 사용자가 명확히 요청하지 않은 파일 삭제
+- 대량 파일 삭제, 이동, 수정
 - 패키지 설치 또는 삭제
-- DB 데이터 변경
-- Git push, merge, rebase, reset, force push
+- DB 데이터 추가, 수정, 삭제
+- Git push, merge, rebase, reset, clean, force push
 - 보안 설정 변경
 - IDE, SDK, Gradle 버전 변경
+- 테스트 약화 또는 삭제
 - 되돌리기 어려운 작업
 
 ## 7. 완료 보고
