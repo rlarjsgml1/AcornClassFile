@@ -1,0 +1,52 @@
+1. 생성자 주입
+개념
+
+객체를 만들 때 생성자를 통해 필요한 객체를 넣어주는 방식이야.
+
+객체 생성 순간에 필요한 의존성을 받는 방식
+
+즉, MemberService가 만들어질 때 MemberRepository가 같이 들어와야 해.
+
+public MemberService(MemberRepository memberRepository) {
+    this.memberRepository = memberRepository;
+}
+쉽게 말하면
+처음부터 필요한 부품을 다 넣고 완성품으로 만드는 방식
+
+예를 들어 컴퓨터를 살 때 CPU, RAM, SSD가 다 들어있는 상태로 받는 느낌이야.
+
+특징
+
+• 객체가 만들어질 때 의존성이 반드시 들어와야 함
+• 필수 의존성에 적합함
+• 객체가 처음부터 완성된 상태가 됨
+• Spring에서 가장 권장하는 방식
+
+핵심 암기
+생성자 주입 = 처음 만들 때 넣어준다
+2. 세터 주입
+개념
+
+객체를 먼저 만든 다음, setter 메서드를 통해 필요한 객체를 넣어주는 방식이야.
+
+객체 생성 후에 의존성을 넣는 방식
+
+예를 들면 이런 형태야.
+
+public void setMemberRepository(MemberRepository memberRepository) {
+    this.memberRepository = memberRepository;
+}
+쉽게 말하면
+일단 물건을 만든 다음, 나중에 필요한 부품을 끼우는 방식
+
+예를 들어 휴대폰을 산 다음 케이스나 보호필름을 나중에 붙이는 느낌이야.
+
+특징
+
+• 객체 생성 후에 의존성이 들어감
+• 나중에 의존성을 바꿀 수 있음
+• 선택적으로 필요한 의존성에 적합함
+• 필수 의존성에는 생성자 주입보다 약함
+
+핵심 암기
+세터 주입 = 만든 뒤에 setter로 넣어준다
