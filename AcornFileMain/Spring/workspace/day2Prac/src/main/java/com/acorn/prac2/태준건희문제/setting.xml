@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- 고양이 집사 적합도 계산기 객체 생성 -->
+	<bean id="calculator" class="com.acorn.prac2.태준건희문제.CatButlerCalculator"></bean>
+
+	<!-- Program 객체 생성 후 calculator를 세터로 주입 -->
+	<bean id="program" class="com.acorn.prac2.태준건희문제.Program">
+		<property name="calculator" ref="calculator"></property>
+	</bean>
+
+</beans>
