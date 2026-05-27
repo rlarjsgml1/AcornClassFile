@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.acorn.MemberMapper">
+
+	<select id="selectAll" resultType="com.acorn.prac.batis.Member">
+		select m_id as id, m_pw as pwd, m_name as name
+		from member_tbl_11
+	</select>
+	
+	<insert id="insert" parameterType="com.acorn.prac.batis.Member">
+		insert into member_tbl_11(m_id, m_pw, m_name)
+		values(#{id}, #{pwd}, #{name})
+	</insert>
+
+</mapper>

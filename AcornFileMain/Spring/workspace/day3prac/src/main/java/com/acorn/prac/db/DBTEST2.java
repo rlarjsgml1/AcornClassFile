@@ -1,0 +1,34 @@
+package com.acorn.prac.db;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
+public class DBTEST2 {
+
+	public static void main(String[] args) throws SQLException {
+		String driver = "oracle.jdbc.driver.OracleDriver";
+		String url = "jdbc:oracle:thin:@localhost:1521:testdb";
+		String user = "scott";
+		String password = "tiger";
+		
+		
+		//DataSource(인터페이스)
+		
+		//- 스프링구현체 DriverManagerDataSource
+		
+		DriverManagerDataSource ds = new DriverManagerDataSource();
+		ds.setDriverClassName(driver);
+		ds.setUrl(url);
+		ds.setUsername(user);
+		ds.setPassword(password);
+		
+		Connection con = ds.getConnection();
+		
+		System.out.println(con);
+		
+		if(con!= null) System.out.println("ok");
+	}
+
+}

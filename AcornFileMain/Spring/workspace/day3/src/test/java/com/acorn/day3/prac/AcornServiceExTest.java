@@ -17,7 +17,7 @@ import com.acorn.day3.test.AcornServiceEx;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration( locations= {"file:src/main/webapp/WEB-INF/spring/test2.xml"," file:src/main/webapp/WEB-INF/spring/test.xml"})
+@ContextConfiguration( locations= {"file:src/main/webapp/WEB-INF/spring/test2.xml","file:src/main/webapp/WEB-INF/spring/test.xml"})
 
 public class AcornServiceExTest {
  

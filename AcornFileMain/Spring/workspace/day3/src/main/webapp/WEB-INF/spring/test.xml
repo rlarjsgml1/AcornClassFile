@@ -15,6 +15,10 @@
 		<property name="username" value="scott"></property>
 		<property name="password" value="tiger"></property>
 	</bean>
+
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="d"></property>
+	</bean>
 	
  
 	 
