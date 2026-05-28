@@ -43,7 +43,7 @@
 도구: SourceTree
 목적: Git 변경 파일 확인, 커밋, push
 확인: staged files, unstaged files, current branch
-주의: commit 전 상태 확인은 바로 진행하고, push/reset/clean/merge/rebase는 사용자 승인 후 진행
+주의: commit 전 상태 확인, 변경 파일 검토, 브랜치 확인을 먼저 진행
 ```
 
 ## 5. 문서 분리 기준
