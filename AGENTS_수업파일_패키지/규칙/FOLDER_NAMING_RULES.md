@@ -57,8 +57,8 @@ if (Test-Path -LiteralPath $targetFull) {
 Move-Item -LiteralPath $source -Destination $targetFull
 ```
 
-작업 위치가 현재 쓰기 허용 범위 밖이면 승인을 요청합니다.
-승인 없이 복사, 삭제, 우회 이동을 하지 않습니다.
+작업 위치와 대상 경로가 의도한 범위 안에 있는지 먼저 확인합니다.
+복사, 삭제, 우회 이동으로 문제를 숨기지 않습니다.
 
 ## 5. 이름 변경 후 확인
 
