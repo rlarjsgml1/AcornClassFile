@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ex04</title>
+    <link rel="stylesheet" th:href="@{/css/ex04.css}">
+    <script defer th:src="@{/js/ex04.js}"></script>
+</head>
+<body>
+
+<table>
+    <tr>
+        <td>타이틀</td>
+        <td>시즌</td>
+        <td>방영년도</td>
+        <td>방송사</td>
+        <td>장르</td>
+        <td>회차</td>
+        <td>주연</td>
+        <td>줄거리</td>
+
+    </tr>
+
+    <tr  th:each="item : ${list}">
+        <td th:text="${item.title}"></td>
+        <td th:text="${item.season}"></td>
+        <td th:text="${item.year}"></td>
+        <td th:text="${item.broadcaster}"></td>
+        <td th:text="${item.genre }"></td>
+        <td th:text="${item.episodes}"></td>
+        <td th:text="${item.mainActor}"></td>
+        <td th:text="${item.summary}"></td>
+
+    </tr>
+</table>
+
+</body>
+</html>

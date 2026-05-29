@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ex01</title>
+</head>
+<body>
+
+<h2>ex01 더하기</h2>
+
+<!-- su1, su2 값을 /ex01 POST 요청으로 보낸다. -->
+<form th:action="@{/ex01}" method="post">
+    <input type="number" name="su1">
+    <input type="number" name="su2">
+    <button type="submit">계산하기</button>
+</form>
+
+</body>
+</html>
