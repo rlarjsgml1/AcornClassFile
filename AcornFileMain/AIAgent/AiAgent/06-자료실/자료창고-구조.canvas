@@ -1,0 +1,314 @@
+{
+  "nodes": [
+    {
+      "id": "root-06-data-room",
+      "type": "text",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 100,
+      "text": "# 06-자료실\n자료창고 / LLM wiki 자료실",
+      "color": "1"
+    },
+    {
+      "id": "file-moc",
+      "type": "file",
+      "x": 360,
+      "y": -360,
+      "width": 260,
+      "height": 80,
+      "file": "06-자료실/MOC.md",
+      "color": "2"
+    },
+    {
+      "id": "file-readme",
+      "type": "file",
+      "x": 360,
+      "y": -250,
+      "width": 260,
+      "height": 80,
+      "file": "06-자료실/README.md",
+      "color": "2"
+    },
+    {
+      "id": "file-agents",
+      "type": "file",
+      "x": 360,
+      "y": -140,
+      "width": 260,
+      "height": 80,
+      "file": "06-자료실/AGENTS.md",
+      "color": "2"
+    },
+    {
+      "id": "folder-raw",
+      "type": "text",
+      "x": 360,
+      "y": 0,
+      "width": 260,
+      "height": 90,
+      "text": "## raw/\n원본 자료 보관",
+      "color": "3"
+    },
+    {
+      "id": "folder-wiki",
+      "type": "text",
+      "x": 360,
+      "y": 140,
+      "width": 260,
+      "height": 90,
+      "text": "## wiki/\n정제 지식 페이지",
+      "color": "4"
+    },
+    {
+      "id": "folder-schema",
+      "type": "text",
+      "x": 360,
+      "y": 280,
+      "width": 260,
+      "height": 90,
+      "text": "## schema/\n템플릿·분류 기준",
+      "color": "5"
+    },
+    {
+      "id": "folder-prompt",
+      "type": "text",
+      "x": 0,
+      "y": 150,
+      "width": 260,
+      "height": 70,
+      "text": "prompt\n프롬프트 자료",
+      "color": "6"
+    },
+    {
+      "id": "folder-omo",
+      "type": "text",
+      "x": 0,
+      "y": 250,
+      "width": 260,
+      "height": 70,
+      "text": ".omo/\n작업 메타데이터",
+      "color": "6"
+    },
+    {
+      "id": "raw-articles",
+      "type": "text",
+      "x": 720,
+      "y": -120,
+      "width": 240,
+      "height": 70,
+      "text": "articles/\n웹 글·블로그"
+    },
+    {
+      "id": "raw-books",
+      "type": "text",
+      "x": 720,
+      "y": -30,
+      "width": 240,
+      "height": 70,
+      "text": "books/\n책 단위 자료"
+    },
+    {
+      "id": "raw-notes",
+      "type": "text",
+      "x": 720,
+      "y": 60,
+      "width": 240,
+      "height": 70,
+      "text": "notes/\n임시 메모"
+    },
+    {
+      "id": "raw-papers",
+      "type": "text",
+      "x": 720,
+      "y": 150,
+      "width": 240,
+      "height": 70,
+      "text": "papers/\n논문 자료"
+    },
+    {
+      "id": "wiki-entities",
+      "type": "text",
+      "x": 1010,
+      "y": 60,
+      "width": 240,
+      "height": 70,
+      "text": "entities/\n사람·조직·도구"
+    },
+    {
+      "id": "wiki-concepts",
+      "type": "text",
+      "x": 1010,
+      "y": 150,
+      "width": 240,
+      "height": 70,
+      "text": "concepts/\n개념·원리"
+    },
+    {
+      "id": "wiki-sources",
+      "type": "text",
+      "x": 1010,
+      "y": 240,
+      "width": 240,
+      "height": 70,
+      "text": "sources/\n출처 노트"
+    },
+    {
+      "id": "wiki-synthesis",
+      "type": "text",
+      "x": 1010,
+      "y": 330,
+      "width": 240,
+      "height": 70,
+      "text": "synthesis/\n종합·비교·결론"
+    },
+    {
+      "id": "schema-moc",
+      "type": "file",
+      "x": 720,
+      "y": 280,
+      "width": 260,
+      "height": 80,
+      "file": "06-자료실/schema/MOC.md",
+      "color": "5"
+    },
+    {
+      "id": "schema-template",
+      "type": "file",
+      "x": 720,
+      "y": 390,
+      "width": 260,
+      "height": 80,
+      "file": "06-자료실/schema/_domain-MOC-template.md",
+      "color": "5"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-root-moc",
+      "fromNode": "root-06-data-room",
+      "fromSide": "right",
+      "toNode": "file-moc",
+      "toSide": "left"
+    },
+    {
+      "id": "edge-root-readme",
+      "fromNode": "root-06-data-room",
+      "fromSide": "right",
+      "toNode": "file-readme",
+      "toSide": "left"
+    },
+    {
+      "id": "edge-root-agents",
+      "fromNode": "root-06-data-room",
+      "fromSide": "right",
+      "toNode": "file-agents",
+      "toSide": "left"
+    },
+    {
+      "id": "edge-root-raw",
+      "fromNode": "root-06-data-room",
+      "fromSide": "right",
+      "toNode": "folder-raw",
+      "toSide": "left"
+    },
+    {
+      "id": "edge-root-wiki",
+      "fromNode": "root-06-data-room",
+      "fromSide": "right",
+      "toNode": "folder-wiki",
+      "toSide": "left"
+    },
+    {
+      "id": "edge-root-schema",
+      "fromNode": "root-06-data-room",
+      "fromSide": "right",
+      "toNode": "folder-schema",
+      "toSide": "left"
+    },
+    {
+      "id": "edge-root-prompt",
+      "fromNode": "root-06-data-room",
+      "fromSide": "bottom",
+      "toNode": "folder-prompt",
+      "toSide": "top"
+    },
+    {
+      "id": "edge-root-omo",
+      "fromNode": "root-06-data-room",
+      "fromSide": "bottom",
+      "toNode": "folder-omo",
+      "toSide": "top"
+    },
+    {
+      "id": "edge-raw-articles",
+      "fromNode": "folder-raw",
+      "fromSide": "right",
+      "toNode": "raw-articles",
+      "toSide": "left"
+    },
+    {
+      "id": "edge-raw-books",
+      "fromNode": "folder-raw",
+      "fromSide": "right",
+      "toNode": "raw-books",
+      "toSide": "left"
+    },
+    {
+      "id": "edge-raw-notes",
+      "fromNode": "folder-raw",
+      "fromSide": "right",
+      "toNode": "raw-notes",
+      "toSide": "left"
+    },
+    {
+      "id": "edge-raw-papers",
+      "fromNode": "folder-raw",
+      "fromSide": "right",
+      "toNode": "raw-papers",
+      "toSide": "left"
+    },
+    {
+      "id": "edge-wiki-entities",
+      "fromNode": "folder-wiki",
+      "fromSide": "right",
+      "toNode": "wiki-entities",
+      "toSide": "left"
+    },
+    {
+      "id": "edge-wiki-concepts",
+      "fromNode": "folder-wiki",
+      "fromSide": "right",
+      "toNode": "wiki-concepts",
+      "toSide": "left"
+    },
+    {
+      "id": "edge-wiki-sources",
+      "fromNode": "folder-wiki",
+      "fromSide": "right",
+      "toNode": "wiki-sources",
+      "toSide": "left"
+    },
+    {
+      "id": "edge-wiki-synthesis",
+      "fromNode": "folder-wiki",
+      "fromSide": "right",
+      "toNode": "wiki-synthesis",
+      "toSide": "left"
+    },
+    {
+      "id": "edge-schema-moc",
+      "fromNode": "folder-schema",
+      "fromSide": "right",
+      "toNode": "schema-moc",
+      "toSide": "left"
+    },
+    {
+      "id": "edge-schema-template",
+      "fromNode": "folder-schema",
+      "fromSide": "right",
+      "toNode": "schema-template",
+      "toSide": "left"
+    }
+  ]
+}
